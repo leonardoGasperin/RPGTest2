@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ea71f80285a2847a2ff148bf153a95, type: 3}
+  m_Name: Enemies Progression
+  m_EditorClassIdentifier: 
+  characterClasses:
+  - characterClass: 7
+    stats:
+    - stats: 0
+      lvls:
+      - 100
+      - 125
+      - 250
+      - 500
+      - 1000
+    - stats: 2
+      lvls:
+      - 50
+      - 100
+      - 125
+      - 150
+      - 200
+    - stats: 3
+      lvls:
+      - 7
+      - 14
+      - 21
+      - 28
+      - 35
+    - stats: 4
+      lvls:
+      - 5
+      - 10
+      - 15
+      - 20
+      - 25
+    - stats: 6
+      lvls:
+      - 3
+      - 8
+      - 13
+      - 18
+      - 23
+    - stats: 7
+      lvls:
+      - 5
+      - 10
+      - 15
+      - 20
+      - 25
+    - stats: 8
+      lvls:
+      - 5
+      - 5
+      - 10
+      - 10
+      - 15
+  - characterClass: 8
+    stats:
+    - stats: 0
+      lvls:
+      - 50
+      - 125
+      - 250
+      - 500
+      - 1000
+    - stats: 2
+      lvls:
+      - 50
+      - 100
+      - 125
+      - 150
+      - 200
+    - stats: 3
+      lvls:
+      - 5
+      - 15
+      - 20
+      - 25
+      - 30
+    - stats: 4
+      lvls:
+      - 5
+      - 10
+      - 15
+      - 20
+      - 25
+    - stats: 6
+      lvls:
+      - 3
+      - 8
+      - 13
+      - 18
+      - 23
+    - stats: 7
+      lvls:
+      - 7
+      - 14
+      - 21
+      - 28
+      - 35
+    - stats: 8
+      lvls:
+      - 5
+      - 5
+      - 10
+      - 10
+      - 15
+  - characterClass: 9
+    stats:
+    - stats: 0
+      lvls:
+      - 50
+      - 125
+      - 250
+      - 500
+      - 1000
+    - stats: 2
+      lvls:
+      - 50
+      - 100
+      - 125
+      - 150
+      - 200
+    - stats: 3
+      lvls: []
+    - stats: 5
+      lvls:
+      - 5
+      - 10
+      - 15
+      - 20
+      - 25
+    - stats: 6
+      lvls: []
+    - stats: 7
+      lvls:
+      - 7
+      - 14
+      - 21
+      - 28
+      - 35
+    - stats: 8
+      lvls:
+      - 15
+      - 20
+      - 25
+      - 30
+      - 35

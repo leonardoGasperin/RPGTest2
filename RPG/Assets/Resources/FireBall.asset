@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fccde1110d65984c881ceec53c4fd42, type: 3}
+  m_Name: FireBall
+  m_EditorClassIdentifier: 
+  type: Spells
+  waeponOverD: {fileID: 22100000, guid: a8a586040881e8a49b601248b7a28914, type: 2}
+  equipPrb: {fileID: 761571539708705867, guid: c4cf8c0645202334abbaba09999ab6c1, type: 3}
+  project: {fileID: 8898620124744624461, guid: aa8c46e19baaf38498ca09fd9ce94593, type: 3}
+  damage: 15
+  weaponBonus: 10
+  weaponsR: 20
+  isRightHand: 1
