@@ -59,12 +59,12 @@ public class UIController : MonoBehaviour
         }
     }
 
-    private void AddPoints(int st)
+    public void AddPoints(int st)
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<CalcStats>().AddStats(st, 1);
     }
 
-    private void CloseWindow()
+    public void CloseWindow()
     {
         characterC.SetActive(!characterC.activeSelf);
     }

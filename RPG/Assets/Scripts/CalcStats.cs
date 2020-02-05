@@ -62,7 +62,7 @@ public class CalcStats : MonoBehaviour
             LevelUpEfx();//faz efeito
             hpOnLvlUp();//muda hp
             atbPoints += 5;
-            GameObject.FindGameObjectWithTag("UIPanel").GetComponent<UIController>().RemainingPoints(atbPoints);
+            GameObject.Find("Player UI").GetComponent<UIController>().RemainingPoints(atbPoints);
             //AddStats();
             ///TODO adicionar alteraçao de estatos
         }
