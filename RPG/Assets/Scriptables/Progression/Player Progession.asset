@@ -45,11 +45,11 @@ MonoBehaviour:
       - 240
     - stats: 5
       lvls:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      - 7
+      - 12
+      - 17
+      - 22
+      - 27
     - stats: 6
       lvls:
       - 5
@@ -60,10 +60,10 @@ MonoBehaviour:
     - stats: 7
       lvls:
       - 5
-      - 10
-      - 15
-      - 20
-      - 25
+      - 7
+      - 9
+      - 11
+      - 13
     - stats: 8
       lvls:
       - 5

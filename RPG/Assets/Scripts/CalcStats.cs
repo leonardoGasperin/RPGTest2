@@ -30,6 +30,7 @@ public class CalcStats : MonoBehaviour
     {
         //inciializacao de funcoes
         currentLvl.ForceInit();
+        //GameObject.FindGameObjectWithTag("UIPanel").GetComponent<UIController>().RemainingPoints(atbPoints);
     }
 
     //adicionador de eventos
@@ -60,7 +61,8 @@ public class CalcStats : MonoBehaviour
             currentLvl.value = newLvl;//troca o lvl
             LevelUpEfx();//faz efeito
             hpOnLvlUp();//muda hp
-            atbPoints = 5;
+            atbPoints += 5;
+            GameObject.FindGameObjectWithTag("UIPanel").GetComponent<UIController>().RemainingPoints(atbPoints);
             //AddStats();
             ///TODO adicionar alteraçao de estatos
         }
@@ -76,8 +78,8 @@ public class CalcStats : MonoBehaviour
     //recebe estatos
     public float GetStats(Stats st)
     {
-        if(gameObject.tag == "Player")
-            Debug.LogError(atb[(int)Stats.Str]);
+        //if(gameObject.tag == "Player")
+            //Debug.LogError(atb[(int)st] +" "+ st.ToString());
         return (atb[(int)st] + GetBaseStats(st) + GetAddModifier(st)) * (1 + GetPercentMod(st) / 100);
     }
 
@@ -87,13 +89,15 @@ public class CalcStats : MonoBehaviour
         return progression.GetStats(st, characterClass, GetLevel());
     }
 
-    public void AddStats(Stats st, int value)
+    public void AddStats(int st, int value)
     {
-        if(atbPoints > 0)
+        if (atbPoints > 0)
         {
-            atb[(int)st] += value;
+            atb[st] += value;
             atbPoints--;
         }
+        else
+            GameObject.FindGameObjectWithTag("UIPanel").GetComponent<UIController>().RemainingPoints(atbPoints);
     }
 
     //recebe lvl
