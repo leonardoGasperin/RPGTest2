@@ -160,8 +160,9 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
         {
             weaponConfig.LauchProjectile(rightHandT, leftHandT, target, gameObject, dmg);//retira vida
         }
-        else    
+        else
             target.GetComponent<Health>().Damge(gameObject, dmg);//retira vida
+            
     }
 
     void Shoot()
