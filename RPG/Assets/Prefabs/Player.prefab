@@ -41,6 +41,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpPoint: 0
+--- !u!114 &7282127862943399007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605518632746593898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3167187ea5d1dc248b7f8e72dfac514d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterC: {fileID: 4372900557151067409, guid: 835e4c264fd52ed4aa4a3ebf3127d520,
+    type: 3}
+  characterI: {fileID: 2448739280048101195, guid: 55ea614c581bf044a85a45368b65398f,
+    type: 3}
 --- !u!1001 &2144944716796879692
 PrefabInstance:
   m_ObjectHideFlags: 0
