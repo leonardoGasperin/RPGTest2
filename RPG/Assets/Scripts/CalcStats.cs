@@ -11,8 +11,9 @@ public class CalcStats : MonoBehaviour
     [SerializeField] Progression progression = null;//referenciado arquivo de progrecao
     [SerializeField] GameObject lvlUpParticlesFx;//efeito de evento de evoluir
     [SerializeField] bool useMods = false;//uso de modificadores
-
     public event Action hpOnLvlUp;//evento de evolucao
+    int atbPoints = 0;
+    public float[] atb;
 
     LazyValue<int> currentLvl;//lvl atual
 
@@ -59,6 +60,8 @@ public class CalcStats : MonoBehaviour
             currentLvl.value = newLvl;//troca o lvl
             LevelUpEfx();//faz efeito
             hpOnLvlUp();//muda hp
+            atbPoints = 5;
+            //AddStats();
             ///TODO adicionar alteraçao de estatos
         }
     }
@@ -73,13 +76,24 @@ public class CalcStats : MonoBehaviour
     //recebe estatos
     public float GetStats(Stats st)
     {
-        return (GetBaseStats(st) + GetAddModifier(st)) *(1 + GetPercentMod(st) / 100);
+        if(gameObject.tag == "Player")
+            Debug.LogError(atb[(int)Stats.Str]);
+        return (atb[(int)st] + GetBaseStats(st) + GetAddModifier(st)) * (1 + GetPercentMod(st) / 100);
     }
 
     //recebe estados base
     private float GetBaseStats(Stats st)
     {
         return progression.GetStats(st, characterClass, GetLevel());
+    }
+
+    public void AddStats(Stats st, int value)
+    {
+        if(atbPoints > 0)
+        {
+            atb[(int)st] += value;
+            atbPoints--;
+        }
     }
 
     //recebe lvl
@@ -101,7 +115,6 @@ public class CalcStats : MonoBehaviour
         }
         return total;//retorna valor do modificador
     }
-
 
     //modificador de porcentagem
     private float GetPercentMod(Stats stat)

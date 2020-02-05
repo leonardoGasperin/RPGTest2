@@ -140,6 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 5990185679372306531}
     - target: {fileID: 1613761490907775845, guid: 1467e55843818154d9161d2fc548745b,
         type: 3}
+      propertyPath: atb.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613761490907775845, guid: 1467e55843818154d9161d2fc548745b,
+        type: 3}
       propertyPath: characterClass
       value: 7
       objectReference: {fileID: 0}

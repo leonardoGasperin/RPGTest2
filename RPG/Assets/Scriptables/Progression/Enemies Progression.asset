@@ -68,11 +68,11 @@ MonoBehaviour:
     stats:
     - stats: 0
       lvls:
-      - 50
-      - 125
-      - 250
-      - 500
-      - 1000
+      - 76
+      - 151
+      - 251
+      - 501
+      - 1001
     - stats: 2
       lvls:
       - 50

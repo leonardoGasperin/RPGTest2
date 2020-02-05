@@ -62,7 +62,7 @@ public class Health : MonoBehaviour, ISaveable
     public void Damge(GameObject target, float dmg)
     {
         this.hp.value = Mathf.Max(hp.value - dmg, 0);//pega o maior valo entre o max de vida atual - dmg e 0
-
+        Debug.LogError(this.gameObject.name + " " + dmg);
         if (this.hp.value <= 0)//caso a vida seja 0
         {
             onDie.Invoke();//invoca evento de morte
