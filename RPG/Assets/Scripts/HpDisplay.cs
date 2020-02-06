@@ -24,7 +24,7 @@ public class HpDisplay : MonoBehaviour
     //update das informacoes
     private void Update()
     {
-        hpText.text = string.Format("{0:0}/{1:0} ({2:0}%)", health.CaptureState(), baseStats.GetStats(Stats.Health), health.GetPercentge());
+        hpText.text = string.Format("{0:0}/{1:0} ({2:0}%)", health.CaptureState(), baseStats.GetHp(), health.GetPercentge());
         xpText.text = string.Format(" {0:0}/{1}", xp._xp, baseStats.GetStats(Stats.LvlUp));
         currentLvL.text = string.Format(" {0:0}", baseStats.CalcLvl());
     }

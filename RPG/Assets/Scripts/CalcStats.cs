@@ -30,7 +30,6 @@ public class CalcStats : MonoBehaviour
     {
         //inciializacao de funcoes
         currentLvl.ForceInit();
-        //GameObject.FindGameObjectWithTag("UIPanel").GetComponent<UIController>().RemainingPoints(atbPoints);
     }
 
     //adicionador de eventos
@@ -104,6 +103,11 @@ public class CalcStats : MonoBehaviour
     public int GetLevel()
     {
         return currentLvl.value;
+    }
+
+    public int GetHp()
+    {
+        return (int)((GetStats(Stats.Health) + (GetStats(Stats.Pro) + atb[4]) * 0.75f));
     }
 
     //recebe modificadores

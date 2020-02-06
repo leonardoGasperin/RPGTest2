@@ -39,10 +39,10 @@ MonoBehaviour:
     - stats: 4
       lvls:
       - 15
-      - 30
-      - 60
-      - 120
-      - 240
+      - 25
+      - 35
+      - 50
+      - 75
     - stats: 5
       lvls:
       - 7
