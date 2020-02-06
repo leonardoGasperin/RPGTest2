@@ -49,7 +49,7 @@ public class Health : MonoBehaviour, ISaveable
     //receve valor da vida inicial
     private float GetInitialHp()
     {
-        return GetComponent<CalcStats>().GetStats(Stats.Health);
+        return GetComponent<CalcStats>().GetHp();
     }
 
     //retorna estado da vida
@@ -87,7 +87,8 @@ public class Health : MonoBehaviour, ISaveable
     //curar toda a vida ao upar de nivel
     private float GetMaxHp()
     {
-        return GetComponent<CalcStats>().GetStats(Stats.Health);//retorna o maximo de vida
+        return GetComponent<CalcStats>().GetHp();
+        //return GetComponent<CalcStats>().GetStats(Stats.Health);//retorna o maximo de vida
     }
 
     //devolve a porcentagem de vida do jogador e alvos
@@ -99,7 +100,7 @@ public class Health : MonoBehaviour, ISaveable
     //pega valor fracionario do HP
     public float GetFraction()
     {
-        return hp.value / GetComponent<CalcStats>().GetStats(Stats.Health);
+        return hp.value / GetComponent<CalcStats>().GetHp();
     }
 
     //confirma morte do personagem
@@ -124,7 +125,7 @@ public class Health : MonoBehaviour, ISaveable
 
     public void UpdateHp()
     {
-        hp.value = GetComponent<CalcStats>().GetStats(Stats.Health);
+        hp.value = GetComponent<CalcStats>().GetHp();
     }
 
     //salva hp
