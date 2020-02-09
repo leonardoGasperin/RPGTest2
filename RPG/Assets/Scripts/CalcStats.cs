@@ -2,8 +2,9 @@
 using GameDevTV.Utils;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
-public class CalcStats : MonoBehaviour
+public class CalcStats : MonoBehaviour, ISaveable
 {
     //referencias e variaveis
     [Range(1, 99)][SerializeField] int startLevel = 1;//nivel inicial
@@ -61,7 +62,7 @@ public class CalcStats : MonoBehaviour
             LevelUpEfx();//faz efeito
             hpOnLvlUp();//muda hp
             atbPoints += 5;
-            GameObject.Find("Player UI").GetComponent<UIController>().RemainingPoints(atbPoints);
+            GameObject.Find("Player UI").GetComponent<AttributesUI>().RemainingPoints(atbPoints);
             //AddStats();
             ///TODO adicionar alteraçao de estatos
         }
@@ -77,9 +78,12 @@ public class CalcStats : MonoBehaviour
     //recebe estatos
     public float GetStats(Stats st)
     {
-        //if(gameObject.tag == "Player")
+        //if (gameObject.tag == "Player")
             //Debug.LogError(atb[(int)st] +" "+ st.ToString());
-        return (atb[(int)st] + GetBaseStats(st) + GetAddModifier(st)) * (1 + GetPercentMod(st) / 100);
+        if ((int)st < 3 && (int)st >= 0)//(st == Stats.Health || st == Stats.XP || st == Stats.LvlUp))
+            return ( GetBaseStats(st) + GetAddModifier(st)) * (1 + GetPercentMod(st) / 100);
+        else
+            return (atb[(int)st] +GetBaseStats(st)) /*+ GetAddModifier(st))*/ * (1 + GetPercentMod(st) / 100);
     }
 
     //recebe estados base
@@ -94,9 +98,8 @@ public class CalcStats : MonoBehaviour
         {
             atb[st] += value;
             atbPoints--;
+            GameObject.FindGameObjectWithTag("UIPanel").GetComponent<AttributesUI>().RemainingPoints(atbPoints);
         }
-        else
-            GameObject.FindGameObjectWithTag("UIPanel").GetComponent<UIController>().RemainingPoints(atbPoints);
     }
 
     //recebe lvl
@@ -107,7 +110,11 @@ public class CalcStats : MonoBehaviour
 
     public int GetHp()
     {
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != 2)
         return (int)((GetStats(Stats.Health) + (GetStats(Stats.Pro) + atb[4]) * 0.75f));
+        else
+            return (int)((GetStats(Stats.Health) + (GetStats(Stats.Pro)) * 0.75f));
+
     }
 
     //recebe modificadores
@@ -160,5 +167,53 @@ public class CalcStats : MonoBehaviour
                 return lvl;//retorna lvl do index atual
         }        
         return lastLvl + 1;//caso nao retorna lvl maximo
+    }
+
+    [System.Serializable]
+    struct AttributesFile
+    {
+        public float str;
+        public float pro;
+        public float agi;
+        public float dex;
+        public float intt;
+        public float eru;
+    }
+
+    public object CaptureState()
+    {
+        AttributesFile data = new AttributesFile();
+
+        data.str = atb[3];
+        data.pro = atb[4];
+        data.agi = atb[5];
+        data.dex = atb[6];
+        data.intt = atb[7];
+        data.eru = atb[8];
+
+        /*Dictionary<string, object> data = new Dictionary<string, object>();
+        data["str"] = atb[3];
+        data["pro"] = atb[4];
+        data["agi"] = atb[5];
+        data["dex"] = atb[6];
+        data["int"] = atb[7];
+        data["eru"] = atb[8];*/
+
+        return data;
+    }
+
+    public void RestoreState(object state)
+    {
+
+        AttributesFile data = (AttributesFile)state;
+        atb[0] = 0;
+        atb[1] = 0;
+        atb[2] = 0;
+        atb[3] = data.str;
+        atb[4] = data.pro;
+        atb[5] = data.agi;
+        atb[6] = data.dex;
+        atb[7] = data.intt;
+        atb[8] = data.eru;
     }
 }

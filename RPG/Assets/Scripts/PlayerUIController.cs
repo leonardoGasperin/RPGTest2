@@ -4,6 +4,7 @@ public class PlayerUIController : MonoBehaviour
 {
     [SerializeField] GameObject characterC = null;
     [SerializeField] GameObject characterI = null;
+    [SerializeField] GameObject menuUI = null;
 
     // Update is called once per frame
     void Update()
@@ -23,6 +24,8 @@ public class PlayerUIController : MonoBehaviour
             OpenClose(characterI);
             return true;
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+            OpenClose(menuUI);
         return false;
     }
 
