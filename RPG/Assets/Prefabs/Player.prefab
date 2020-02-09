@@ -57,6 +57,7 @@ MonoBehaviour:
     type: 3}
   characterI: {fileID: 2448739280048101195, guid: 55ea614c581bf044a85a45368b65398f,
     type: 3}
+  menuUI: {fileID: 5457444679215508609, guid: 9042decd225223347a4c6d8e557b1e62, type: 3}
 --- !u!1001 &2144944716796879692
 PrefabInstance:
   m_ObjectHideFlags: 0

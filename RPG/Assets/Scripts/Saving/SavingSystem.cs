@@ -21,17 +21,14 @@ public class SavingSystem : MonoBehaviour
         if (state.ContainsKey("lastSceneBuildIndex"))//confere se tem a key
         {
             buildIndex = (int)state["lastSceneBuildIndex"];//recebe o valor do index da cena ativa
-
         }
         yield return SceneManager.LoadSceneAsync(buildIndex);
         RestoreState(state);
-        
     }
 
     //faz recolimento dos dados a partir do nome do arquivo
     public void Save(string saveFile)
     {
-        print("Save on " + saveFile);
         Dictionary<string, object> state = LoadFile(saveFile);//faz um dicionario contendo as informacoes do arquivo recebido
         CaptureState(state);//escreve as informacoes novas
         SaveFile(saveFile, state);//salva o arquivo
@@ -55,12 +52,12 @@ public class SavingSystem : MonoBehaviour
         string path = GetPathFromSaveFile(saveFile);//pega o caminho do arquivo
         if (!File.Exists(path))//se o arquivo nao existe
         {
-            print("FAIL Load on " + saveFile);
+            Debug.LogError("FAIL Load on " + saveFile);
             return new Dictionary<string, object>();//retorna um novo dicionario vaziu
         }//se nao
         using (FileStream stream = File.Open(path, FileMode.Open))//usando file stream abra o arquivo recebido
         {
-            print("Load on " + saveFile);
+            //Debug.LogWarning("Load on " + saveFile);
             BinaryFormatter formatter = new BinaryFormatter();//formatador binario para des serializar os dados do data save
             return (Dictionary<string, object>)formatter.Deserialize(stream);//e casta como dicionario a des-serializaçao do arquivo para retorno
         }//fecha arquivo

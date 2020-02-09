@@ -18,7 +18,7 @@ public class SavingWrapper : MonoBehaviour
         yield return GetComponent<SavingSystem>().LoadLastScene(defaultSv);//carrega a scena sincronizada com o cpu
     }
 
-    private void Awake()
+    /*private void Awake()
     {
         //inicializador de variaveis
         StartCoroutine(LoadLastScene());
@@ -33,24 +33,27 @@ public class SavingWrapper : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Load(hitSv);//funçáo para carregar profile
+            Load(hitSv, false);//funçáo para carregar profile
         }
         if(Input.GetKeyDown(KeyCode.P))
         {
             Delete(defaultSv);
         }
-    }
+    }*/
 
     public void Save(string svF)
     {
         GetComponent<SavingSystem>().Save(svF);//chama o salvamento dos dados
     }
 
-    public void Load(string svF)
+    public void Load(string svF, bool isHall)
     {
-
-        if (svF == "OwnSave")
+        if (svF == "OwnSave" && !isHall)
             StartCoroutine(GetComponent<SavingSystem>().LoadLastScene(svF));
+        else if (isHall)
+        {
+            StartCoroutine(GetComponent<SavingSystem>().LoadLastScene(svF));
+        }
         else
             GetComponent<SavingSystem>().Load(svF);//chama o carregamento dos dados
     }

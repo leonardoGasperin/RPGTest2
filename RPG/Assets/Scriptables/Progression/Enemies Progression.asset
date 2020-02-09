@@ -24,7 +24,7 @@ MonoBehaviour:
       - 1000
     - stats: 2
       lvls:
-      - 50
+      - 47
       - 100
       - 125
       - 150
@@ -75,7 +75,7 @@ MonoBehaviour:
       - 1001
     - stats: 2
       lvls:
-      - 50
+      - 47
       - 100
       - 125
       - 150
