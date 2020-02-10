@@ -29,21 +29,21 @@ Core:
 		they have won.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Idea:
-	 The Idea for this game is make a good RPG/Adventure in a like sandbox World is like play
-	 one MRPG(Massive Role Play Game), what have an story with so much to do and so much paths
-	 to go and any of medium/important decision will alterate the cursor of story of the game.
-	 It's with and epic world and epic fights with epics enemies, monsters and bosses.
-	 For story the idea core for splot is some philosophy to show to people, peoples will cry,
-	 get anger, little fun but will see to things from real world to think and to discuss with
-	 others.
-Climax:
-	Ha decidir.
-UX:
-	entertainment, strongs emotionals feelings and knowledge.
-Designer's Pillar:
-	the player will create a single character and beings like a normal people on village, and
-	run against/too the world and learning various things and developng some skills in the 
-	process.
+	The Idea for this game is make a good RPG/Adventure in a like sandbox World is like play
+	one MRPG(Massive Role Play Game), what have an story with so much to do and so much paths
+	to go and any of medium/important decision will alterate the cursor of story of the game.
+	It's with and epic world and epic fights with epics enemies, monsters and bosses.
+	For story the idea core for splot is some philosophy to show to people, peoples will cry,
+	get anger, little fun but will see to things from real world to think and to discuss with
+	others.
+	
+	Climax:	Ha decidir.
+	
+	UX:	entertainment, strongs emotionals feelings and knowledge.
+	
+	Designer's Pillar: the player will create a single character and beings like a normal people on village, and
+		run against/too the world and learning various things and developng some skills in the 
+		process.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Resource Development Priorities:
 	*all task will be in GitKraken glo
@@ -53,6 +53,8 @@ Similar Products:
 ----------------------------------------------------------------------------------------------------------------------------------------
 First Day(01/14/20):
 	Organize the Project to being work:
+		Second Section of task ()
+		First Section of Task (ok)
 		Fix bugs(ok)
 		Create a git repository with GitKraken(ok)
 		Create a work dash board on GitKraken Glo(ok)
@@ -438,4 +440,87 @@ Fifteenth Day(02/05/20)
 	In 'CalcStats.cs' the AddStats() it`ll check if have point to distribute and if yes add the recevied value in recevied index on
 	atb[] and decrement 1 to atbPoints and now on GetStats() method sum this valor on stats calling the index with the stats int 
 	value(what`s the same value of UI button reference). In 'UICharacterSt.cs' have more two methods called CloseWindow() to close
-	the UI windoes with close button and ShowStatsPoint() what get the player stats and show in UI window only when is opened.
+	the UI windoes with close button and ShowStatsPoint() what get the player stats and show in UI window only when is opened if don`t
+	show.
+----------------------------------------------------------------------------------------------------------------------------------------
+Sixteenth to Nineteenth Day(02/06-09/20)
+	On day 02/06
+	Workin on task 12 UI System
+		Menus UI system to player acess when play.
+		Bag to store/interract with looted itens.
+		equip/character UI to make the UX with player character better.
+		and an Entrace Hall to player create a new game or modify the save/load files or to continue game from auto or own save.
+
+		what to do now:
+			for this part of dev I think to make the minimum of UI for now and I think for this part now we need:
+			*Entrace Hall -> with the acess of new game/load/save&delete
+			the character is made
+			*Menus -> for now something simple for now with some simples options like exit (to entrace hall or exit game), for load
+			and save&delete.
+
+		and for after:
+			the equipment UI
+			Bag.
+
+	On Day 02/07
+	Working on task 13 New UI System
+		Menu Options on game: To make it I created a new prefrab, named PlayerUI what'll have the all UIwindows and will have a script
+		for each UIwindows and player a new controller script for controll this Input commands, to this I`ve created the 'AttributesUI.cs' 
+		for the butons and informations of player attributes the other 'GameMenuUI.cs' what have all buttons functions of Menu
+		and the 'PlayerUIController.cs' from Player get the reference from PlayerUI prefab to send the necessary comands to the UI
+		functions.
+
+	On day 02/08
+	Working on task 13 New UI System
+		Entrace Hall: To make it I`ve created a new Scene, named EntraceHall with BuildIndex == 0, logic the others scenes get +1
+		in BuildIndex value, on this Scene logicaly have in front of camera the a 2D image with a title, and have too some buttons
+		options.
+		*New Game -> this button only load the initial Scene to being a game from initial states.
+		*LoadAutoSave -> this button get from AutoSave state file if have one and load from this state.
+		*Load -> Load from player save file state if have one.
+		*Exit -> Quit application.
+
+		This is working with a new scritp, with name, 'EntraceUIController.cs' and the unique thing wha`t doing now is work right the
+		buttons, if New Game LoadAsync the initial scene without a save file, if get a auto save or load this script send to the
+		'SavingWrapper.cs' on Load(string) the right save file if have one else dont do nothing.
+
+	On day 02/09
+	Working on solve bugs/first build test/implemented ISaveable on attributes values/ comments
+		I found a strange bug of UI I don`t know why it`s happens but it'll  be founded, when Im are on EntraceHall or phase1 scenes
+		the UI works good and fine when go to map2(the test map) the UI are not recognized by cursor/system. I think the problem are on
+		coreprefab of this map I need see it.
+
+		On this day I get the first version of prototype build version 0.0.1 and send for some friends:
+		*Vinicios Wentz
+		*Giovane Jow
+		*Rippari
+		*JG
+		*Anie
+		*Guilherme Dias
+		*JP
+		*Dan
+		*Joao Marcus
+		*Over
+		*Jean
+		*Bertoni
+		*Rafael
+		with a instructions manual to test I expec answers
+
+		And for finally I implemented on 'CalcStats.cs' the ISaveable to capture and restore states of atributes value
+		I used a strutc float to save and restore any attributes value and for now is working perfectly to map changes and
+		loads and saves.
+
+		And for next to finalize this task section I've changed the last task to equipment system to the Inventory System
+		I think it'll be need necessary first to make the real equip system.
+
+		OBS: I need to change my work mode with GitGlo I'll need to make cards for each task sections to use the milestone
+		function.
+	Ended
+	Working on task 14 Inventory System.
+	for this System I think change somethings on UI system to put all UI in the same canvas with a good controller or manager
+	for it.
+	The Inventory system will be a simple system, for now will be one box with 25 index/slot to put the reference of item
+	it`ll chenge the item interraction system, before use it instantly will but in one slot. For now we don`t will make stack
+	or build a realocation but it`ll be implemented too, but to implement this I`ll need to make types of itens and like 
+	CharacterClass I`ll try do something like it to make types of item to make item stack and item organize or search.
+	----------------------------------------------------------------------------------------------------------------------------------------
