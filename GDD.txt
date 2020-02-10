@@ -523,4 +523,5 @@ Sixteenth to Nineteenth Day(02/06-09/20)
 	it`ll chenge the item interraction system, before use it instantly will but in one slot. For now we don`t will make stack
 	or build a realocation but it`ll be implemented too, but to implement this I`ll need to make types of itens and like 
 	CharacterClass I`ll try do something like it to make types of item to make item stack and item organize or search.
+	And if I can make que equipment UI with inventary.
 	----------------------------------------------------------------------------------------------------------------------------------------

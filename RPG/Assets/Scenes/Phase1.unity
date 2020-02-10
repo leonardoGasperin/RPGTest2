@@ -4632,15 +4632,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6297910990547988524, guid: 7592f27fef045294086fc7a82482cc48,
+    - target: {fileID: 4656354979845485657, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5655682031534380550, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297910990547988524, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2233255021991584674, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
@@ -4711,6 +4716,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551639475637828984, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.6226415
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551639475637828984, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.56683874
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551639475637828984, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.56683874
       objectReference: {fileID: 0}
     - target: {fileID: 5885833254638786405, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
@@ -5472,26 +5492,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -75.7
       objectReference: {fileID: 0}
-    - target: {fileID: 1291185601120513016, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 385.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1291185601120513016, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 1291185601120513016, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 17.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 1291185601120513016, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 13.13
-      objectReference: {fileID: 0}
     - target: {fileID: 1100180568565987458, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5557,21 +5557,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5287763642385905148, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5287763642385905148, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5287763642385905148, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2122078355177200026, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
       propertyPath: m_UiScaleMode
@@ -5601,6 +5586,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -7.51001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190400783359990560, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.609985
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231595746653159554, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -31.109985
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8214383691117043512, guid: 7592f27fef045294086fc7a82482cc48, type: 3}
