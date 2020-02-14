@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2396411603513635528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75eda4f797f6ef48b5bce4dd3b11ba1, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b13087bdbd168428275f7dd43960ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 6906875174804842053}
@@ -52,15 +52,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1088701103054766390}
     m_Modifications:
-    - target: {fileID: 810947281879293989, guid: b5cd381d8e1f18949894fa92872aff5b,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 2396411603513635528}
     - target: {fileID: 162385655468735168, guid: b5cd381d8e1f18949894fa92872aff5b,
         type: 3}
       propertyPath: m_Name
       value: DamageUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976658489544634030, guid: b5cd381d8e1f18949894fa92872aff5b,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7007957679194060418, guid: b5cd381d8e1f18949894fa92872aff5b,
         type: 3}
@@ -72,6 +72,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7450587216028636032, guid: b5cd381d8e1f18949894fa92872aff5b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810947281879293989, guid: b5cd381d8e1f18949894fa92872aff5b,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 2396411603513635528}
     - target: {fileID: 7013408105882700186, guid: b5cd381d8e1f18949894fa92872aff5b,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -81,16 +91,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RenderMode
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450587216028636032, guid: b5cd381d8e1f18949894fa92872aff5b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976658489544634030, guid: b5cd381d8e1f18949894fa92872aff5b,
-        type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5cd381d8e1f18949894fa92872aff5b, type: 3}

@@ -172,7 +172,8 @@ Fifth Day(01/18/20)
 ----------------------------------------------------------------------------------------------------------------------------------------
 Sixth Day(01/19/20)
 	Task 7 Review about all Project, what need change and what need be implemented
-	For now in my project I have some goods system and some mechanics what I'ved implemented to the original mechanics of first prototype.
+	For now in my project I have some goods system and some mechanics what I'ved implemented to the original mechanics of first
+	prototype.
 
 	The system what I have is:
 
@@ -197,7 +198,8 @@ Sixth Day(01/19/20)
 	LazyValue variable and in the currectly moment initialize and do the attribuation in controled moment for good run in
 	cpu process.
 
-		*Saving System: In Saving System have five scripts -> (ISaveable.cs; SaveableEntity.cs; SavingSystem; SerializableVector3.cs and SavingWrapper.cs).
+		*Saving System: In Saving System have five scripts -> (ISaveable.cs; SaveableEntity.cs; SavingSystem; SerializableVector3.cs,
+		SavingWrapper.cs).
 			*ISaveable.cs is an Interface to show to Saving System who and what to save
 			*SaveableEntity.cs is a Public Class what make any object in hierarchy have a Unique Identifier and make a list of 
 		what is save with thar identifier, it's like this 'a GameObject have varius status and equip and all what is save from that
@@ -313,15 +315,19 @@ Sixth Day(01/19/20)
 	go back to they patrol section or position.
 	what need be change or implemented
 
-	One thing what found is need to add is a camera controler to zoom in/out and rotation, another thing I've noticed is nice to have jump.
+	One thing what found is need to add is a camera controler to zoom in/out and rotation, another thing I've noticed is nice
+	to have jump.
 
-	Other thing what need be change and implemented is the Stats system, it need to implemente the basic stat like Intelligence or Strength etc and it separeted from
-	actual stats, and make this new basic stats modify the actual stats values, this new stats need be only first lvl preset and need can be altered by the player when
+	Other thing what need be change and implemented is the Stats system, it need to implemente the basic stat like Intelligence
+	or Strength etc and it separeted from actual stats, and make this new basic stats modify the actual stats values, 
+	this new stats need be only first lvl preset and need can be altered by the player when
 	the character level up and in same time change a modifier sum/calculation to actual stats.
 
-	Other thing what need be implement and change is the equip system, to can equip other thing else then weapon, some thing like a helm or chest.
+	Other thing what need be implement and change is the equip system, to can equip other thing else then weapon, some thing
+	like a helm or chest.
 
-	One thing to ve implemented is more UI's, we need yet UI for option, UI for entrace of game, UI for data and values about player character.
+	One thing to ve implemented is more UI's, we need yet UI for option, UI for entrace of game, UI for data and values
+	about player character.
 
 	Other thing what need be implemented and is like UI is a equipament and bag UI
 
@@ -329,18 +335,21 @@ Sixth Day(01/19/20)
 ----------------------------------------------------------------------------------------------------------------------------------------
 Seventh Day(01/21/20)
 	8 Camera Controller
-		Zoom in/out in idea what Id is: *Created a script named 'CamManipulation.cs' In there Ive did three methods named 'LookAtPlayer(bool, bool)' 'Zoom(float)' 'Rotation(float, float)'
-	when In 'PlayerController.cs' doing the call saying to camera what cam need to do.
-	On LookAt() the Idea is recive the check answer from 'PlayerControler.cs' if the Player Character is moving or not and togheter is the player is clicked mouse button 1 when moving to
-	know if the cam can lookAt() to player character or not (if is moving and not clicking button 1 is true )
-	On Zoom() the idea is recive from 'PlayerControler.cs' the controller command (scroll wheel) and if yes send the float value to Zoom() to make a sum on camera distance of camera.
-	**On Rotation() the idea is on 'PlayerController.cs' check if click is holding if yes send the X and Y values to Rotation() to cam done the orbit rotation on player character (target).
+		Zoom in/out in idea what Id is: *Created a script named 'CamManipulation.cs' In there Ive did three methods named 
+		'LookAtPlayer(bool, bool)' 'Zoom(float)' 'Rotation(float, float)'
+		when In 'PlayerController.cs' doing the call saying to camera what cam need to do.
+		On LookAt() the Idea is recive the check answer from 'PlayerControler.cs' if the Player Character is moving or not
+		and togheter is the player is clicked mouse button 1 when moving to know if the cam can lookAt() to player character or not 
+		(if is moving and not clicking button 1 is true ) On Zoom() the idea is recive from 'PlayerControler.cs' the controller 
+		command (scroll wheel) and if yes send the float value to Zoom() to make a sum on camera distance of camera.
+		**On Rotation() the idea is on 'PlayerController.cs' check if click is holding if yes send the X and Y values to Rotation() 
+		to cam done the orbit rotation on player character (target).
 ----------------------------------------------------------------------------------------------------------------------------------------
 Eighth Day(01/22/20)
 	9 Jump (PlayerController)
-	On Jump what I did is simple on 'PlayerController.cs' I check if is on ground and if yes and the space bar is hited the player character
-	from rigidybody.AddForce(Vector3) the character jump when jump the jump method on 'Moce.cs' stop de rotation and position update
-	of navmesh and when click to walk run again.
+	On Jump what I did is simple on 'PlayerController.cs' I check if is on ground and if yes and the space bar is hited the player
+	character from rigidybody.AddForce(Vector3) the character jump when jump the jump method on 'Moce.cs' stop de rotation and position
+	update of navmesh and when click to walk run again.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Ninth Day(01/23/20)
 	10 Stats System changes
@@ -358,8 +367,8 @@ Ninth Day(01/23/20)
 Tenth Day(01/29/20)
 	11 New Stats System
 	done the alterations on Progression.cs, what I make is simple I created a new Enum script named BaseStats.cs and implement a 
-	serialize class on Progression.cs to implement the new stats acess on progression Scriptable, and maked a new dictionary to implement 
-	the new stats on lookup dictionary,
+	serialize class on Progression.cs to implement the new stats acess on progression Scriptable, and maked a new dictionary to
+	implement the new stats on lookup dictionary,
 	The alterations on BaseStats.cs is done what makes is change the script name to StatsCalc.cs, I've need create a new 
 	method to ver acess of rigth data value from rigth base stats and sum on gets stat,
 	If is null the base stats(like XP) sum 0

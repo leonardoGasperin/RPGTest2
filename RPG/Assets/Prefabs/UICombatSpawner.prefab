@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866996565312686055}
+  - component: {fileID: 3312618555224400553}
   m_Layer: 0
   m_Name: UICombatSpawner
   m_TagString: Untagged
@@ -30,3 +31,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3312618555224400553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460759524103334717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf09da5f50a7be94b92a7525da07d59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgTxt: {fileID: 6276725743275598653, guid: 15fc5bff753646c4b83059f54e72107f, type: 3}

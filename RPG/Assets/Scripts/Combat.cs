@@ -150,7 +150,7 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
     void Hit()
     {
         if (target == null) return;//se nao tiver hit valido sai
-        float dmg = GetComponent<CalcStats>().GetStats(Stats.Str);
+        float dmg = GetComponent<CalcAtb>().GetStats(Stats.Str) + weaponConfig.GetDamage();
 
         if (WeaponC.value != null)
             WeaponC.value.OnHit();

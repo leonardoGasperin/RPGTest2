@@ -128,9 +128,7 @@ public class AIController : MonoBehaviour
     {
         //se o tempo de desenccontro for menor que o de espera
         if (lostTime < waitTime)
-        {
             GetComponent<ActorScheduler>().CancelAction();
-        }
         else
         {
             //se tem caminho

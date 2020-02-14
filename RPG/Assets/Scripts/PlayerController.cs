@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 {
     private Move move;//referencia da classe Move
 
-    //estrutura para manegar o mapeamento do cursor
+    //estrutura para o mapeamento do cursor
     [System.Serializable]
     struct CursorMapping
     {
@@ -37,57 +37,65 @@ public class PlayerController : MonoBehaviour
     {
         if (InteractUI()) return;//se o cursor esta em uma UI
         
-        CameraControll();
+        CameraControll();//checa se esta pedindo algum controle da camera 
         
-        if (!GetComponent<Health>().Died())
+        if (!GetComponent<Health>().Died())//se o jogador estiver vivo
         {
-            if (Jump(Input.GetKeyDown(KeyCode.Space)))
+            if (Jump(Input.GetKeyDown(KeyCode.Space)))//se pular
                 move.StartActing(transform.position, 0, false, Jump(Input.GetKeyDown(KeyCode.Space)));
-            if (KeyMove())
+            if (KeyMove())//se tiver movendo pelo teclado
             {
-                GameObject.FindGameObjectWithTag("CamControll").GetComponent<CameraController>().LookAtPlayer(true, Input.GetMouseButton(1), this.transform);
+                SeePlayer(true);//manda a camera seguir personagem
                 return;
             }
             if (SelectTarget()) return;
             if (InteractComponent() && !CursorMove()) return;//ve que tipo de componente interagivel
             if (CursorMove())
                 return;
-            GameObject.FindGameObjectWithTag("CamControll").GetComponent<CameraController>().LookAtPlayer(false, Input.GetMouseButton(1), this.transform);
-            
+            SeePlayer(false);//manda a camera parar de seguir personagem
         }
         SetCursor(CursorType.none);//caso nao seja nenhuma das opçoes
     }
 
+    //manda a camera seguir ou nao o jogador
+    private void SeePlayer(bool active)
+    {
+        GameObject.FindGameObjectWithTag("CamControll").GetComponent<CameraController>().LookAtPlayer(active, Input.GetMouseButton(1), transform);
+    }
+
     private bool Jump(bool isJump)
     {
-        if(isJump)
+        if(isJump)//se apertou space bar
         {
-            move.NavEnable(isJump);
-            if(IsGround())
+            move.NavEnable(isJump);//desativa navmesh
+            if(IsGround())//se tiver no chão
             {
-                return true;//move.StartActing(transform.position, 10, false);
+                return true;
             }
             return false;
         }
         return false;
     }
 
+    //checa se esta no chao
     private bool IsGround()
     {
-        //float distToGround = GetComponent<Collider>().bounds.extents.y;
         return Physics.Raycast(transform.position, -Vector3.up,  0.25f);
     }
 
+    //controle basicos da camera
     private void CameraControll()
     {
+        //checa zoom
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
             GameObject.FindGameObjectWithTag("CamControll").GetComponent<CameraController>().Zoom(Input.GetAxis("Mouse ScrollWheel"));
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))//checa orbitação
         {
             GameObject.FindGameObjectWithTag("CamControll").GetComponent<CameraController>().Orbitation(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         }
     }
 
+    //seleciona alvo
     private bool SelectTarget()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -98,6 +106,10 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    //recebe alvo
+    /// <summary>
+    /// faz uma lista de alvos proximo e seleicoan o primeiro
+    /// </summary>
     private void GetTarget()
     {
         GameObject[] tg;

@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class UICombatSpawner : MonoBehaviour
 {
-    [SerializeField] DanageTxt dngTxt = null;
+    [SerializeField] DamageTxt dmgTxt = null;
 
     public void Spawn(float dmgTaken)
     {
-        DanageTxt txt = Instantiate<DanageTxt>(dngTxt, this.transform);
+        DamageTxt txt = Instantiate(dmgTxt, transform);
         txt.SetValue(dmgTaken);
     }
 }

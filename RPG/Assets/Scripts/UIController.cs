@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] GameObject characterC = null;
+    /*[SerializeField] GameObject characterC = null;
     [SerializeField] Button str;
     [SerializeField] Button pro;
     [SerializeField] Button agi;
@@ -78,5 +76,5 @@ public class UIController : MonoBehaviour
         dexV.text = string.Format("{0:0}", sts.GetStats(Stats.Dex));
         intV.text = string.Format("{0:0}", sts.GetStats(Stats.Int));
         eruV.text = string.Format("{0:0}", sts.GetStats(Stats.Eru));
-    }
+    }*/
 }
