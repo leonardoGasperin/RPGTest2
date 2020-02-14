@@ -37,19 +37,19 @@ public class Health : MonoBehaviour, ISaveable
     //adiciona evento
     private void OnEnable()
     {
-        GetComponent<CalcStats>().hpOnLvlUp += UpdateHp;
+        GetComponent<CalcAtb>().hpOnLvlUp += UpdateHp;
     }
 
     //retira evento
     private void OnDisable()
     {
-        GetComponent<CalcStats>().hpOnLvlUp -= UpdateHp;
+        GetComponent<CalcAtb>().hpOnLvlUp -= UpdateHp;
     }
 
     //receve valor da vida inicial
     private float GetInitialHp()
     {
-        return GetComponent<CalcStats>().GetHp();
+        return GetComponent<CalcAtb>().GetHp();
     }
 
     //retorna estado da vida
@@ -87,8 +87,7 @@ public class Health : MonoBehaviour, ISaveable
     //curar toda a vida ao upar de nivel
     private float GetMaxHp()
     {
-        return GetComponent<CalcStats>().GetHp();
-        //return GetComponent<CalcStats>().GetStats(Stats.Health);//retorna o maximo de vida
+        return GetComponent<CalcAtb>().GetHp();//retorna o maximo de hp
     }
 
     //devolve a porcentagem de vida do jogador e alvos
@@ -100,7 +99,7 @@ public class Health : MonoBehaviour, ISaveable
     //pega valor fracionario do HP
     public float GetFraction()
     {
-        return hp.value / GetComponent<CalcStats>().GetHp();
+        return hp.value / GetComponent<CalcAtb>().GetHp();
     }
 
     //confirma morte do personagem
@@ -120,12 +119,13 @@ public class Health : MonoBehaviour, ISaveable
 
         if (xp == null) return;//se nao da experiancia
 
-        xp.GainXP(GetComponent<CalcStats>().GetStats(Stats.XP));//pega quantia de experiancia
+        xp.GainXP(GetComponent<CalcAtb>().GetStats(Stats.XP));//pega quantia de experiancia
     }
 
+    //return actual hp
     public void UpdateHp()
     {
-        hp.value = GetComponent<CalcStats>().GetHp();
+        hp.value = GetComponent<CalcAtb>().GetHp();
     }
 
     //salva hp

@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*#### Script para comportamento da UI de atributos, onde ira mostrar atualizado os pontos de atributos do jogador
+  #### e de alterar valores a cada nivel*/
 using UnityEngine;
 using UnityEngine.UI;
 
 public class AttributesUI : MonoBehaviour
 {
+    //referencia de objetos botões e textos
     [SerializeField] GameObject characterC = null;
     [SerializeField] Button str;
     [SerializeField] Button pro;
@@ -23,15 +24,19 @@ public class AttributesUI : MonoBehaviour
 
     private void Start()
     {
+        //inicialização
         RemainingPoints(0);
     }
 
+    //esta ativando a atualização de valores na UI somente enquanto a UI ativa
     private void Update()
     {
         if (gameObject.activeSelf)
             ShowStatsPoint();
+        return;
     }
 
+    //ativa botoes e texto para atribuição de pontos quando tiver pontos sobrando
     public void RemainingPoints(int points)
     {
         if (points > 0)
@@ -58,20 +63,21 @@ public class AttributesUI : MonoBehaviour
             pointV.enabled = false;
         }
     }
-
     public void AddPoints(int st)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<CalcStats>().AddStats(st, 1);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CalcAtb>().AddStats(st, 1);
     }
 
+    //somente para o botao de fechar
     public void CloseWindow()
     {
         characterC.SetActive(!characterC.activeSelf);
     }
 
+    //mostra os valores atualizados dos atributos
     private void ShowStatsPoint()
     {
-        CalcStats sts = GameObject.FindGameObjectWithTag("Player").GetComponent<CalcStats>();
+        CalcAtb sts = GameObject.FindGameObjectWithTag("Player").GetComponent<CalcAtb>();
         strV.text = string.Format("{0:0}", sts.GetStats(Stats.Str));
         proV.text = string.Format("{0:0}", sts.GetStats(Stats.Pro));
         agiV.text = string.Format("{0:0}", sts.GetStats(Stats.Agi));

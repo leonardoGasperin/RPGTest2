@@ -9,7 +9,7 @@ public enum CharacterClass
     Thief,
     Cleric,
     Mage,
-//--------------Enemies
+//--------------NPC
     Meele,
     Ranger,
     SpellCaster

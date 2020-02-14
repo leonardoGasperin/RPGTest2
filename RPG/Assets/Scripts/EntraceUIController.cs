@@ -1,13 +1,15 @@
-﻿using System.Collections;
+﻿/*#### Script para funções da UI da tela inicial*/
+using System.Collections;
 using UnityEngine;
 
 public class EntraceUIController : MonoBehaviour
 {
-    GameObject saver;
+    GameObject saver;//referencia do save/load file
 
     // Start is called before the first frame update
     void Start()
     {
+        //inicialização de variaveis
         saver = GameObject.Find("PersistObjects(Clone)");
     }
 
@@ -31,6 +33,7 @@ public class EntraceUIController : MonoBehaviour
         Application.Quit();
     }
 
+    //carrega novo jogo
     private IEnumerator Transition()
     {
         yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(1);//carrega cenario

@@ -11,14 +11,14 @@ public class HpDisplay : MonoBehaviour
     //referencias
     XP xp;
     Health health;
-    CalcStats baseStats;
+    CalcAtb baseStats;
     
     private void Awake()
     {
         //inicializao de variaveis
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         xp = GameObject.FindGameObjectWithTag("Player").GetComponent<XP>();
-        baseStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CalcStats>();
+        baseStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CalcAtb>();
     }
 
     //update das informacoes
