@@ -59,7 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickableWeapon: {fileID: 11400000, guid: 428e691dc575e2b4c8b31f162258e2b3, type: 2}
-  HpRest: 20
+  inventory: {fileID: 0}
+  HpRest: 0
   respawnT: 5
   isRespawnable: 1
 --- !u!1001 &2754321968025423114
