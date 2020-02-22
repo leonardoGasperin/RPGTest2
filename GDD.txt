@@ -533,3 +533,33 @@ Sixteenth to Nineteenth Day(02/06-09/20)
 	or build a realocation but it`ll be implemented too, but to implement this I`ll need to make types of itens and like 
 	CharacterClass I`ll try do something like it to make types of item to make item stack and item organize or search.
 	And if I can make que equipment UI with inventory.
+----------------------------------------------------------------------------------------------------------------------------------------
+Eighteenth Day(02/18/20)
+	Task 17 Implement Inventory UI
+		for Inventory UI Ive created one box panel for the shape of inventory and for bags slots Ive make a button what contains:
+		the icon image, the item name, and tree more hiden buttons -> Use for Utilities itens, Equip for equips itens,, and Drop 
+		for drop the selected item.
+----------------------------------------------------------------------------------------------------------------------------------------
+Nineteenth Day(02/19/20)
+	Task 18 Beings Inventory System first pass
+		I`ve created the slot system for inventory, to implement the slot in an array and putting it on the panel UI grid.
+		the next thing to do is make the panel box "increase" to put "infinite" slot and scrooll it down in bag UI and not put
+		the slot out of panel box.
+		the system make the slots empty first and before catch any item, and only show the principal button of prefab (the slot clear).
+----------------------------------------------------------------------------------------------------------------------------------------
+Twentieth Day(02/20/20)
+	Task 19 New Inventory System
+		the system is finished now the slots buttons is sucefully useable, when u catch some item if is a stackable item the system 
+		increment the amount of item representable on the bag in an unique slot per type of item, and if is a equip no matter how much
+		you	have in bag (inside of limit of slot in bag) the item don`t agroup.
+		Now if u select one slot the hiden function buttons appear (in back of any slot UI for now) the slot get a different color and
+		if I click in the same slot twice of in another slot the actual selected slot get deselected and hiden the fuctions butten,
+		and now if u consume some utility item the amount of item decreement in 1 per use and when get 0 the item is clear
+		for inventory, if u drop, for now drop only one and again if the amount is decreement in one per drop and when reach 0 the slot
+		get clear.
+		For equip the drop and "use" (in case Equip) button work in like same way but only one equip or drop for this itens get
+		the bag slot clear, the most inportant difference if when the player use the Equip button the item get equiped and changes 
+		the player attributes, but for now the Equip system is not created yet and because of this when the player equip an item they
+		cant unequip and the item cant back to the inventory yet, but if the player equip an secundary item (only have weapons for now)
+		the actual item get destroyed and the another item equiped.
+		the next thing to do in inventory slot is make it work together with inventory system to get back the unequiped itens.
