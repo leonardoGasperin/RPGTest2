@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InventoryControll : MonoBehaviour
 {
+    [SerializeField] GameObject pl = null;
     [SerializeField] List<InventorySlotManager> invSlot;
     [SerializeField] InventorySlotManager slotPrefab = null;
     [SerializeField] Transform invGrid = null;
@@ -15,7 +15,9 @@ public class InventoryControll : MonoBehaviour
     {
         instance = this;
         slotPrefab.SetUpSlot();
-        for (int i = 0; i < 20; i++)
+        slotPrefab.transform.SetParent(invGrid, false);
+        invSlot.Add(slotPrefab.GetComponent<InventorySlotManager>());
+        for (int i = 1; i < 20; i++)
         {
             GameObject tempSlot = Instantiate(slotPrefab.gameObject);
             tempSlot.transform.SetParent(invGrid, false);
@@ -59,13 +61,14 @@ public class InventoryControll : MonoBehaviour
             {
                 if (slot.item != null && slot.item.name == item.gameObject.name)
                 {
-                    slot.item.AddItem();
+                    slot.item.AddItem(slot.item.GetAmount());
                     found = true;
                 }
             }
 
             if (!found && empty != null)
             {
+                item.AddItem(item.GetAmount());
                 empty.item = item;
             }
         } else if(empty != null)
@@ -86,6 +89,36 @@ public class InventoryControll : MonoBehaviour
             }
         }
         return slotReturn;
+    }
+
+    private void SetOptionsButtons()
+    {
+        selectedSlot.buttonUse.SetActive(false);
+        selectedSlot.buttonEquip.SetActive(false);
+        selectedSlot.buttonDrop.SetActive(false);
+    }
+
+    public void UseItem()
+    {
+        selectedSlot.item.Use();
+        selectedSlot.SetUpSlot();
+        SetOptionsButtons();
+    }
+    
+    public void EquipItem()
+    {
+        selectedSlot.item.Use();
+        selectedSlot.SetUpSlot();
+        SetOptionsButtons();
+    }
+
+    public void DropItem()
+    {
+        ShowAndHide tr = FindObjectOfType(typeof(ShowAndHide)) as ShowAndHide;
+        selectedSlot.item.gameObject.SetActive(true);
+        Instantiate(selectedSlot.item, pl.transform.position + new Vector3(1, 0, 1), Quaternion.identity, tr.gameObject.transform);
+        selectedSlot.item.AfterUse();
+        SetOptionsButtons();
     }
 
 }

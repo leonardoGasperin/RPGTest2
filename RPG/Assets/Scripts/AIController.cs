@@ -98,7 +98,7 @@ public class AIController : MonoBehaviour
     public bool CanAggro(Transform t)
     {
         //se tiver na distancia e vivo
-        return (Vector3.Distance(this.transform.position, target.position) <= chaseDist && !target.gameObject.GetComponent<Health>().Died()) || timeSiceAggro < aggro;
+        return (Vector3.Distance(this.transform.position, t.position) <= chaseDist && !t.gameObject.GetComponent<Health>().Died()) || timeSiceAggro < aggro;
     }
 
     //manda fazer ataque

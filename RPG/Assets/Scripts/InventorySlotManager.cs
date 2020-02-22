@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class InventorySlotManager : MonoBehaviour
@@ -51,7 +49,7 @@ public class InventorySlotManager : MonoBehaviour
 
             if (item.isStack)
             {
-                amount.text = item.GetAmount().ToString();
+                amount.text = item.InventoryAmount().ToString();
             }
             else
             {
@@ -73,10 +71,8 @@ public class InventorySlotManager : MonoBehaviour
 
     public void OnClick()
     {
-        //isSelected = !isSelected;
         if (isSelected)
         {
-            opt.SetActive(false);
             InventoryControll.instance.selectedSlot = null;
         }
         else

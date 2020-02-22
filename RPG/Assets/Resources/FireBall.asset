@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fccde1110d65984c881ceec53c4fd42, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  type: Spells
   waeponOverD: {fileID: 22100000, guid: a8a586040881e8a49b601248b7a28914, type: 2}
   equipPrb: {fileID: 761571539708705867, guid: c4cf8c0645202334abbaba09999ab6c1, type: 3}
   project: {fileID: 8898620124744624461, guid: aa8c46e19baaf38498ca09fd9ce94593, type: 3}
   damage: 15
   weaponBonus: 10
-  weaponsR: 20
+  weaponsR: 14.5
   isRightHand: 1
