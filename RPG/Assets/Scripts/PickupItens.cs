@@ -1,5 +1,4 @@
 ﻿/*####Administra itens pegaveis*/
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +12,10 @@ public class PickupItens : MonoBehaviour, IRayCastable
     [SerializeField] float respawnT = 5;//tempo de respawn
     [SerializeField] bool isRespawnable = false;//ativaodr do respawn
 
+    int amt = 0;
+
     public bool isStack = false;
+
     
     bool canGet = false;
     
@@ -26,19 +28,22 @@ public class PickupItens : MonoBehaviour, IRayCastable
     {
         if (GetInRange(GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().transform) && canGet)
         {//se foi clicado pega item
-            PickUp(GameObject.FindGameObjectWithTag("Player"));
+            PickUp();
         }
     }
 
     internal void AddItem(int recived = 1)
     {
-        amount += recived;
+        amt += recived;
     }
     internal void RemoveItem(int used = 1)
     {
-        amount -= used;
-        if (amount <= 0)
-            Destroy(gameObject);
+        amt -= used;
+    }
+
+    public int InventoryAmount()
+    {
+        return amt;
     }
 
     public int GetAmount()
@@ -47,33 +52,42 @@ public class PickupItens : MonoBehaviour, IRayCastable
     }
 
     //pega item
-    private void PickUp(GameObject other)
+    private void PickUp()
     {
-        //se for alguma arma
-        if (pickableWeapon != null)
+        inventory.AddItem(this);
+        if (isRespawnable)
         {
-            inventory.AddItem(this);
-            //other.GetComponent<Combat>().EquipWeapon(pickableWeapon);//equipa a arma
             ShowAndHide showHide = GetComponentInParent<ShowAndHide>();//esconde o objeto do scenario
             showHide.Initiate(gameObject, respawnT);//volta depois de tanto tempo
         }
-        if (HpRest > 0)//se o item tiver HpRest maior que 0
-        {
-            inventory.AddItem(this);
-            //other.GetComponent<Health>().Heal(HpRest);//cura o HP
-            ShowAndHide showHide = GetComponentInParent<ShowAndHide>();//esconde o objeto do scenario
-            showHide.Initiate(gameObject, respawnT);//volta depois de tanto tempo
-        }
+        else
+            gameObject.SetActive(false);
         canGet = false;
     }
 
     public void Use()
     {
-
+        if (pickableWeapon != null)
+            GameObject.Find("Player").GetComponent<Combat>().EquipWeapon(pickableWeapon);//equipa a arma
+        else
+            GameObject.Find("Player").GetComponent<Health>().Heal(HpRest);//cura o HP
+        AfterUse();
     }
+
     public virtual void AfterUse()
     {
+        if (isStack)
+        {
+            RemoveItem();
 
+            if (amt <= 0)
+            {
+                inventory.selectedSlot.item = null;
+                amt = 0;
+            }
+        }
+        else
+            inventory.selectedSlot.item = null;
     }
 
     //retorna distancia da arma
