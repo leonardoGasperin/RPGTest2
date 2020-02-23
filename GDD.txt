@@ -563,3 +563,5 @@ Twentieth Day(02/20/20)
 		cant unequip and the item cant back to the inventory yet, but if the player equip an secundary item (only have weapons for now)
 		the actual item get destroyed and the another item equiped.
 		the next thing to do in inventory slot is make it work together with inventory system to get back the unequiped itens.
+
+    		

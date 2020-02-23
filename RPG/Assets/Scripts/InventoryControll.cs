@@ -4,24 +4,25 @@ using UnityEngine;
 public class InventoryControll : MonoBehaviour
 {
     [SerializeField] GameObject pl = null;
-    [SerializeField] List<InventorySlotManager> invSlot;
-    [SerializeField] InventorySlotManager slotPrefab = null;
+    [SerializeField] List<SlotInventory> invSlot;
+    [SerializeField] SlotInventory slotPrefab = null;
     [SerializeField] Transform invGrid = null;
+    [SerializeField] EquipamentControll equipamentUI = null;
 
     public static InventoryControll instance;
-    public InventorySlotManager selectedSlot;
+    public SlotInventory selectedSlot;
 
     private void Start()
     {
         instance = this;
         slotPrefab.SetUpSlot();
         slotPrefab.transform.SetParent(invGrid, false);
-        invSlot.Add(slotPrefab.GetComponent<InventorySlotManager>());
+        invSlot.Add(slotPrefab.GetComponent<SlotInventory>());
         for (int i = 1; i < 20; i++)
         {
             GameObject tempSlot = Instantiate(slotPrefab.gameObject);
             tempSlot.transform.SetParent(invGrid, false);
-            invSlot.Add(tempSlot.GetComponent<InventorySlotManager>());
+            invSlot.Add(tempSlot.GetComponent<SlotInventory>());
         }
         this.gameObject.SetActive(false);
     }
@@ -38,7 +39,7 @@ public class InventoryControll : MonoBehaviour
 
     private void Update()
     {
-        if(selectedSlot != null && selectedSlot.item != null)
+        if (selectedSlot != null && selectedSlot.item != null)
         {
             selectedSlot.opt.SetActive(true);
             if (selectedSlot.item.isWeapon)
@@ -53,11 +54,11 @@ public class InventoryControll : MonoBehaviour
     public void AddItem(PickupItens item)
     {
         bool found = false;
-        InventorySlotManager empty = NextEmptySlot();
+        SlotInventory empty = NextEmptySlot();
 
         if (item.isStack)
         {
-            foreach (InventorySlotManager slot in invSlot)
+            foreach (SlotInventory slot in invSlot)
             {
                 if (slot.item != null && slot.item.name == item.gameObject.name)
                 {
@@ -71,16 +72,17 @@ public class InventoryControll : MonoBehaviour
                 item.AddItem(item.GetAmount());
                 empty.item = item;
             }
-        } else if(empty != null)
+        }
+        else if (empty != null)
         {
             empty.item = item;
         }
     }
 
-    private InventorySlotManager NextEmptySlot()
+    private SlotInventory NextEmptySlot()
     {
-        InventorySlotManager slotReturn = null;
-        foreach(InventorySlotManager slot in invSlot)
+        SlotInventory slotReturn = null;
+        foreach (SlotInventory slot in invSlot)
         {
             if (slot.item == null)
             {
@@ -104,12 +106,25 @@ public class InventoryControll : MonoBehaviour
         selectedSlot.SetUpSlot();
         SetOptionsButtons();
     }
-    
+
     public void EquipItem()
     {
-        selectedSlot.item.Use();
-        selectedSlot.SetUpSlot();
-        SetOptionsButtons();
+/*        if(!equipamentUI.gameObject.activeSelf)
+        {
+            equipamentUI.gameObject.SetActive(true);
+            equipamentUI.instance.EquipUnequip(selectedSlot.item.type, selectedSlot.item);
+            equipamentUI.gameObject.SetActive(false);
+            selectedSlot.item.Use();
+            selectedSlot.SetUpSlot();
+            SetOptionsButtons();
+        }else*/
+        {
+            equipamentUI.instance.EquipUnequip(selectedSlot.item.type, selectedSlot.item);
+            selectedSlot.item.Use();
+            selectedSlot.SetUpSlot();
+            SetOptionsButtons();
+        }
+
     }
 
     public void DropItem()

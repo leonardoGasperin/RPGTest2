@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class PickupItens : MonoBehaviour, IRayCastable
 {
     [SerializeField] WeaponConfig pickableWeapon = null;//item pegavel
@@ -14,6 +16,7 @@ public class PickupItens : MonoBehaviour, IRayCastable
 
     int amt = 0;
 
+    public ItemType type;
     public bool isStack = false;
 
     

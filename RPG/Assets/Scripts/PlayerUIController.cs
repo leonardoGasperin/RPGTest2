@@ -8,6 +8,7 @@ public class PlayerUIController : MonoBehaviour
     //referencias
     [SerializeField] GameObject attributeUI = null;
     [SerializeField] GameObject inventoryUI = null;
+    [SerializeField] GameObject EquipUI = null;
     [SerializeField] GameObject menuUI = null;
 
     void Update()
@@ -29,7 +30,15 @@ public class PlayerUIController : MonoBehaviour
             return true;
         }
         if (Input.GetKeyDown(KeyCode.Escape))
+        { 
             OpenClose(menuUI);
+            return true;
+        }
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            OpenClose(EquipUI);
+            return true;
+        }
         return false;
     }
 
