@@ -563,5 +563,124 @@ Twentieth Day(02/20/20)
 		cant unequip and the item cant back to the inventory yet, but if the player equip an secundary item (only have weapons for now)
 		the actual item get destroyed and the another item equiped.
 		the next thing to do in inventory slot is make it work together with inventory system to get back the unequiped itens.
+----------------------------------------------------------------------------------------------------------------------------------------
+Twenty-first Day(02/22/20)
+	Task 20 Equipament System
+		I make so much alterations in inventory system and slot system to make this work well, first I make a SlotManager
+		and after a EquipSlot and InventorySlot scritps, this two last are child from SlotManager, and I created too a
+		EquipamentControll with this I can use the same slot patter for any slot in game UI and I can get from the InventoryCrontroll
+		to EquipamentControll the references itens to equip in rigth place.
+
+		what I have?
+			In UI I have like I said a panel with a grid to get the slot prefab and put some slot (the panel scale can support in max
+			20 slots) the slot prefab have a button an image icon a name string a GameObject to make the amount indicator and it with
+			a string for the amount text, have too a scroll bar up to down for in future make more spansive the slot quantity, when 
+			slot are selected it get a green highlight color and if it have an Iten on it, it`ll show the correctly functions buttons.
+
+
+			Inventory UI
+			===========================================================================
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
+			|| |          | |          | |          | |          | |          |  ||| ||
+			|| |          | |          | |          | |          | |          |  ||| ||
+			|| |          | |          | |          | |          | |          |  ||| ||
+			|| |          | |          | |          | |          | |          |  ||| ||
+			|| |----------| |----------| |----------| |----------| |----------|  ||| ||             SlotInventory prefab
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||                |---------(11)
+			|| |          | |          | |          | |          | |          |  |:| || 			   |  |----|  |
+			|| |          | |          | |          | |          | |          |  |:| || 			   |  |    |  |
+			|| |          | |          | |          | |          | |          |  |:| || 			   |  |----|  |
+			|| |          | |          | |          | |          | |          |  |:| || 			   |   name   | ---------	    ---------
+			|| |----------| |----------| |----------| |----------| |----------|  |:| || 			   |----------| | Use   | => or | Equip |
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||								---------	    ---------
+			|| |          | |          | |          | |          | |          |  |:| ||								---------
+			|| |          | |          | |          | |          | |          |  |:| ||								| drop  |
+			|| |          | |          | |          | |          | |          |  |:| ||								---------
+			|| |          | |          | |          | |          | |          |  |:| ||
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
+			|| |          | |          | |          | |          | |          |  |:| ||
+			|| |          | |          | |          | |          | |          |  |:| ||
+			|| |          | |          | |          | |          | |          |  |:| ||
+			|| |          | |          | |          | |          | |          |  |:| ||
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
+			===========================================================================
+
+			on this two thing I need to create 3 scripts 'InventoryCrontroll.cs' 'SlotManager.cs' 'SlotInventory.cs'
+			the InventoryCrontroll get from the SlotInventory the slot and put with a for on Start() (for now) put the slot
+			in the panel grid ... in future I wanna make the scrollbar work to can make more slot without the slot get off
+			the panel area.
+			And the SlotInventory a son of SlotManager getting some override functions from father to operate the the slot
+			functions like select or use/drop/equip amount itens.
+			to amount item the PickupItens need inform if the item is stackable, the use and drop buttons continue in the same.
+----------------------------------------------------------------------------------------------------------------------------------------
+Twenty-first Day(02/23/20)
+	Task 21 New Equipament System
+			Now for Equip button need make another logic to interact the inventory selected slot to the right slot on 
+			"EquipamentUI" and to this I need to make a 3 new scritps => 'EquipamentControll.cs' 'SlotEquip.cs' 'ItemType.cs'
+			the SlotEquip like SlotInventory is son of SlotManager and the EquipamentControll will manager the slots, in this time the
+			slots are crated on EquipamentUI prefab manualy without a grid and without need to use a Start() override only
+			the base.Start() are good to SetupSlot() to this, and if the not have a item on the slot the slot get clear like the
+			inventory. On this system I geting an error on button slot, for some reason the button are not active I need to see it
+			on the override OnClick() in SlotEquip, because dont select or show the buttons functions when click it, but I think it can
+			be the EquipSlot prefab I think if I remake that prefab.
+			The SlotEquip work equals the SlotInventory each one with your differences.
+			The ItemType is the key for work good the slot position, in base in this scritp we have a enum with 8 types for itens
+
+					Helm,
+		    		Chest,
+		    		Pants,
+		    		Gloves,
+		    		Boots,
+		    		MainH,
+		    		OffH,
+    				Utility
+
+    		and it are referencied on EquipSlot and PickupItens (its because the item what go to slot is the PickupItens what have the 
+    		ScriptableObject WeaponConfig reference from the equipament) and the equip button on the selected SlotInventory on 
+    		InventoryCrontroll will send to the EquipamentControll a item type and the item to be check for each slot until not find
+    		when find the right SlotEquip it will call equip and will update the SlotEquip with the new item,
+    		Another bug I`m having here is if the EquipamentUI is not open I cant find the reference because the GameObject are
+    		!SelfActive, to fix it I need think in another good way to reference the variable to put it on the slot, but here
+    		have a hard think to this because if the EquipamentUI are not enabled the slot too, I`ll need to see what to do fast.
+    		The graphs down bellow here is the EquipamentUI:
+
+    		EquipamentUI
+    		====================================================
+    		||                  Window Title                  ||
+    		||                                                ||
+    		||                                                ||
+    		||                  |----------|                  ||
+    		||                  |          |                  ||
+    		||                  |          |                  ||
+    		||                  |   helm   |                  ||
+    		||                  |          |                  ||
+    		||                  |----------|                  ||
+    		||                                                ||
+    		||  |----------|    |----------|    |----------|  ||						 EquipSlot prefab
+    		||  |          |    |          |    |          |  ||						  |----------|
+    		||  |          |    |          |    |          |  ||						  |  |----|  |
+    		||  |  MainH   |    |  Chest   |    |  OffH    |  ||						  |  |    |  |
+    		||  |          |    |          |    |          |  ||						  |  |----|  |
+    		||  |----------|    |----------|    |----------|  ||						  |   name   | -----------
+    		||                                                ||						  |----------| | Unequip |
+    		||                                                ||						               -----------
+    		||  |----------|    |----------|                  ||
+    		||  |          |    |          |                  ||
+    		||  |          |    |          |                  ||
+    		||  |  Gloves  |    |  Pants   |                  ||
+    		||  |          |    |          |                  ||
+    		||  |----------|    |----------|                  ||
+    		||                                                ||
+    		||                                                ||
+    		||                  |----------|                  ||
+    		||                  |          |                  ||
+    		||                  |          |                  ||
+    		||                  |  Boots   |                  ||
+    		||                  |          |                  ||
+    		||                  |----------|                  ||
+    		||                                                ||
+    		||                                                ||
+    		====================================================
 
     		
