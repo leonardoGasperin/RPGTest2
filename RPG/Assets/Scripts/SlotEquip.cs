@@ -1,24 +1,22 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-public class InventorySlotManager : MonoBehaviour
+public class SlotEquip : SlotManager
 {
-    public PickupItens item;
-    [SerializeField] Image itemIcon = null;
-    [SerializeField] Text nameItem = null;
-    [SerializeField] GameObject amountInd = null;
-    [SerializeField] Text amount = null;
-    [SerializeField] Image background = null;
+    [SerializeField] GameObject buttonUnequip = null;
+    
+    public ItemType type;
 
-    public GameObject opt = null;
-    public GameObject buttonEquip = null;
-    public GameObject buttonUse = null;
-    public GameObject buttonDrop = null;
-    public Color onSelected;
-    public Color unSelected;
-    bool isSelected = false;
+    public override void SetActiveSlot(bool isAct = true)
+    {
+        nameItem.gameObject.SetActive(isAct);
+        itemIcon.gameObject.SetActive(isAct);
+    }
 
-    // Start is called before the first frame update
+    public override void OnClick()
+    {
+    }
+
+    /* Start is called before the first frame update
     void Start()
     {
         SetUpSlot();
@@ -79,5 +77,5 @@ public class InventorySlotManager : MonoBehaviour
         {
             InventoryControll.instance.selectedSlot = this;
         }
-    }
+    }*/
 }
