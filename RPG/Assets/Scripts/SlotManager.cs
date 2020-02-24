@@ -27,7 +27,7 @@ public class SlotManager : MonoBehaviour
     void Update()
     {
         SetUpSlot();
-        isSelected = InventoryControll.instance.selectedSlot == this;
+        isSelected = InventoryControll.instance.selectedSlot == this || EquipamentControll.instance.selectedSlot == this;
         if (!isSelected)
             opt.SetActive(false);
         background.color = isSelected ? onSelected : unSelected;

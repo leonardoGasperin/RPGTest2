@@ -7,8 +7,7 @@ public class InventoryControll : MonoBehaviour
     [SerializeField] List<SlotInventory> invSlot;
     [SerializeField] SlotInventory slotPrefab = null;
     [SerializeField] Transform invGrid = null;
-    [SerializeField] EquipamentControll equipamentUI = null;
-
+    
     public static InventoryControll instance;
     public SlotInventory selectedSlot;
 
@@ -98,6 +97,8 @@ public class InventoryControll : MonoBehaviour
         selectedSlot.buttonUse.SetActive(false);
         selectedSlot.buttonEquip.SetActive(false);
         selectedSlot.buttonDrop.SetActive(false);
+        selectedSlot.opt.SetActive(false);
+
     }
 
     public void UseItem()
@@ -109,17 +110,8 @@ public class InventoryControll : MonoBehaviour
 
     public void EquipItem()
     {
-/*        if(!equipamentUI.gameObject.activeSelf)
         {
-            equipamentUI.gameObject.SetActive(true);
-            equipamentUI.instance.EquipUnequip(selectedSlot.item.type, selectedSlot.item);
-            equipamentUI.gameObject.SetActive(false);
-            selectedSlot.item.Use();
-            selectedSlot.SetUpSlot();
-            SetOptionsButtons();
-        }else*/
-        {
-            equipamentUI.instance.EquipUnequip(selectedSlot.item.type, selectedSlot.item);
+            EquipamentControll.instance.Equip(selectedSlot.item.type, selectedSlot.item);
             selectedSlot.item.Use();
             selectedSlot.SetUpSlot();
             SetOptionsButtons();
