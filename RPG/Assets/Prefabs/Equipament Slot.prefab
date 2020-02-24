@@ -118,8 +118,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1232375864102336617, guid: 860aab14a6f23f045823805d308569ff,
-          type: 3}
+      - m_Target: {fileID: 4303567379064046774}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -282,8 +281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -925.9, y: 216.16}
-  m_SizeDelta: {x: -1851.7, y: -471.29}
+  m_AnchoredPosition: {x: -925.85, y: 219.1}
+  m_SizeDelta: {x: -1851.7, y: -438.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5629162261483001321
 CanvasRenderer:
@@ -392,9 +391,10 @@ MonoBehaviour:
   nameItem: {fileID: 2804824610618611217}
   background: {fileID: 7346106174708256315}
   opt: {fileID: 894254563566654764}
-  onSelected: {r: 0.19530971, g: 0.4509266, b: 0.7264151, a: 0}
+  onSelected: {r: 0.19530971, g: 0.4509266, b: 0.7264151, a: 1}
   unSelected: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 0.78431374}
   buttonUnequip: {fileID: 264784999999877183}
+  type: 0
 --- !u!1 &8102068634124943609
 GameObject:
   m_ObjectHideFlags: 0

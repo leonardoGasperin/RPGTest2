@@ -17,6 +17,6 @@ MonoBehaviour:
     type: 3}
   project: {fileID: 424634788729981953, guid: 0242be3535c0f214ea01e1af7469ebb8, type: 3}
   damage: 9
-  weaponBonus: 0
+  weaponBonus: 5
   weaponsR: 15
   isRightHand: 0

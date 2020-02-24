@@ -2,8 +2,7 @@
 
 public class SlotEquip : SlotManager
 {
-    [SerializeField] GameObject buttonUnequip = null;
-    
+    public GameObject buttonUnequip = null;
     public ItemType type;
 
     public override void SetActiveSlot(bool isAct = true)
@@ -14,9 +13,18 @@ public class SlotEquip : SlotManager
 
     public override void OnClick()
     {
+        if (isSelected)
+        {
+            EquipamentControll.instance.selectedSlot = null;
+        }
+        else
+        {
+            EquipamentControll.instance.selectedSlot = this;
+        }
     }
+}
 
-    /* Start is called before the first frame update
+/* Start is called before the first frame update
     void Start()
     {
         SetUpSlot();
@@ -65,17 +73,4 @@ public class SlotEquip : SlotManager
         amountInd.SetActive(isAct);
         nameItem.gameObject.SetActive(isAct);
         itemIcon.gameObject.SetActive(isAct);
-    }
-
-    public void OnClick()
-    {
-        if (isSelected)
-        {
-            InventoryControll.instance.selectedSlot = null;
-        }
-        else
-        {
-            InventoryControll.instance.selectedSlot = this;
-        }
     }*/
-}

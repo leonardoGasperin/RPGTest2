@@ -11,15 +11,25 @@ public class EquipamentControll : MonoBehaviour
     [SerializeField] SlotEquip mainHSlot = null;
     [SerializeField] SlotEquip offHSlot = null;
     [SerializeField] List<SlotEquip> slot = new List<SlotEquip>();
+    
+    public SlotEquip selectedSlot = null;
 
-    public EquipamentControll instance;
+    public static EquipamentControll instance;
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
         SetUpList();
+        this.gameObject.SetActive(false);
     }
+
+    private void Update()
+    {
+        if (selectedSlot != null && selectedSlot.item != null)
+            SetOptionsButtons(true);
+    }
+
 
     void SetUpList()
     {
@@ -32,23 +42,30 @@ public class EquipamentControll : MonoBehaviour
         slot.Add(offHSlot);
     }
 
-    public void EquipUnequip(ItemType type, PickupItens item)
+    public void Equip(ItemType type, PickupItens item)
     {
         foreach(SlotEquip equip in slot)
         {
             if (equip.type == type)
             {
-                /*if(!equip.isActiveAndEnabled)
-                {
-                    Debug.LogError("fdsfs");
-                    equip.enabled = true;
-                    equip.item = item;
-                    equip.enabled = false;
-                    break;
-                }*/
                 equip.item = item;
                 break;
             }
         }
+    }
+
+    public void Unequip()
+    {
+        WeaponConfig wDefault = GameObject.Find("Player").GetComponent<Combat>().weaponD;
+        InventoryControll.instance.AddItem(selectedSlot.item);
+        GameObject.Find("Player").GetComponent<Combat>().EquipWeapon(wDefault);
+        selectedSlot.item = null;
+        SetOptionsButtons();
+    }
+
+    private void SetOptionsButtons(bool active = false)
+    {
+        selectedSlot.buttonUnequip.SetActive(active);
+        selectedSlot.opt.SetActive(active);
     }
 }
