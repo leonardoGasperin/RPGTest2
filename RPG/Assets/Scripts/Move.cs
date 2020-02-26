@@ -78,8 +78,8 @@ public class Move : MonoBehaviour, ISaveable, IAction//inplementa Interface de a
 
     public void Jumping()
     {
-        //adiciona 80 de força g para cima 'Y'
-        rb.AddForce(Vector3.up * 80);
+        //adiciona 4 de velocidade para cima 'Y'
+        rb.velocity = Vector3.up * 4;
     }
 
     //manda movimentar para o ponto de destino
@@ -120,7 +120,8 @@ public class Move : MonoBehaviour, ISaveable, IAction//inplementa Interface de a
     //cancela açao de movimento
     public void Cancel()
     {
-        nav.isStopped = true;
+        if(nav.enabled)
+            nav.isStopped = true;
     }
 
     //ativa e desativa navmesh para uso e keyboard e mouse para movimentação
