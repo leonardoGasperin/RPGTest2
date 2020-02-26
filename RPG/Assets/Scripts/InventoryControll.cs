@@ -59,7 +59,7 @@ public class InventoryControll : MonoBehaviour
         {
             foreach (SlotInventory slot in invSlot)
             {
-                if (slot.item != null && slot.item.name == item.gameObject.name)
+                if (slot.item != null && slot.item.itemName == item.itemName)
                 {
                     slot.item.AddItem(slot.item.GetAmount());
                     found = true;
@@ -121,9 +121,16 @@ public class InventoryControll : MonoBehaviour
 
     public void DropItem()
     {
+        GameObject drop = selectedSlot.item.itemPrefab;
+        
+        if (drop.GetComponent<PickupItens>().inventory == null)
+            drop.GetComponent<PickupItens>().inventory = GameObject.Find("UIInventory").GetComponent<InventoryControll>();
+        
+        drop.GetComponent<PickupItens>().Dropped(drop);
         ShowAndHide tr = FindObjectOfType(typeof(ShowAndHide)) as ShowAndHide;
-        selectedSlot.item.gameObject.SetActive(true);
-        Instantiate(selectedSlot.item, pl.transform.position + new Vector3(1, 0, 1), Quaternion.identity, tr.gameObject.transform);
+        Instantiate(drop, pl.transform.position + new Vector3(1, 0, 1), drop.transform.rotation, tr.gameObject.transform);
+        
+        
         selectedSlot.item.AfterUse();
         SetOptionsButtons();
     }

@@ -7,19 +7,20 @@ using UnityEngine.UI;
 public class PickupItens : MonoBehaviour, IRayCastable
 {
     [SerializeField] WeaponConfig pickableWeapon = null;//item pegavel
+    public GameObject itemPrefab = null;
+    public string itemName = null;
     public Image icon = null;
-    [SerializeField] InventoryControll inventory = null;
+    public InventoryControll inventory = null;
     [SerializeField] float HpRest = 20;
     [SerializeField] int amount = 0;
     [SerializeField] float respawnT = 5;//tempo de respawn
-    [SerializeField] bool isRespawnable = false;//ativaodr do respawn
+    public bool isRespawnable = false;//ativaodr do respawn
 
     int amt = 0;
 
     public ItemType type;
     public bool isStack = false;
 
-    
     bool canGet = false;
     
     public bool isWeapon
@@ -93,6 +94,16 @@ public class PickupItens : MonoBehaviour, IRayCastable
             inventory.selectedSlot.item = null;
     }
 
+    public void Dropped(GameObject item)
+    {
+        if (!item.activeSelf)
+            Destroy(item);
+
+        item.SetActive(true);
+        item.gameObject.GetComponent<PickupItens>().enabled = true;
+
+    }
+
     //retorna distancia da arma
     private bool GetInRange(Transform targetT)
     {
@@ -110,8 +121,9 @@ public class PickupItens : MonoBehaviour, IRayCastable
         }
         return false;
     }
+
     public CursorType GetCursorType()
     {
-        return CursorType.Pickup;
+        return CursorType.combat;
     }
 }

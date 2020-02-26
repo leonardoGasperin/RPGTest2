@@ -152,6 +152,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2081ee40184c53c438b4202129d1f837,
         type: 2}
+    - target: {fileID: 8122223765207783367, guid: 057a41d2feb139a4e9551cc07a3842df,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9106683516735076004, guid: 057a41d2feb139a4e9551cc07a3842df,
         type: 3}
       propertyPath: leftHandT
@@ -232,6 +237,16 @@ PrefabInstance:
         type: 3}
       propertyPath: uniqueIdentifier
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370696058045520200, guid: 057a41d2feb139a4e9551cc07a3842df,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370696058045520200, guid: 057a41d2feb139a4e9551cc07a3842df,
+        type: 3}
+      propertyPath: m_Height
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 057a41d2feb139a4e9551cc07a3842df, type: 3}

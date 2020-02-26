@@ -17,7 +17,7 @@ public class SlotInventory : SlotManager
         {
             SetActiveSlot(true);
             //itemIcon.sprite = item.icon.sprite;
-            nameItem.text = item.name;
+            nameItem.text = item.itemName;
 
             if (item.isStack)
             {
@@ -52,26 +52,4 @@ public class SlotInventory : SlotManager
             InventoryControll.instance.selectedSlot = this;
         }
     }
-
-    /* Start is called before the first frame update
-    void Start()
-    {
-        SetUpSlot();
-    }
-
-    private void OnDisable()
-    {
-        return;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        SetUpSlot();
-        isSelected = InventoryControll.instance.selectedSlot == this;
-        if(!isSelected)
-            opt.SetActive(false);
-        background.color = isSelected ? onSelected : unSelected;
-    }
-    */
 }

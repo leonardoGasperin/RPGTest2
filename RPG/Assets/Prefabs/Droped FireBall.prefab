@@ -59,9 +59,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickableWeapon: {fileID: 11400000, guid: 340d6dee2f8a71b4cbcabe8192c50ee2, type: 2}
+  itemPrefab: {fileID: 0}
+  itemName: 
+  icon: {fileID: 0}
+  inventory: {fileID: 0}
   HpRest: 0
+  amount: 0
   respawnT: 5
-  isRespawnable: 1
+  isRespawnable: 0
+  type: 0
+  isStack: 0
 --- !u!114 &761571539708705867
 MonoBehaviour:
   m_ObjectHideFlags: 0

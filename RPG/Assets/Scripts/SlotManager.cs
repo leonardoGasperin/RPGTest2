@@ -39,7 +39,7 @@ public class SlotManager : MonoBehaviour
         {
             SetActiveSlot(true);
             //itemIcon.sprite = item.icon.sprite;
-            nameItem.text = item.name;
+            nameItem.text = item.itemName;
         }
         else
         {
