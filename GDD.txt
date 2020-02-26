@@ -586,16 +586,16 @@ Twenty-first Day(02/22/20)
 			|| |          | |          | |          | |          | |          |  ||| ||
 			|| |          | |          | |          | |          | |          |  ||| ||
 			|| |----------| |----------| |----------| |----------| |----------|  ||| ||             SlotInventory prefab
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||                |---------(11)
-			|| |          | |          | |          | |          | |          |  |:| || 			   |  |----|  |
-			|| |          | |          | |          | |          | |          |  |:| || 			   |  |    |  |
-			|| |          | |          | |          | |          | |          |  |:| || 			   |  |----|  |
-			|| |          | |          | |          | |          | |          |  |:| || 			   |   name   | ---------	    ---------
-			|| |----------| |----------| |----------| |----------| |----------|  |:| || 			   |----------| | Use   | => or | Equip |
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||								---------	    ---------
-			|| |          | |          | |          | |          | |          |  |:| ||								---------
-			|| |          | |          | |          | |          | |          |  |:| ||								| drop  |
-			|| |          | |          | |          | |          | |          |  |:| ||								---------
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||						  |---------(11)
+			|| |          | |          | |          | |          | |          |  |:| ||						  |  |----|  |
+			|| |          | |          | |          | |          | |          |  |:| ||						  |  |    |  |
+			|| |          | |          | |          | |          | |          |  |:| ||						  |  |----|  |
+			|| |          | |          | |          | |          | |          |  |:| ||						  |   name   | ---------	   ---------
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||						  |----------| | Use   | => or | Equip |
+			|| |----------| |----------| |----------| |----------| |----------|  |:| ||									   ---------	   ---------
+			|| |          | |          | |          | |          | |          |  |:| ||									   ---------
+			|| |          | |          | |          | |          | |          |  |:| ||									   | drop  |
+			|| |          | |          | |          | |          | |          |  |:| ||									   ---------
 			|| |          | |          | |          | |          | |          |  |:| ||
 			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
 			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
@@ -682,5 +682,30 @@ Twenty-first Day(02/23/20)
     		||                                                ||
     		||                                                ||
     		====================================================
-
-    		
+----------------------------------------------------------------------------------------------------------------------------------------
+Twenty-second Day(02/24/2020)
+	Bug`s an` Fixes
+		I`ve found some bug`s on Inventory system and Equipament system, I found a bug in player to
+		Fist on EquipamentUI the SlotEquip prefab is strange on scene, to fix it I need to maxmize the pivot config to center and full
+			rectangle and resized to a good fit in scene and saved the alteration to original prefab.
+		Second InventoryUI in drop function button are cloning the itens and duplicating it and giving a whole of bug`s, on first look
+			the respawnable item in duplication getting respawnable and generating various clones in map, another thing what happen is
+			when the drop item are instantiated on scene the GameObject get disable, well when I put to appear and get enabled the
+			original getting enabled with the clone andl ike this if I get put the clone item to be note respawnable the original be
+			not respawnable any more too. Well and with the equips is like the same thing but with one diference the equip is not
+			respawnable but when drop an equip the clone and the original get enemies and again I can multiply variou clone in map
+			of the same item.However to fix it I first need to make in PickupItens scritp a new public variable to get a GameObject
+			and for this GameObject I`ve make a new prefab for it, well to explain what I make is simple, first this prefab are created
+			to make some alteration in the GameObject without make changes on original prefab, in the respawnable item the newest prefab
+			diference is it are not respawnable and for now this item cant be duplicated, and if I get and drop the clone item the picked
+			item get disable on pickup and destroyed on drop of the newest clone (a clone of clone), for the equip get like this, the
+			unique diference now is when I drop the equip item the new clone make some alterations, but not making changes on the
+			original prefab and when I get the clone item and drop again the original-clone get destroyed and appear another clone of
+			item.
+		Third on player jump for some reason when the player jump when end the jump the Player get more 0.5f in pitch axis, To fixes it
+			is simple I`ve noticed the capsule collider are back to the original character prefab and I`ve alterate the height from 
+			1 to 2 and the pitch center from 0 to 1 to fix it.
+		Fourth on Player jump in check ground, for some reason the check ground are buging since when I`ve created the method, but I
+			noticed again in center pitch valor , I put to 1 for 0.99f and now the check ground are working goot, and now I changed the
+			function of rigidybody what is appliyng the jump, I haved change to rigidybody.Add() fir .velocity, I think the effect is
+			more pretty good for jump.
