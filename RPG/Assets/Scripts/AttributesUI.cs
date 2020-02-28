@@ -63,6 +63,8 @@ public class AttributesUI : MonoBehaviour
             pointV.enabled = false;
         }
     }
+
+    //adiciona pontos de atributos
     public void AddPoints(int st)
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<CalcAtb>().AddStats(st, 1);

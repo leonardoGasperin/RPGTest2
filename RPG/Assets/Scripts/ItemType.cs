@@ -1,4 +1,5 @@
-﻿public enum ItemType
+﻿/*#### tipos de itens*/
+public enum ItemType
 {
     Helm,
     Chest,
