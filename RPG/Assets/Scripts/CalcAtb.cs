@@ -12,7 +12,7 @@ public class CalcAtb : MonoBehaviour, ISaveable
     [SerializeField] GameObject lvlUpParticlesFx;//efeito de evento de evoluir
     [SerializeField] bool useMods = false;//uso de modificadores
     public event Action hpOnLvlUp;//evento de evolucao
-    int atbPoints = 0;
+    int atbPoints = 0;//pontos para distribuir
     public float[] atb;//lista de pontos distribuidos nos atributos
 
     LazyValue<int> currentLvl;//lvl atual
@@ -62,8 +62,6 @@ public class CalcAtb : MonoBehaviour, ISaveable
             hpOnLvlUp();//muda hp
             atbPoints += 5;//soma 5 pontos para ser distribuido
             GameObject.Find("UIManager").GetComponentInChildren<AttributesUI>().RemainingPoints(atbPoints);//envia valor para UI
-            //AddStats();
-            ///TODO adicionar alteraçao de estatos
         }
     }
 
@@ -77,8 +75,6 @@ public class CalcAtb : MonoBehaviour, ISaveable
     //recebe estatos
     public float GetStats(Stats st)
     {
-        //if (gameObject.tag == "Player")
-            //Debug.LogError(atb[(int)st] +" "+ st.ToString());
         if ((int)st < 3 && (int)st >= 0)
             return ( GetBaseStats(st) + GetAddModifier(st)) * (1 + GetPercentMod(st) / 100);
         else

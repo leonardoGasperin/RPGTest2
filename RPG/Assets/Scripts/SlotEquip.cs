@@ -1,18 +1,22 @@
-﻿using UnityEngine;
+﻿/*####a partir do Slotmanager.cs cria e gerencia os slot do menu de equipamentos*/
+using UnityEngine;
 
 public class SlotEquip : SlotManager
 {
-    public GameObject buttonUnequip = null;
-    public ItemType type;
+    public GameObject buttonUnequip = null;//botão de desequipar item
+    public ItemType type;//tipo de item para tipo de slot
 
+    //ativa slot
     public override void SetActiveSlot(bool isAct = true)
-    {
+    {//motra nome e icone
         nameItem.gameObject.SetActive(isAct);
         itemIcon.gameObject.SetActive(isAct);
     }
 
+    //quando clicado
     public override void OnClick()
     {
+        //se selecionado ativa as funçoes do slot
         if (isSelected)
         {
             EquipamentControll.instance.selectedSlot = null;
@@ -23,54 +27,3 @@ public class SlotEquip : SlotManager
         }
     }
 }
-
-/* Start is called before the first frame update
-    void Start()
-    {
-        SetUpSlot();
-    }
-
-    private void OnDisable()
-    {
-        return;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        SetUpSlot();
-        isSelected = InventoryControll.instance.selectedSlot == this;
-        if(!isSelected)
-            opt.SetActive(false);
-        background.color = isSelected ? onSelected : unSelected;
-    }
-
-    public void SetUpSlot()
-    {
-        if (item != null)
-        {
-            SetActiveSlot(true);
-            //itemIcon.sprite = item.icon.sprite;
-            nameItem.text = item.name;
-
-            if (item.isStack)
-            {
-                amount.text = item.InventoryAmount().ToString();
-            }
-            else
-            {
-                amountInd.SetActive(false);
-            }
-        }
-        else
-        {
-            SetActiveSlot(false);
-        }
-    }
-
-    public void SetActiveSlot(bool isAct = true)
-    {
-        amountInd.SetActive(isAct);
-        nameItem.gameObject.SetActive(isAct);
-        itemIcon.gameObject.SetActive(isAct);
-    }*/

@@ -13,6 +13,8 @@ public class EntraceUIController : MonoBehaviour
         saver = GameObject.Find("PersistObjects(Clone)");
     }
 
+    ///cada função faz exatamente o que o nome indica
+  
     public void NewGame()
     {
         StartCoroutine(Transition());

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿/*####Gerente do menu de equipamentos*/
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EquipamentControll : MonoBehaviour
 {
+    //referencias dos slots e lista
     [SerializeField] SlotEquip helmSlot = null;
     [SerializeField] SlotEquip chestSlot = null;
     [SerializeField] SlotEquip pantsSlot = null;
@@ -12,25 +14,25 @@ public class EquipamentControll : MonoBehaviour
     [SerializeField] SlotEquip offHSlot = null;
     [SerializeField] List<SlotEquip> slot = new List<SlotEquip>();
     
-    public SlotEquip selectedSlot = null;
+    public SlotEquip selectedSlot = null;//slot selecionado
 
-    public static EquipamentControll instance;
+    public static EquipamentControll instance;//instancia para comunicação con inventario
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
-        SetUpList();
-        this.gameObject.SetActive(false);
+        SetUpList();//gera lista de slots
+        this.gameObject.SetActive(false);//desativa slots
     }
 
     private void Update()
     {
-        if (selectedSlot != null && selectedSlot.item != null)
-            SetOptionsButtons(true);
+        //ativa e desativa botões
+        SetOptionsButtons(selectedSlot != null && selectedSlot.item != null);
     }
 
-
+    //adiciona slots a lista
     void SetUpList()
     {
         slot.Add(helmSlot);
@@ -42,27 +44,32 @@ public class EquipamentControll : MonoBehaviour
         slot.Add(offHSlot);
     }
 
+    //joga item equipado no slot correto
     public void Equip(ItemType type, PickupItens item)
     {
+        //para cada slot
         foreach(SlotEquip equip in slot)
         {
+            //se for do mesmo tipo do que o recebido
             if (equip.type == type)
             {
-                equip.item = item;
+                equip.item = item;//item do slot recebe item
                 break;
             }
         }
     }
 
+    //desequipa e devolve item para inventorio
     public void Unequip()
     {
-        WeaponConfig wDefault = GameObject.Find("Player").GetComponent<Combat>().weaponD;
-        InventoryControll.instance.AddItem(selectedSlot.item);
-        GameObject.Find("Player").GetComponent<Combat>().EquipWeapon(wDefault);
-        selectedSlot.item = null;
-        SetOptionsButtons();
+        WeaponConfig wDefault = GameObject.Find("Player").GetComponent<Combat>().weaponD;//referencia do desarme
+        InventoryControll.instance.AddItem(selectedSlot.item);//joga item para inventario
+        GameObject.Find("Player").GetComponent<Combat>().EquipWeapon(wDefault);//desequipa arma e coloca nao armado
+        selectedSlot.item = null;//esvazia slot
+        SetOptionsButtons();//desativa botoes
     }
 
+    //ativa e desativa botoes
     private void SetOptionsButtons(bool active = false)
     {
         selectedSlot.buttonUnequip.SetActive(active);

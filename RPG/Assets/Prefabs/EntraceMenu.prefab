@@ -499,7 +499,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RPG Training Test Prototype v0.0.1
+  m_Text: RPG Training Test Prototype v0.0.2
 --- !u!114 &8001909228390955393
 MonoBehaviour:
   m_ObjectHideFlags: 0

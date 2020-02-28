@@ -771,6 +771,32 @@ PrefabInstance:
       propertyPath: paths
       value: 
       objectReference: {fileID: 1464110774}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: chaseDist
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: waitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: shoutDist
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: aggro
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953303327440229341, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: weaponD
+      value: 
+      objectReference: {fileID: 11400000, guid: 340d6dee2f8a71b4cbcabe8192c50ee2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0814de3c21d381040874b05830a61ab3, type: 3}
 --- !u!1001 &400949575
@@ -1042,6 +1068,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: waitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: aggro
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: chaseDist
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: shoutDist
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953303327440229341, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: weaponD
+      value: 
+      objectReference: {fileID: 11400000, guid: 20aa1006a0d3fa54fb539c428411a97b,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0814de3c21d381040874b05830a61ab3, type: 3}
 --- !u!1 &483913576 stripped
@@ -3237,6 +3289,17 @@ PrefabInstance:
       propertyPath: atb.Array.size
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2584366261951542552, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: waitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953303327440229341, guid: 0814de3c21d381040874b05830a61ab3,
+        type: 3}
+      propertyPath: weaponD
+      value: 
+      objectReference: {fileID: 11400000, guid: 428e691dc575e2b4c8b31f162258e2b3,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0814de3c21d381040874b05830a61ab3, type: 3}
 --- !u!1001 &1749881789

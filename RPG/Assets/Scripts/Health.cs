@@ -108,6 +108,7 @@ public class Health : MonoBehaviour, ISaveable
         this.GetComponent<ActorScheduler>().CancelAction();//cancela acoes
         this.gameObject.GetComponent<Animator>().SetTrigger("dead");//inicia a animaçao de morto
         this.GetComponent<CapsuleCollider>().enabled = false;//retira colider
+        this.GetComponent<Rigidbody>().useGravity = false;
         died = true;//confirma morto
         this.gameObject.GetComponent<Animator>().SetBool("n", died);//para animador
     }

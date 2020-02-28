@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.15, y: 0.35, z: 0.15}
+  m_Center: {x: 0.025, y: 0.15, z: 0}
 --- !u!114 &8749555288011747022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,8 +59,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickableWeapon: {fileID: 11400000, guid: 340d6dee2f8a71b4cbcabe8192c50ee2, type: 2}
-  itemPrefab: {fileID: 0}
-  itemName: 
+  itemPrefab: {fileID: 827285661456107013, guid: 8bbc3aff1dab2c749aa300747b6a381d,
+    type: 3}
+  itemName: FireBall
   icon: {fileID: 0}
   inventory: {fileID: 0}
   HpRest: 0
