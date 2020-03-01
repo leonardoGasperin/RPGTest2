@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (InteractUI()) return;//se o cursor esta em uma UI
-        
+
         CameraControll();//checa se esta pedindo algum controle da camera 
-        
+
         if (!GetComponent<Health>().Died())//se o jogador estiver vivo
         {
             if (Jump(Input.GetKeyDown(KeyCode.Space)))//se pular
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
                 return;
             }
             if (SelectTarget()) return;
-            if (InteractComponent() && !CursorMove()) return;//ve que tipo de componente interagivel
+            if (InteractComponent() && !CursorMove() && !KeyMove()) return;//ve que tipo de componente interagivel
             if (CursorMove())
                 return;
             SeePlayer(false);//manda a camera parar de seguir personagem
@@ -65,10 +65,10 @@ public class PlayerController : MonoBehaviour
 
     private bool Jump(bool isJump)
     {
-        if(isJump)//se apertou space bar
+        if (isJump)//se apertou space bar
         {
             move.NavEnable(isJump);//desativa navmesh
-            if(IsGround())//se tiver no chão
+            if (IsGround())//se tiver no chão
             {
                 return true;
             }
@@ -80,12 +80,14 @@ public class PlayerController : MonoBehaviour
     //checa se esta no chao
     private bool IsGround()
     {
-        return Physics.Raycast(transform.position, -Vector3.up,  0.25f);
+        return Physics.Raycast(transform.position, -Vector3.up, 0.25f);
     }
 
     //controle basicos da camera
     private void CameraControll()
     {
+        if (Input.GetAxis("Mouse ScrollWheel") == 0 && !Input.GetMouseButton(1))
+            return;
         //checa zoom
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
             GameObject.FindGameObjectWithTag("CamControll").GetComponent<CameraController>().Zoom(Input.GetAxis("Mouse ScrollWheel"));
@@ -99,9 +101,9 @@ public class PlayerController : MonoBehaviour
     private bool SelectTarget()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
-        { 
-            GetTarget(); 
-            return true; 
+        {
+            GetTarget();
+            return true;
         }
         return false;
     }
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         GameObject[] tg;
         tg = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject _tg in tg)
+        foreach (GameObject _tg in tg)
         {
             if (Vector3.Distance(this.gameObject.transform.position, _tg.transform.position) < 25 && !_tg.GetComponent<Health>().Died())
                 this.gameObject.GetComponent<Combat>().selectTg = _tg.GetComponent<Health>();
@@ -225,7 +227,7 @@ public class PlayerController : MonoBehaviour
         {//para cada hits
             distances[i] = hits[i].distance;//a distancia entre o click e o objeto
         }
-        
+
         Array.Sort(distances, hits);//ajunta as listas
         return hits;//retorna a lista
     }

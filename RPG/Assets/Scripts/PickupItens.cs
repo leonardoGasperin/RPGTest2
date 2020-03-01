@@ -126,11 +126,11 @@ public class PickupItens : MonoBehaviour, IRayCastable
             canGet = true;
             return true;
         }
-        return false;
+        return true;
     }
 
     public CursorType GetCursorType()
     {
-        return CursorType.combat;
+        return CursorType.Pickup;
     }
 }

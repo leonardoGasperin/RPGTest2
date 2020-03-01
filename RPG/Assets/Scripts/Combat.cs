@@ -1,5 +1,6 @@
 ﻿/*#### açao de combate, faz com que o personagem ataque um inimigo selecionado e vice e versa*/
 using GameDevTV.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,12 +37,6 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
         WeaponC.ForceInit();
     }
 
-    //equipa arma padrao
-    private Weapon SetupDefault()
-    {
-        return AttachWeapon(weaponD);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -49,15 +44,21 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
         if (target == null) return;//caso nao tenha target sai
         else
         {//caso contrario
-            if(CanAtack(target.gameObject) && (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Alpha1)))
+            if (CanAtack(target.gameObject) && (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Alpha1)))
                 mov.MoveTo(target.transform.position, 1f, false);//move até o alvo
-            
+
             if (GetInRange(target.transform))
             {//quando chega na distancia da arma
                 mov.Cancel();//cancela movimento
                 AttackBehaviour();//inicia a animaçao de ataque
             }
         }
+    }
+
+    //equipa arma padrao
+    private Weapon SetupDefault()
+    {
+        return AttachWeapon(weaponD);
     }
 
     public Health selectTg
@@ -74,7 +75,7 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
     //equipa uma arma
     public void EquipWeapon(WeaponConfig w)
     {
-        weaponConfig = w; 
+        weaponConfig = w;
         WeaponC.value = AttachWeapon(w);
     }
 
@@ -109,7 +110,7 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
     public bool CanAtack(GameObject target)
     {
         if (target == null) return false;//caso nao tenha alvo
-        
+
         Health test = target.GetComponent<Health>();//referencia do hp do alvo
 
         return test != null && !test.Died();//retorna se tem alvo e se esta vivo
@@ -162,12 +163,18 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
         }
         else
             target.GetComponent<Health>().Damge(gameObject, dmg);//retira vida
-            
+
+        if (target.gameObject.tag == "Enemy")
+            CallAggro(true);
     }
 
     void Shoot()
     {
         Hit();
+    }
+    private void CallAggro(bool isAtacked = false)
+    { 
+        target.gameObject.GetComponent<AIController>().aggred = isAtacked;
     }
 
     //salva estados

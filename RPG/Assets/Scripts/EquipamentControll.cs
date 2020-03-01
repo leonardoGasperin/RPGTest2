@@ -72,6 +72,8 @@ public class EquipamentControll : MonoBehaviour
     //ativa e desativa botoes
     private void SetOptionsButtons(bool active = false)
     {
+        if (selectedSlot == null) return;
+        if (selectedSlot.item == null) active = false;
         selectedSlot.buttonUnequip.SetActive(active);
         selectedSlot.opt.SetActive(active);
     }
