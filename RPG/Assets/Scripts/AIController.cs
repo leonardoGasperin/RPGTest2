@@ -18,6 +18,8 @@ public class AIController : MonoBehaviour
     [Range(0, 1)] [SerializeField] float patrolSpdFrac = 0.2f;//velocidade durante patrulha
     [SerializeField] PatrolControll paths;//caminhos
 
+    public bool aggred = false;
+
     Transform target;//coordenadas do alvo
     Combat combat;//referencia de Combat.cs
     Move move;//referencia de Move.cs
@@ -50,7 +52,7 @@ public class AIController : MonoBehaviour
     {
         //se o target nao tiver a tag ou se ele estiver morto sai
         if (target.tag != "Player" || this.GetComponent<Health>().Died()) return;
-        if (CanAggro(target))//se consegui atacar o alvo
+        if (CanAggro(target) || GetAttacked(aggred))//se consegui atacar o alvo
         {
             AttackBehaviour();//inicia o ataque
         }
@@ -71,6 +73,7 @@ public class AIController : MonoBehaviour
     //delay do aggro
     public void Aggrevate()
     {
+        AICombat(target);
         timeSiceAggro = 0;
     }
 
@@ -101,6 +104,11 @@ public class AIController : MonoBehaviour
         return (Vector3.Distance(this.transform.position, t.position) <= chaseDist && !t.gameObject.GetComponent<Health>().Died()) || timeSiceAggro < aggro;
     }
 
+    public bool GetAttacked(bool isAtk = false)
+    {
+        return isAtk;
+    }
+
     //manda fazer ataque
     private void AttackBehaviour()
     {
@@ -115,7 +123,7 @@ public class AIController : MonoBehaviour
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDist, Vector3.up, shoutDist);//faz uma lista do que tem em volta na distancia do shout
 
         //para cara item no raio do shout
-        foreach(RaycastHit hit in hits)
+        foreach (RaycastHit hit in hits)
         {
             AIController aiAggro = hit.collider.GetComponent<AIController>();//se tiver o o component
             if (aiAggro == null) continue;
@@ -141,7 +149,7 @@ public class AIController : MonoBehaviour
                     rnd = Random.Range(3, 15);//escolha um tempo para ficar parado
                     CycleWP();//continue o ciclo
                 }
-                    
+
                 next = GetWP();//proximo
                 if (delay > rnd)//se delay for maior q o tempo de espera
                     move.StartActing(next, patrolSpdFrac, false, false);//mova para o proximo ponto

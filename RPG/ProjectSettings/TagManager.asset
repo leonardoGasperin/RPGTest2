@@ -9,6 +9,8 @@ TagManager:
   - OnLoad
   - CamControll
   - SlotOpt
+  - Npc
+  - test
   layers:
   - Default
   - TransparentFX

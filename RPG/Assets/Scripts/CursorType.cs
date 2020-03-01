@@ -5,5 +5,6 @@ public enum CursorType
     basic,
     combat,
     UI,
-    Pickup
+    Pickup,
+    Npc
 }

@@ -660,6 +660,21 @@ PrefabInstance:
       propertyPath: attributeUI
       value: 
       objectReference: {fileID: 883458280}
+    - target: {fileID: 8806876621640258583, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806876621640258583, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806876621640258583, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8313101182790688056, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
       propertyPath: m_AnchorMin.y
