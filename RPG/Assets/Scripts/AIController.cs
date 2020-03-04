@@ -56,7 +56,7 @@ public class AIController : MonoBehaviour
         {
             AttackBehaviour();//inicia o ataque
         }
-        else if (!CanAggro(target))//se nao
+        else if (!CanAggro(target) && !aggred)//se nao
         {
             PatrolBehaviour();//volta a patrulhar
         }

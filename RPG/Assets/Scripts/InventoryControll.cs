@@ -11,6 +11,7 @@ public class InventoryControll : MonoBehaviour
 
     public static InventoryControll instance;//instancia da classe para uso em locais co relativo como Equipamento
     public SlotInventory selectedSlot;//slot selecionado
+    public int money = 0;
 
     //preparação e criação do inventario
     private void Start()
