@@ -12,6 +12,7 @@ public class PickupItens : MonoBehaviour, IRayCastable
     [SerializeField] float HpRest = 20;//variavel para amontante de recureçao ou bonus de atributos(poções)
     [SerializeField] int amount = 0;//amontante de item stackable
     [SerializeField] float respawnT = 5;//tempo de respawn
+    [SerializeField] int price = 0;
     public bool isRespawnable = false;//ativaodr do respawn
     public ItemType type;//tipo do item
     public bool isStack = false;//check de item stackable
@@ -46,6 +47,11 @@ public class PickupItens : MonoBehaviour, IRayCastable
     public int InventoryAmount()
     {
         return amt;
+    }
+
+    public int ItemPrice()
+    {
+        return price;
     }
 
     public int GetAmount()

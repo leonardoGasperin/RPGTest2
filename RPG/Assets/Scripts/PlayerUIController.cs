@@ -11,6 +11,8 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] GameObject EquipUI = null;
     [SerializeField] GameObject menuUI = null;
 
+    public bool shopping = false;
+
     void Update()
     {
         if (HitButton()) return;
@@ -26,6 +28,7 @@ public class PlayerUIController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.I))
         {
+            inventoryUI.GetComponent<InventoryControll>().isShop = shopping;
             OpenClose(inventoryUI);
             return true;
         }

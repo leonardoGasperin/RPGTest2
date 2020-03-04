@@ -614,7 +614,7 @@ Twenty-first Day(02/22/20)
 			functions like select or use/drop/equip amount itens.
 			to amount item the PickupItens need inform if the item is stackable, the use and drop buttons continue in the same.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-first Day(02/23/20)
+Twenty-First Day(02/23/20)
 	Task 21 New Equipament System
 			Now for Equip button need make another logic to interact the inventory selected slot to the right slot on 
 			"EquipamentUI" and to this I need to make a 3 new scritps => 'EquipamentControll.cs' 'SlotEquip.cs' 'ItemType.cs'
@@ -683,7 +683,7 @@ Twenty-first Day(02/23/20)
     		||                                                ||
     		====================================================
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-second Day(02/24/2020)
+Twenty-Second Day(02/24/2020)
 	Bug`s an` Fixes
 		I`ve found some bug`s on Inventory system and Equipament system, I found a bug in player to
 		Fist on EquipamentUI the SlotEquip prefab is strange on scene, to fix it I need to maxmize the pivot config to center and full
@@ -709,3 +709,6 @@ Twenty-second Day(02/24/2020)
 			noticed again in center pitch valor , I put to 1 for 0.99f and now the check ground are working goot, and now I changed the
 			function of rigidybody what is appliyng the jump, I haved change to rigidybody.Add() fir .velocity, I think the effect is
 			more pretty good for jump.
+----------------------------------------------------------------------------------------------------------------------------------------
+Twenty-Third Day(02/24/2020)
+	Working on task`s 22 && 24

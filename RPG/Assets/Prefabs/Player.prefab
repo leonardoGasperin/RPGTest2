@@ -546,6 +546,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Knights_Soldier_01
       objectReference: {fileID: 0}
+    - target: {fileID: 592910459035237700, guid: 30cf93deff988e74e88a144bd2127c18,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 415837691974585810, guid: 30cf93deff988e74e88a144bd2127c18,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 417656, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -576,7 +586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417656, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 417656, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

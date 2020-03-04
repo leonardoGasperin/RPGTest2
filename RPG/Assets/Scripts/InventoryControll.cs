@@ -11,7 +11,9 @@ public class InventoryControll : MonoBehaviour
 
     public static InventoryControll instance;//instancia da classe para uso em locais co relativo como Equipamento
     public SlotInventory selectedSlot;//slot selecionado
+    public SlotShop selectedShop;
     public int money = 0;
+    public bool isShop;
 
     //preparação e criação do inventario
     private void Start()
@@ -50,13 +52,22 @@ public class InventoryControll : MonoBehaviour
             //ativa os botoes de função
             selectedSlot.opt.SetActive(true);
             //se for equip
-            if (selectedSlot.item.isWeapon)
-                selectedSlot.buttonEquip.SetActive(true);
-            else//caso contario
-                selectedSlot.buttonUse.SetActive(true);
+            if (!isShop)
+            {
+                if (selectedSlot.item.isWeapon)
+                    selectedSlot.buttonEquip.SetActive(true);
+                else//caso contario
+                    selectedSlot.buttonUse.SetActive(true);
 
-            selectedSlot.buttonDrop.SetActive(true);
+                selectedSlot.buttonDrop.SetActive(true);
+            }
+            else
+            {
+                selectedSlot.buttonSell.SetActive(true);
+            }
         }
+        if(selectedShop != null && selectedShop.item != null)
+            selectedShop.buy.SetActive(true);
     }
 
     //adiciona um item ao slot
@@ -134,6 +145,7 @@ public class InventoryControll : MonoBehaviour
         selectedSlot.item.Use();
         selectedSlot.SetUpSlot();
         SetOffOptButtons();
+        selectedSlot = null;
     }
 
     //joga item fora
@@ -154,6 +166,12 @@ public class InventoryControll : MonoBehaviour
         //e apos isso finaliza o uso do item
         selectedSlot.item.AfterUse();
         SetOffOptButtons();
+        selectedSlot = null;
+    }
+
+    public void Buy()
+    {
+
     }
 
 }
