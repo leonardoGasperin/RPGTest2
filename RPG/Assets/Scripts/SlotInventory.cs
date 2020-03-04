@@ -12,6 +12,7 @@ public class SlotInventory : SlotManager
     public GameObject buttonEquip = null;
     public GameObject buttonUse = null;
     public GameObject buttonDrop = null;
+    public GameObject buttonSell = null;
 
     //configuração do botão
     public override void SetUpSlot()

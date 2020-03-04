@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShopper: 0
+  npcInt: {fileID: 0}
 --- !u!114 &7655833868864622968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 3370696058045520200, guid: 057a41d2feb139a4e9551cc07a3842df,
         type: 3}
       propertyPath: m_Radius
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3370696058045520200, guid: 057a41d2feb139a4e9551cc07a3842df,
         type: 3}

@@ -67,6 +67,7 @@ public class EquipamentControll : MonoBehaviour
         GameObject.Find("Player").GetComponent<Combat>().EquipWeapon(wDefault);//desequipa arma e coloca nao armado
         selectedSlot.item = null;//esvazia slot
         SetOptionsButtons();//desativa botoes
+        selectedSlot = null;
     }
 
     //ativa e desativa botoes

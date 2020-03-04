@@ -1,29 +1,65 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
-    [SerializeField] bool isShopper = false;
+    [SerializeField] GameObject npcInt = null;
+    [SerializeField] GameObject shop = null;
+    [SerializeField] PickupItens[] itens = null;
+    
+    bool isTrig = false;
+    bool isInt = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        if (itens != null)
+        {
+            foreach (PickupItens seller in itens)
+            {
+                shop.GetComponent<InventoryControll>().AddItem(seller);
+            }
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (!isTrig) return;
+        PressToInteract(GameObject.Find("Player"));
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
+            isTrig = true;
+            npcInt.SetActive(!isInt);
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            isTrig = false;
+            npcInt.SetActive(false);
+        }
+    }
+
+    private void PressToInteract(GameObject other)
+    {
+        other.transform.LookAt(this.transform);
+        if (Input.GetKeyDown(KeyCode.E) && !isInt)
+        {
+            isInt = true;
+            shop.SetActive(isInt);
+            npcInt.SetActive(!isInt);
+            other.GetComponent<PlayerUIController>().shopping = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && isInt)
+        {
+            isInt = false;
+            shop.SetActive(isInt);
+            npcInt.SetActive(!isInt);
+            other.GetComponent<PlayerUIController>().shopping = false;
         }
     }
 }
