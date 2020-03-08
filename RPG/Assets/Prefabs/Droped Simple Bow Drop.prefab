@@ -66,6 +66,7 @@ MonoBehaviour:
   HpRest: 0
   amount: 1
   respawnT: 5
+  price: 0
   isRespawnable: 0
   type: 5
   isStack: 0

@@ -29,7 +29,7 @@ public class SlotManager : MonoBehaviour
     void Update()
     {
         SetUpSlot();//sempre atualiza os slot quando UI aberta
-        isSelected = InventoryControll.instance.selectedSlot == this || EquipamentControll.instance.selectedSlot == this;//checa se o slot esta selecionado
+        isSelected = InventoryControll.instance.selectedSlot == this || EquipamentControll.instance.selectedSlot == this || ShopControll.instance.selectedShop == this;//checa se o slot esta selecionado
         opt.SetActive(isSelected && item != null);//ativa botões do slot selecionado
 
         background.color = isSelected ? onSelected : unSelected;//check para cor do slot

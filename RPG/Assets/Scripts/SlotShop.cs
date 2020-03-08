@@ -17,16 +17,7 @@ public class SlotShop : SlotManager
             SetActiveSlot(true);
             //itemIcon.sprite = item.icon.sprite;//atribui icone do item
             nameItem.text = item.itemName;//atribui nome do item
-
-            //se o item for stackable
-            if (item.isStack)
-            {
-                price.text = item.ItemPrice().ToString();//motra a quantia no indicador
-            }
-            else
-            {//caso contrario desativa indicador
-                pricetInd.SetActive(false);
-            }
+            price.text = item.ItemPrice().ToString();//motra a quantia no indicador
         }
         else
         {//caso contrario desativa slot
@@ -48,11 +39,11 @@ public class SlotShop : SlotManager
         //se selecionado ativa as funçoes do slot
         if (isSelected)
         {
-            InventoryControll.instance.selectedShop = null;
+            ShopControll.instance.selectedShop = null;
         }
         else
         {
-            InventoryControll.instance.selectedShop = this;
+            ShopControll.instance.selectedShop = this;
         }
     }
 }

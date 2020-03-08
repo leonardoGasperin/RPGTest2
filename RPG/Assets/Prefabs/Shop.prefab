@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1063135701808067386}
-  - component: {fileID: 4165022817552380755}
+  - component: {fileID: 6210062551523740215}
   m_Layer: 0
   m_Name: ShopUI
   m_TagString: Untagged
@@ -257,14 +257,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7255115038071248223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000061035156, y: 110.5, z: 0}
+  m_LocalPosition: {x: -0.00012207031, y: 110.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5400423777244058894}
   m_Father: {fileID: 5074674455322743297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4165022817552380755
+--- !u!114 &6210062551523740215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,16 +273,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7255115038071248223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21ce19a2d81c183438b362e1443c8d36, type: 3}
+  m_Script: {fileID: 11500000, guid: e66a595e3561a2a4382b83ff22a6e52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pl: {fileID: 5605518632746593898, guid: 183bb855c547af14bbb623f09cc3220f, type: 3}
+  pl: {fileID: 0}
   invSlot: []
-  slotPrefab: {fileID: 0}
+  slotPrefab: {fileID: 4456864270347910768}
   invGrid: {fileID: 7625395002818059896}
-  selectedSlot: {fileID: 0}
   selectedShop: {fileID: 0}
-  money: 0
   isShop: 0
 --- !u!1 &7781426822756078992
 GameObject:
@@ -608,6 +606,11 @@ PrefabInstance:
       propertyPath: onSelected.a
       value: 0.40392157
       objectReference: {fileID: 0}
+    - target: {fileID: 6183484912124786279, guid: 3fd9a83ffc4094f4ea1d3bfb209a903c,
+        type: 3}
+      propertyPath: unSelected.a
+      value: 0.73333335
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fd9a83ffc4094f4ea1d3bfb209a903c, type: 3}
 --- !u!224 &6571328482216829776 stripped
@@ -616,3 +619,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7496752528983902231}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4456864270347910768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6183484912124786279, guid: 3fd9a83ffc4094f4ea1d3bfb209a903c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7496752528983902231}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b3380cbdeb1374aa29e63de97e9160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

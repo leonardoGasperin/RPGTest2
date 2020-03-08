@@ -76,6 +76,5 @@ public class EquipamentControll : MonoBehaviour
         if (selectedSlot == null) return;
         if (selectedSlot.item == null) active = false;
         selectedSlot.buttonUnequip.SetActive(active);
-        selectedSlot.opt.SetActive(active);
     }
 }

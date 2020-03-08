@@ -5,23 +5,18 @@ public class Npc : MonoBehaviour
     [SerializeField] GameObject npcInt = null;
     [SerializeField] GameObject shop = null;
     [SerializeField] PickupItens[] itens = null;
-    
+
+    int i = 0;
     bool isTrig = false;
     bool isInt = false;
 
-    private void Start()
-    {
-        if (itens != null)
-        {
-            foreach (PickupItens seller in itens)
-            {
-                shop.GetComponent<InventoryControll>().AddItem(seller);
-            }
-        }
-    }
-
     void Update()
     {
+        if(i != itens.Length)
+        {
+            shop.GetComponent<ShopControll>().AddItem(itens[i]);
+            i++;
+        }
         if (!isTrig) return;
         PressToInteract(GameObject.Find("Player"));
     }
@@ -46,9 +41,9 @@ public class Npc : MonoBehaviour
 
     private void PressToInteract(GameObject other)
     {
-        other.transform.LookAt(this.transform);
         if (Input.GetKeyDown(KeyCode.E) && !isInt)
         {
+            transform.LookAt(other.transform);
             isInt = true;
             shop.SetActive(isInt);
             npcInt.SetActive(!isInt);

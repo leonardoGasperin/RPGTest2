@@ -26,23 +26,6 @@ public class PickupItens : MonoBehaviour, IRayCastable
         get { return pickableWeapon == null ? false : true; }
     }
 
-    private void Update()
-    {
-        if (GetInRange(GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().transform) && canGet)
-        {//se foi clicado pega item
-            PickUp();
-        }
-    }
-
-    internal void AddItem(int recived = 1)
-    {
-        amt += recived;
-    }
-    internal void RemoveItem(int used = 1)
-    {
-        amt -= used;
-    }
-
     //referencia da quantia do item pego
     public int InventoryAmount()
     {
@@ -54,9 +37,28 @@ public class PickupItens : MonoBehaviour, IRayCastable
         return price;
     }
 
-    public int GetAmount()
+    /*public int GetAmount()
     {
         return amount;
+    }*/
+
+    private void Update()
+    {
+        if (GetInRange(GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().transform) && canGet)
+        {//se foi clicado pega item
+            PickUp();
+        }
+    }
+
+    internal void AddItem(int recived = 1, bool ishopping = false)
+    {
+        if (ishopping)
+            amt = 0;
+        amt += recived;
+    }
+    internal void RemoveItem(int used = 1)
+    {
+        amt -= used;
     }
 
     //pega item
@@ -103,7 +105,11 @@ public class PickupItens : MonoBehaviour, IRayCastable
             }
         }
         else
+        {
+            if (inventory == null)
+                inventory = GameObject.Find("UIInventory").GetComponent<InventoryControll>();
             inventory.selectedSlot.item = null;//esvazia slot
+        }
     }
 
     public void Dropped(GameObject item)
