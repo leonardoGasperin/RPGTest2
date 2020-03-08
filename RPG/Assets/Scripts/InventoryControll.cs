@@ -11,7 +11,6 @@ public class InventoryControll : MonoBehaviour
 
     public static InventoryControll instance;//instancia da classe para uso em locais co relativo como Equipamento
     public SlotInventory selectedSlot;//slot selecionado
-    public SlotShop selectedShop;
     public int money = 0;
     public bool isShop;
 
@@ -50,10 +49,13 @@ public class InventoryControll : MonoBehaviour
         if (selectedSlot != null && selectedSlot.item != null)
         {
             //ativa os botoes de função
-            selectedSlot.opt.SetActive(true);
-            //se for equip
-            if (!isShop)
+            if (pl.GetComponent<PlayerUIController>().shopping)
             {
+                selectedSlot.buttonSell.SetActive(true);
+            }
+            else
+            {
+                //selectedSlot.opt.SetActive(true);
                 if (selectedSlot.item.isWeapon)
                     selectedSlot.buttonEquip.SetActive(true);
                 else//caso contario
@@ -61,13 +63,7 @@ public class InventoryControll : MonoBehaviour
 
                 selectedSlot.buttonDrop.SetActive(true);
             }
-            else
-            {
-                selectedSlot.buttonSell.SetActive(true);
-            }
         }
-        if(selectedShop != null && selectedShop.item != null)
-            selectedShop.buy.SetActive(true);
     }
 
     //adiciona um item ao slot
@@ -85,7 +81,8 @@ public class InventoryControll : MonoBehaviour
                 //se ha um slot ocupado com o mesmo item
                 if (slot.item != null && slot.item.itemName == item.itemName)
                 {//caso sim almenta a quantia de item
-                    slot.item.AddItem(slot.item.GetAmount());
+                    
+                    slot.item.AddItem();
                     found = true;//e diz que o item foi encontrado
                 }
             }
@@ -93,7 +90,8 @@ public class InventoryControll : MonoBehaviour
             //caso o item nao foi encontrado e o slot for vaziu
             if (!found && empty != null)
             {//adiciona o item
-                item.AddItem(item.GetAmount());
+                if(pl.GetComponent<PlayerUIController>().shopping)
+                item.AddItem(1, true);
                 empty.item = item;
             }
         }//caso o item nao for stackable
@@ -127,7 +125,6 @@ public class InventoryControll : MonoBehaviour
         selectedSlot.buttonUse.SetActive(false);
         selectedSlot.buttonEquip.SetActive(false);
         selectedSlot.buttonDrop.SetActive(false);
-        selectedSlot.opt.SetActive(false);
     }
 
     //usa um item
@@ -143,6 +140,16 @@ public class InventoryControll : MonoBehaviour
     {
         EquipamentControll.instance.Equip(selectedSlot.item.type, selectedSlot.item);
         selectedSlot.item.Use();
+        selectedSlot.SetUpSlot();
+        SetOffOptButtons();
+        selectedSlot = null;
+    }
+
+    public void SellItem()
+    {
+        int sellPrice = selectedSlot.item.ItemPrice() / 2;
+        money += sellPrice;
+        selectedSlot.item.AfterUse();
         selectedSlot.SetUpSlot();
         SetOffOptButtons();
         selectedSlot = null;
@@ -168,10 +175,4 @@ public class InventoryControll : MonoBehaviour
         SetOffOptButtons();
         selectedSlot = null;
     }
-
-    public void Buy()
-    {
-
-    }
-
 }

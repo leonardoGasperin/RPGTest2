@@ -210,7 +210,6 @@ MonoBehaviour:
   slotPrefab: {fileID: 2511903712441248051}
   invGrid: {fileID: 2046824162412147534}
   selectedSlot: {fileID: 0}
-  selectedShop: {fileID: 0}
   money: 0
   isShop: 0
 --- !u!1 &2544302813743636772
@@ -457,11 +456,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot
       objectReference: {fileID: 0}
-    - target: {fileID: 8964176499077318619, guid: 63c84c13566d9ad47ab829e32e467ef7,
-        type: 3}
-      propertyPath: buttonBuy
-      value: 
-      objectReference: {fileID: 8386162056099863076}
     - target: {fileID: 6093211907549846748, guid: 63c84c13566d9ad47ab829e32e467ef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -567,11 +561,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 519324606531944429, guid: 63c84c13566d9ad47ab829e32e467ef7,
+    - target: {fileID: 8964176499077318619, guid: 63c84c13566d9ad47ab829e32e467ef7,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: buttonBuy
       value: 
-      objectReference: {fileID: 5510222102295895653}
+      objectReference: {fileID: 8386162056099863076}
     - target: {fileID: 6269651703543060594, guid: 63c84c13566d9ad47ab829e32e467ef7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -598,6 +592,26 @@ PrefabInstance:
       value: DropItem
       objectReference: {fileID: 0}
     - target: {fileID: 5098123607593228729, guid: 63c84c13566d9ad47ab829e32e467ef7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 519324606531944429, guid: 63c84c13566d9ad47ab829e32e467ef7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5510222102295895653}
+    - target: {fileID: 3143747610023943754, guid: 63c84c13566d9ad47ab829e32e467ef7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5510222102295895653}
+    - target: {fileID: 3143747610023943754, guid: 63c84c13566d9ad47ab829e32e467ef7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SellItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143747610023943754, guid: 63c84c13566d9ad47ab829e32e467ef7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine

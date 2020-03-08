@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6da419d0a0a1c4baff6a43b4cb16a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShopper: 0
-  npcInt: {fileID: 0}
+  npcInt: {fileID: 1262221390540028062, guid: 4dca4a44a195ac14c9a39e9f1c6ef2e2, type: 3}
+  shop: {fileID: 0}
+  itens: []
 --- !u!114 &7655833868864622968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,6 +38,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Npc Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936376794035786958, guid: 057a41d2feb139a4e9551cc07a3842df,
+        type: 3}
+      propertyPath: m_TagString
+      value: Npc
       objectReference: {fileID: 0}
     - target: {fileID: 2573052013017757250, guid: 057a41d2feb139a4e9551cc07a3842df,
         type: 3}
@@ -93,6 +99,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6335621282051366000, guid: 057a41d2feb139a4e9551cc07a3842df,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6102012627051674028, guid: 057a41d2feb139a4e9551cc07a3842df,
         type: 3}
       propertyPath: progression
@@ -104,6 +115,22 @@ PrefabInstance:
       propertyPath: characterClass
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 9106683516735076004, guid: 057a41d2feb139a4e9551cc07a3842df,
+        type: 3}
+      propertyPath: leftHandT
+      value: 
+      objectReference: {fileID: 8789953677330764641}
+    - target: {fileID: 9106683516735076004, guid: 057a41d2feb139a4e9551cc07a3842df,
+        type: 3}
+      propertyPath: rightHandT
+      value: 
+      objectReference: {fileID: 8359554516915708919}
+    - target: {fileID: 9106683516735076004, guid: 057a41d2feb139a4e9551cc07a3842df,
+        type: 3}
+      propertyPath: weaponD
+      value: 
+      objectReference: {fileID: 11400000, guid: 428e691dc575e2b4c8b31f162258e2b3,
+        type: 2}
     - target: {fileID: 3370696058045520200, guid: 057a41d2feb139a4e9551cc07a3842df,
         type: 3}
       propertyPath: m_Radius
@@ -191,3 +218,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9572094, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+--- !u!4 &8789953677330764641 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 415837691974585810, guid: 30cf93deff988e74e88a144bd2127c18,
+    type: 3}
+  m_PrefabInstance: {fileID: 8951302699675901619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8359554516915708919 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 592910459035237700, guid: 30cf93deff988e74e88a144bd2127c18,
+    type: 3}
+  m_PrefabInstance: {fileID: 8951302699675901619}
+  m_PrefabAsset: {fileID: 0}
