@@ -710,5 +710,5 @@ Twenty-Second Day(02/24/2020)
 			function of rigidybody what is appliyng the jump, I haved change to rigidybody.Add() fir .velocity, I think the effect is
 			more pretty good for jump.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-Third Day(02/24/2020)
-	Working on task`s 22 && 24
+Twenty-Third Day(02/24/2020) to Day(08/24/2020)
+	Working on task`s 22 && 26
