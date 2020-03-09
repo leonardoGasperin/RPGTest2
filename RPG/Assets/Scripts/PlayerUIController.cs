@@ -7,9 +7,10 @@ public class PlayerUIController : MonoBehaviour
 {
     //referencias
     [SerializeField] GameObject attributeUI = null;
-    [SerializeField] GameObject inventoryUI = null;
+    public GameObject inventoryUI = null;
     [SerializeField] GameObject EquipUI = null;
     [SerializeField] GameObject menuUI = null;
+    public QuestSlot QuestUI = null;
 
     public bool shopping = false;
 

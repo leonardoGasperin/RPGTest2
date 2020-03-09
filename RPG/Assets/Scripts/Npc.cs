@@ -2,21 +2,19 @@
 
 public class Npc : MonoBehaviour
 {
-    [SerializeField] GameObject npcInt = null;
-    [SerializeField] GameObject shop = null;
-    [SerializeField] PickupItens[] itens = null;
+    public NpcDialogeSystem dialoge = null;
+    public GameObject npcInt = null;
+    public string thisName;
+    public bool isInt = false;
+    [TextArea(5, 10)]
+    public string[] sentences;
+    [TextArea(5, 10)]
+    public string[] endQuestSentence;
 
-    int i = 0;
     bool isTrig = false;
-    bool isInt = false;
 
-    void Update()
+    public virtual void Update()
     {
-        if(i != itens.Length)
-        {
-            shop.GetComponent<ShopControll>().AddItem(itens[i]);
-            i++;
-        }
         if (!isTrig) return;
         PressToInteract(GameObject.Find("Player"));
     }
@@ -35,26 +33,10 @@ public class Npc : MonoBehaviour
         if (other.tag == "Player")
         {
             isTrig = false;
+            dialoge.OutOfRange();
             npcInt.SetActive(false);
         }
     }
 
-    private void PressToInteract(GameObject other)
-    {
-        if (Input.GetKeyDown(KeyCode.E) && !isInt)
-        {
-            transform.LookAt(other.transform);
-            isInt = true;
-            shop.SetActive(isInt);
-            npcInt.SetActive(!isInt);
-            other.GetComponent<PlayerUIController>().shopping = true;
-        }
-        else if(Input.GetKeyDown(KeyCode.Escape) && isInt)
-        {
-            isInt = false;
-            shop.SetActive(isInt);
-            npcInt.SetActive(!isInt);
-            other.GetComponent<PlayerUIController>().shopping = false;
-        }
-    }
+    public virtual void PressToInteract(GameObject other) { }
 }
