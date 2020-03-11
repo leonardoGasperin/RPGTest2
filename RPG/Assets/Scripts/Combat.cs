@@ -23,6 +23,8 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
     WeaponConfig weaponConfig;//arma atual
     LazyValue<Weapon> WeaponC;//arma atual
 
+    public bool isQuestMob = false;
+
     private void Awake()
     {
         //inicializa variaveis
@@ -144,6 +146,12 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
     public void Cancel()
     {
         GetComponent<Animator>().ResetTrigger("attack");//desativa trigger do animator
+
+        if (isQuestMob && target.Died())
+        {
+            if (this.gameObject.tag == "Player")
+                this.GetComponent<PlayerUIController>().QuestUI.AddAmount(target.name);
+        }
         target = null;//zera target
         mov.Cancel();
     }

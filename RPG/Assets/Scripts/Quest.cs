@@ -11,10 +11,12 @@ public class Quest
     public int expReward;
     public int moneyReward;
     public bool isActive;
+    public bool isComplet;
     public QuestTask task;
 
     public void Complet()
     {
+        isComplet = true;
         isActive = false;
     }
 }

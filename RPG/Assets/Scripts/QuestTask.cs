@@ -18,10 +18,10 @@ public class QuestTask
         return (currentAmt >= requiredAmt);
     }
 
-    public void EnemyKilled(bool kill, string name)
+    public void EnemyKilled(string _name)
     {
-        if (name != objName || endQuest) return;
-        if(kill)
-            currentAmt++;
+        if (_name != objName || endQuest) return;
+        currentAmt++;
+
     }
 }
