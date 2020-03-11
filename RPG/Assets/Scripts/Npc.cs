@@ -9,6 +9,8 @@ public class Npc : MonoBehaviour
     [TextArea(5, 10)]
     public string[] sentences;
     [TextArea(5, 10)]
+    public string[] midQuestSentence;
+    [TextArea(5, 10)]
     public string[] endQuestSentence;
 
     bool isTrig = false;

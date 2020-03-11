@@ -18,11 +18,13 @@ public class NpcQuest : Npc
 
     public override void Update()
     {
-        quest.isActive = dialoge.questAccept;
+        if(!quest.isActive)
+            quest.isActive = dialoge.questAccept;
 
         if (quest.isActive && !quest.task.endQuest)
             AcceptdQuest();
-
+        else if (quest.isActive && quest.task.endQuest)
+            OverQuest();
 
         base.Update();
     }
@@ -31,19 +33,22 @@ public class NpcQuest : Npc
     {
         if (Input.GetKeyDown(KeyCode.E) && !isInt)
         {
-            //isInt = true;
             dialoge.name = thisName;
-            if (quest.isActive && quest.task.endQuest)
-            {
-                OverQuest();
-                dialoge.NPCName(true);
-            }
-            else
+            if(!quest.isActive && !quest.task.endQuest)
             {
                 dialoge.dialoge = sentences;
                 dialoge.NPCName(true);
             }
-            dialoge.NPCName(false);
+            else if(quest.isActive && !quest.task.endQuest)
+            {
+                dialoge.dialoge = null;
+                dialoge.dialoge = midQuestSentence;
+                dialoge.NPCName(false);
+            }
+            else if(quest.isActive && quest.task.endQuest)
+                dialoge.NPCName(true);
+            if(quest.isComplet)
+                dialoge.NPCName(false);
         }
     }
 
@@ -57,12 +62,12 @@ public class NpcQuest : Npc
         dialoge.dialoge = endQuestSentence;
         if (dialoge.questEnd)
         {
-            dialoge.questReciving = false;
             quest.Complet();
+            Reward();
+            dialoge.questReciving = false;
         }
         else
         {
-            Reward();
             dialoge.questReciving = true;
         }
     }
@@ -70,6 +75,6 @@ public class NpcQuest : Npc
     {
         pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().money += quest.moneyReward;
         pl.GetComponent<XP>().GainXP(quest.expReward);
-        quest = null;
+        pl.GetComponent<PlayerUIController>().QuestUI.quest = null;
     }
 }

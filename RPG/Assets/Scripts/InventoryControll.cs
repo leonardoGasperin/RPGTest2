@@ -55,7 +55,7 @@ public class InventoryControll : MonoBehaviour
             }
             else
             {
-                //selectedSlot.opt.SetActive(true);
+                selectedSlot.buttonSell.SetActive(false);
                 if (selectedSlot.item.isWeapon)
                     selectedSlot.buttonEquip.SetActive(true);
                 else//caso contario

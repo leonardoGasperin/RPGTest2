@@ -33,12 +33,14 @@ public class QuestSlot : MonoBehaviour
         if (type == TaskType.Kill)
         {
             if (pl.GetComponent<Combat>().GetTarget() == null) return;
-
-            string tgName = pl.GetComponent<Combat>().GetTarget().gameObject.name;
-            bool isDead = pl.GetComponent<Combat>().GetTarget().Died();
-            quest.task.EnemyKilled(isDead, tgName);
-            return;
+            if (pl.GetComponent<Combat>().GetTarget().gameObject.name == quest.task.objName)
+                pl.GetComponent<Combat>().isQuestMob = true;
         }
+    }
+
+    public void AddAmount(string _name)
+    {
+        quest.task.EnemyKilled(_name);
     }
 
 }
