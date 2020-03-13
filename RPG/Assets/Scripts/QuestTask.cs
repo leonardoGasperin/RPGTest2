@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
+﻿[System.Serializable]
 public class QuestTask
 {
     public TaskType type;
@@ -18,10 +13,15 @@ public class QuestTask
         return (currentAmt >= requiredAmt);
     }
 
-    public void EnemyKilled(string _name)
+    public void EnemyKilled()
     {
-        if (_name != objName || endQuest) return;
+        if (endQuest) return;
         currentAmt++;
+    }
 
+    public void GatheringSlot(int amt)
+    {
+        if (endQuest) return;
+        currentAmt = amt;
     }
 }

@@ -16,6 +16,10 @@ public class PlayerUIController : MonoBehaviour
 
     void Update()
     {
+        if(inventoryUI.GetComponent<InventoryControll>().haveQuestItem)
+            inventoryUI.GetComponent<InventoryControll>().CheckForQuest();
+        if(inventoryUI.GetComponent<InventoryControll>().clearTask)
+            inventoryUI.GetComponent<InventoryControll>().CheckForQuest();
         if (HitButton()) return;
     }
     

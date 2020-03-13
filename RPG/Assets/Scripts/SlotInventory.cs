@@ -28,7 +28,7 @@ public class SlotInventory : SlotManager
             //se o item for stackable
             if (item.isStack)
             {
-                amount.text = item.InventoryAmount().ToString();//motra a quantia no indicador
+                amount.text = (item.InventoryAmount() + 1).ToString();//motra a quantia no indicador
             }
             else
             {//caso contrario desativa indicador
