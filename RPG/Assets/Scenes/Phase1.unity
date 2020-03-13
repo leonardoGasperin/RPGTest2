@@ -1450,10 +1450,10 @@ MonoBehaviour:
     isActive: 0
     isComplet: 0
     task:
-      type: 0
+      type: 1
       requiredAmt: 1
       currentAmt: 0
-      objName: Guard
+      objName: Pumpkin
       endQuest: 0
 --- !u!114 &592325037 stripped
 MonoBehaviour:
