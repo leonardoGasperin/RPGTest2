@@ -17,7 +17,7 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
     [SerializeField] public WeaponConfig weaponD = null;//arma padrao
 
 
-    [SerializeField]Health target;//transform do alvo
+    [SerializeField] Health target;//transform do alvo
     Move mov;//referencia da açao move
     float timeSiceAtk = Mathf.Infinity;//delay do ataque
     WeaponConfig weaponConfig;//arma atual
@@ -46,31 +46,23 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
         if (target == null) return;//caso nao tenha target sai
         else
         {//caso contrario
-            if(this.tag == "Player") 
+            if (this.tag == "Player")
             {
                 if (CanAtack(target.gameObject) && (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Alpha1)))
                     mov.MoveTo(target.transform.position, 1f, false);//move até o alvo
-
-                if (GetInRange(target.transform))
-                {//quando chega na distancia da arma
-                    mov.Cancel();//cancela movimento
-                    transform.LookAt(target.transform);
-                    AttackBehaviour();//inicia a animaçao de ataque
-                }
             }
             else
             {
                 if (CanAtack(target.gameObject))
                     mov.MoveTo(target.transform.position, 1f, false);//move até o alvo
-
-                if (GetInRange(target.transform))
-                {//quando chega na distancia da arma
-                    mov.Cancel();//cancela movimento
-                    transform.LookAt(target.transform);
-                    AttackBehaviour();//inicia a animaçao de ataque
-                }
             }
-            
+
+            if (GetInRange(target.transform))
+            {//quando chega na distancia da arma
+                mov.Cancel();//cancela movimento
+                transform.LookAt(target.transform);
+                AttackBehaviour();//inicia a animaçao de ataque
+            }
         }
     }
 
@@ -145,13 +137,9 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
     //cancela açao
     public void Cancel()
     {
+        if (isQuestMob && this.gameObject.tag == "Player")
+            this.GetComponent<PlayerUIController>().QuestUI.AddAmount();
         GetComponent<Animator>().ResetTrigger("attack");//desativa trigger do animator
-
-        if (isQuestMob && target.Died())
-        {
-            if (this.gameObject.tag == "Player")
-                this.GetComponent<PlayerUIController>().QuestUI.AddAmount(target.name);
-        }
         target = null;//zera target
         mov.Cancel();
     }
@@ -200,8 +188,8 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
         Hit();
     }
     private void CallAggro(bool isAtacked = false)
-    { 
-        if(target != null && gameObject.tag == "Player")
+    {
+        if (target != null && gameObject.tag == "Player")
             target.gameObject.GetComponent<AIController>().aggred = isAtacked;
     }
 

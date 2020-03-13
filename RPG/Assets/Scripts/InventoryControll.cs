@@ -13,6 +13,9 @@ public class InventoryControll : MonoBehaviour
     public SlotInventory selectedSlot;//slot selecionado
     public int money = 0;
     public bool isShop;
+    public bool haveQuestItem = false;
+    public bool questItemComplet = false;
+    public bool clearTask = false;
 
     //preparação e criação do inventario
     private void Start()
@@ -117,6 +120,32 @@ public class InventoryControll : MonoBehaviour
             }
         }
         return slotReturn;
+    }
+
+    public void CheckForQuest()
+    {
+        foreach(SlotInventory slot in invSlot)
+        {
+            if (slot.item != null) 
+            {
+                if(clearTask)
+                {
+                    if (slot.item.itemName == pl.GetComponent<PlayerUIController>().QuestUI.quest.task.objName)
+                    {
+                        slot.item.QuestRemover(pl.GetComponent<PlayerUIController>().QuestUI.quest.task.requiredAmt);
+                        if (slot.item.InventoryAmount() + 1 <= 0)
+                        {  slot.item = null; }
+                        clearTask = false;
+
+                        break;
+                    }
+                }
+                if (slot.item.itemName == pl.GetComponent<PlayerUIController>().QuestUI.quest.task.objName)
+                        pl.GetComponent<PlayerUIController>().QuestUI.InvQuestItem(slot);
+                
+            }
+            
+        }
     }
 
     //desativa os botoes do slot

@@ -36,11 +36,19 @@ public class QuestSlot : MonoBehaviour
             if (pl.GetComponent<Combat>().GetTarget().gameObject.name == quest.task.objName)
                 pl.GetComponent<Combat>().isQuestMob = true;
         }
+        if(type == TaskType.Gathering)
+        {
+            pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().haveQuestItem = true;
+        }
     }
 
-    public void AddAmount(string _name)
+    public void AddAmount()
     {
-        quest.task.EnemyKilled(_name);
+        quest.task.EnemyKilled();
     }
 
+    public void InvQuestItem(SlotInventory slotItem)
+    {
+        quest.task.GatheringSlot(slotItem.item.InventoryAmount() + 1);
+    }
 }

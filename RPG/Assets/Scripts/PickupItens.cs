@@ -88,6 +88,11 @@ public class PickupItens : MonoBehaviour, IRayCastable
         AfterUse();
     }
 
+    public void QuestRemover(int _amt)
+    {
+        RemoveItem(_amt);
+    }
+
     //finaliza o uso do item
     public virtual void AfterUse()
     {

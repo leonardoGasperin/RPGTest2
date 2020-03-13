@@ -75,6 +75,14 @@ public class NpcQuest : Npc
     {
         pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().money += quest.moneyReward;
         pl.GetComponent<XP>().GainXP(quest.expReward);
+        if (quest.task.type == TaskType.Gathering)
+        { 
+            pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().haveQuestItem = false;
+            pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().clearTask = true;
+            if(quest.task.currentAmt == 0)
+                pl.GetComponent<PlayerUIController>().QuestUI.quest = null;
+            return;
+        }
         pl.GetComponent<PlayerUIController>().QuestUI.quest = null;
     }
 }
