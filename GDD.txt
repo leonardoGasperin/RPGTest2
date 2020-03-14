@@ -707,8 +707,68 @@ Twenty-Second Day(02/24/2020)
 			1 to 2 and the pitch center from 0 to 1 to fix it.
 		Fourth on Player jump in check ground, for some reason the check ground are buging since when I`ve created the method, but I
 			noticed again in center pitch valor , I put to 1 for 0.99f and now the check ground are working goot, and now I changed the
-			function of rigidybody what is appliyng the jump, I haved change to rigidybody.Add() fir .velocity, I think the effect is
-			more pretty good for jump.
+			function of rigidybody what is appliyng the jump, I haved change to rigidybody.AddForce() to rigidybody.velocity, 
+			I think the effect is more pretty good for jump.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-Third Day(02/24/2020) to Day(08/24/2020)
+Twenty-Third Day(02/25/2020) to Day(03/8/2020)
 	Working on task`s 22 && 26
+		In first I being with the new character prefab, creating an NPC prefrab variant from character using more then the 'Npc.cs'
+		and without 'AICombat.cs'. with 'Npc.cs' I set with "OnTriggerEnter()" and "OnTriggerExit()" methods to set the player are
+		close to the npc character, and if is show in display "Press E" to interract with Npc. After that I make a variant prefab
+		of inventory to make a shop prefab, it's work like inventory but need be like diferently from inventory, for fisrt in shop
+		inventory dont have item amout, but have price, put the itens when open the shop and to this I created a 'ShopControll.cs'
+		and another child of 'SlotManager.cs' called 'SlotShop.cs' and the unique diference on this slotshop is the unique button to
+		buy and the price indicator.
+		To put the item on slotshop is the Npc what is the shopper and to this I created a child of 'Npc.cs' called 'NpcShop.cs'
+		what have a serializable array of PickupItens type and on the Update() I ask if the indicator is great or equal from 
+		array.length or if the list is null go to base Update() else if the index is not equals from the length of the array add the
+		itens on slotshop and increment the index. And if the player get interract with Npc Shopper the 'NpcShop.cs' active the shop.
+		After finished the Npc Shopper I created another Npc child the 'NpcCommoner.cs' is the same to interract only diference is the
+		dialogue box UI and the dialogue text, to this I`ve created 'NpcDialogeSystem.cs' what have the Npc name, dialogue text and UI
+		and on Npc script check if get interracted and if yes the 'NpcCommoner.cs' call the 'NpcDialogeSystem.cs' to start the dialogue.
+		and it is the NpcCommoner.
+----------------------------------------------------------------------------------------------------------------------------------------
+Twenty-Fourth Day(03/8/2020) to Day(03/13/2020)
+	Working on task 28 Quest System
+		From the 'NpcCommoner.cs' dialogue exemple I created another Npc children called 'NpcQuest.cs'
+		what needed created another script called 'Quest.cs', 'QuestTask.cs' and 'TaskType.cs' ->(an Enum). in Quest we have QuestTask
+		and in Quest have a quest title an quest description, exp and money reward and the call if is active or complet, on QuestTask
+		have the TaskType the amount needed to finish the quest and the current amount player have, the objective name and if the 
+		player is ended the quest, for now I have only two type of quest, kill enemies and gathering itens. When the player talk with 
+		a Npc what can give a quest to the player (if the player dont have complet it yet), when player hit the accept button the npc
+		trow the quest informations to a new scritp, the 'QuestSlot.cs' what in Update() ask if have an quest if is active and if is
+		not reach to the end go to TaskGoal(TaskType) method and while not reach to the end of task dont apply the quest end, but when
+		can apply the player can deliver to the npc and the npc can call the reward and take of the quest, without take of the complet
+		mark. For now in the 'NpcDialogeSystem.cs' can be warned by NpcQuest and QuestSlot to alterate the dialogue text with npc
+		if not started the quest - if is started but not ended - if ended and if completed and logic if have quest on npc.
+----------------------------------------------------------------------------------------------------------------------------------------
+Twenty-Fifth Day(03/8/2020)
+	Working on task 27 QuestControll
+		The Ideia for now if make an UI first with two side the left the quest slot grid and in the right the description.
+
+
+
+		======================================================================================================================
+		||                                                 |:||                                                             ||
+		|| ----------------------------------------------- ||||                       Quest Title                           ||
+		|| |Quest title                      if completes| |||| ----------------------------------------------------------- ||
+		|| |                                  amount/need| |||| |                                                         | ||
+		|| ----------------------------------------------- |||| |                     description                         | ||
+		|| ----------------------------------------------- |:|| |                                                         | ||
+		|| |Quest title                      if completes| |:|| |                                                         | ||
+		|| |                                  amount/need| |:|| |                                                         | ||
+		|| ----------------------------------------------- |:|| |                                                         | ||
+		|| ----------------------------------------------- |:|| |                        task                             | ||
+		|| |Quest title                      if completes| |:|| |                                                         | ||
+		|| |                                  amount/need| |:|| |                                                         | ||
+		|| ----------------------------------------------- |:|| |                                                         | ||
+		|| ----------------------------------------------- |:|| |                                                         | ||
+		|| |Quest title                      if completes| |:|| |                                                         | ||
+		|| |                                  amount/need| |:|| |         objective ----------------->  need amount       | ||
+		|| ----------------------------------------------- |:|| |                                                         | ||
+		|| ----------------------------------------------- |:|| |                                                         | ||
+		|| |Quest title                      if completes| |:|| |                                                         | ||
+		|| |                                  amount/need| |:|| ----------------------------------------------------------- ||
+		|| ----------------------------------------------- |:||     Reward                                     exp          ||
+		||                                                 |:||                                                money        ||
+		======================================================================================================================

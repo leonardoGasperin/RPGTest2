@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class NpcQuest : Npc
@@ -10,11 +8,6 @@ public class NpcQuest : Npc
 
     Text expR;
     Text moneyR;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     public override void Update()
     {

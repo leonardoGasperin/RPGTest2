@@ -28,17 +28,19 @@ public class QuestSlot : MonoBehaviour
 
     private void TaskGoal(TaskType type)
     {
-        ///TODO
-        ///change from if to switch
-        if (type == TaskType.Kill)
+        switch(type)
         {
-            if (pl.GetComponent<Combat>().GetTarget() == null) return;
-            if (pl.GetComponent<Combat>().GetTarget().gameObject.name == quest.task.objName)
-                pl.GetComponent<Combat>().isQuestMob = true;
-        }
-        if(type == TaskType.Gathering)
-        {
-            pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().haveQuestItem = true;
+            case TaskType.Kill:
+                if (pl.GetComponent<Combat>().GetTarget() == null) break;
+                if (pl.GetComponent<Combat>().GetTarget().gameObject.name == quest.task.objName)
+                    pl.GetComponent<Combat>().isQuestMob = true;
+                break;
+            case TaskType.Gathering:
+                pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().haveQuestItem = true;
+                break;
+            default:
+                Debug.LogError("No Quest something get an error if you are getting a quest");
+                break;
         }
     }
 

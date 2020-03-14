@@ -9,7 +9,16 @@ public class NpcShop : Npc
 
     public override void Update()
     {
-        if (i != itens.Length && itens.Length > 0)
+        if (i >= itens.Length || itens.Length <= 0) 
+        {
+            if(!isInt && shop.activeSelf)
+            {
+                shop.SetActive(isInt);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerUIController>().shopping = false;
+            }
+            base.Update(); 
+        }
+        if (i != itens.Length)
         {
             shop.GetComponent<ShopControll>().AddItem(itens[i]);
             i++;

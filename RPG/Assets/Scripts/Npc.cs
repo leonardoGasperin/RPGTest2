@@ -35,6 +35,7 @@ public class Npc : MonoBehaviour
         if (other.tag == "Player")
         {
             isTrig = false;
+            isInt = false;
             dialoge.OutOfRange();
             npcInt.SetActive(false);
         }
