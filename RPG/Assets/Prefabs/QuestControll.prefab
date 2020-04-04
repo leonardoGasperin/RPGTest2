@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 614409116047058485}
   - component: {fileID: 1961687183609115732}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 3659735755623849835}
   - component: {fileID: 2255445565900702577}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,10 +480,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839ca00052041cc4087935bd1ec9b579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 0}
+  slotPrefab: {fileID: 3360853008625273724, guid: 335ae1f5c8eddcd40903cdcc3cf11abc,
+    type: 3}
   questSlot: []
   invGrid: {fileID: 4202041716284674090}
-  testSlot: {fileID: 0}
+  testSlot: {fileID: 4202589627895634298, guid: ac0ae19abd120dc45a6de895df30bcb4,
+    type: 3}
+  title: {fileID: 1961687183609115732}
+  contents: {fileID: 8716348668615049711}
+  rewards: {fileID: 2255445565900702577}
   backGround: {fileID: 4118330621986350480}
   selectedSlot: {fileID: 0}
 --- !u!1 &4706370779168837076
@@ -498,7 +503,7 @@ GameObject:
   - component: {fileID: 8775952209697709385}
   - component: {fileID: 8716348668615049711}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

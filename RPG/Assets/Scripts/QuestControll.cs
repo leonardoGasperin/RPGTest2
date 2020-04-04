@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestControll : MonoBehaviour
 {
@@ -8,8 +9,9 @@ public class QuestControll : MonoBehaviour
     [SerializeField] List<QuestSlot> questSlot;
     [SerializeField] Transform invGrid = null;
     [SerializeField] TesteQuestUIBug testSlot = null;
-
-    //int indexList;
+    [SerializeField] Text title = null;
+    [SerializeField] Text contents = null;
+    [SerializeField] Text rewards = null;
 
     public GameObject backGround = null;
     public static QuestControll instance;
@@ -34,7 +36,7 @@ public class QuestControll : MonoBehaviour
 
     private void OnEnable()
     {
-        //selectedSlot = null;
+        selectedSlot = null;
     }
 
     private void OnDisable()
@@ -44,10 +46,26 @@ public class QuestControll : MonoBehaviour
 
     private void Update()
     {
-        TryTest();
         //se selecionado um slot e nele contem item
         if (selectedSlot != null && selectedSlot.quest != null)
+        {
             selectedSlot.buttonAbandon.SetActive(true);
+
+            title.text = selectedSlot.quest.title;
+            if (selectedSlot.quest.task.type == TaskType.Kill)
+                contents.text = "Kill " + selectedSlot.quest.task.requiredAmt + " " + selectedSlot.quest.task.objName;
+            else
+                contents.text = "Get " + selectedSlot.quest.task.requiredAmt + " " + selectedSlot.quest.task.objName;
+            rewards.text = "EXP:" + selectedSlot.quest.expReward + "    Gold:" + selectedSlot.quest.moneyReward;
+            
+            UpdateQuest();
+            return;
+
+        }
+        title.text = null;
+        contents.text = null;
+        rewards.text = null;
+        UpdateQuest();
     }
 
     //adiciona um item ao slot
@@ -61,7 +79,7 @@ public class QuestControll : MonoBehaviour
         }
     }
 
-    void TryTest()
+    void UpdateQuest()
     {
         foreach (QuestSlot slot in questSlot)
         {
@@ -100,15 +118,15 @@ public class QuestControll : MonoBehaviour
         return slotReturn;
     }
 
-    public void QuestChecker(string checker)
+    public void QuestChecker(string checker, SlotInventory itemSlot)
     {
         foreach (QuestSlot slot in questSlot)
         {
             if (slot != null && slot.quest != null && slot.quest.task.objName == checker)
             {
-                if(slot.quest.task.type == TaskType.Gathering)
+                if(slot.quest.task.type == TaskType.Gathering && itemSlot != null)
                 {
-                    //slot.InvQuestItem();
+                    slot.InvQuestItem(itemSlot);
                 }
                 if (slot.quest.task.type == TaskType.Kill)
                 { 
@@ -117,6 +135,26 @@ public class QuestControll : MonoBehaviour
                 }
             }
         }
+    }
+
+    public int CheckQuestAmount(string chk)
+    {
+        foreach(QuestSlot slot in questSlot)
+        {
+            if (slot.quest.task.objName == chk)
+                return slot.quest.task.requiredAmt;
+        }
+        return 0;
+    }
+
+    public string QuestCheckForInv()
+    {
+        foreach(QuestSlot slot in questSlot)
+        {
+            if (slot.quest.task.type == TaskType.Gathering)
+                return slot.quest.task.objName;
+        }
+        return null;
     }
 
     private void SetOffOptButtons()

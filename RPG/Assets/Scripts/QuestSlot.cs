@@ -51,7 +51,7 @@ public class QuestSlot : MonoBehaviour
             SetActiveSlot(true);
             tittle.text = quest.title;
             objectives.text = quest.description;
-            currencies.text = string.Format("0:0 / 0:0", quest.task.currentAmt, quest.task.requiredAmt);
+            currencies.text =  quest.task.currentAmt + "/" + quest.task.requiredAmt;
         }
         else
         {//caso contrario desativa slot

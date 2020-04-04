@@ -854,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 9105529612919632311, guid: 0814de3c21d381040874b05830a61ab3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8442029379733492539, guid: 0814de3c21d381040874b05830a61ab3,
         type: 3}
@@ -1561,10 +1561,10 @@ MonoBehaviour:
     isActive: 0
     isComplet: 0
     task:
-      type: 0
+      type: 1
       requiredAmt: 1
       currentAmt: 0
-      objName: Guard
+      objName: Pumpkin
       endQuest: 0
 --- !u!114 &592325037 stripped
 MonoBehaviour:
@@ -5286,12 +5286,6 @@ PrefabInstance:
       propertyPath: testSlot
       value: 
       objectReference: {fileID: 2082475667}
-    - target: {fileID: 2682255596845503764, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: slotPrefab
-      value: 
-      objectReference: {fileID: 3360853008625273724, guid: 335ae1f5c8eddcd40903cdcc3cf11abc,
-        type: 3}
     - target: {fileID: 685625445584067492, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
       propertyPath: m_IsActive
@@ -5322,6 +5316,11 @@ PrefabInstance:
       propertyPath: slotPrefab
       value: 
       objectReference: {fileID: 338488958}
+    - target: {fileID: 4711564161170924694, guid: 7592f27fef045294086fc7a82482cc48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7453847784549602521, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
       propertyPath: m_IsActive
@@ -7383,11 +7382,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4711564161170924694, guid: 7592f27fef045294086fc7a82482cc48,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4038172547277487578, guid: 7592f27fef045294086fc7a82482cc48,
         type: 3}
