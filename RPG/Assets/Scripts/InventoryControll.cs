@@ -124,15 +124,16 @@ public class InventoryControll : MonoBehaviour
 
     public void CheckForQuest()
     {
-        /*foreach(SlotInventory slot in invSlot)
+        foreach(SlotInventory slot in invSlot)
         {
             if (slot.item != null) 
             {
-                if(clearTask)
+                string checker = pl.GetComponent<PlayerUIController>().questUI.QuestCheckForInv();
+                if (clearTask)
                 {
-                    if (slot.item.itemName == pl.GetComponent<PlayerUIController>().QuestUI.quest.task.objName)
+                    if (slot.item.itemName == checker)
                     {
-                        slot.item.QuestRemover(pl.GetComponent<PlayerUIController>().QuestUI.quest.task.requiredAmt);
+                        slot.item.QuestRemover(pl.GetComponent<PlayerUIController>().questUI.CheckQuestAmount(checker));
                         if (slot.item.InventoryAmount() + 1 <= 0)
                         {  slot.item = null; }
                         clearTask = false;
@@ -140,11 +141,11 @@ public class InventoryControll : MonoBehaviour
                         break;
                     }
                 }
-                if (slot.item.itemName == pl.GetComponent<PlayerUIController>().QuestUI.quest.task.objName)
-                        pl.GetComponent<PlayerUIController>().QuestUI.InvQuestItem(slot);
+                if (slot.item.itemName == checker)
+                    pl.GetComponent<PlayerUIController>().questUI.QuestChecker(checker, slot);
                 
             }
-        }*/
+        }
     }
 
     //desativa os botoes do slot
