@@ -8,9 +8,10 @@ public class PlayerUIController : MonoBehaviour
     //referencias
     [SerializeField] GameObject attributeUI = null;
     public GameObject inventoryUI = null;
-    [SerializeField] GameObject EquipUI = null;
+    [SerializeField] GameObject equipUI = null;
     [SerializeField] GameObject menuUI = null;
-    public QuestSlot QuestUI = null;
+    [SerializeField] GameObject questMenu = null;
+    public QuestControll questUI = null;
 
     public bool shopping = false;
 
@@ -44,7 +45,12 @@ public class PlayerUIController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.H))
         {
-            OpenClose(EquipUI);
+            OpenClose(equipUI);
+            return true;
+        }
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            OpenClose(questMenu);
             return true;
         }
         return false;

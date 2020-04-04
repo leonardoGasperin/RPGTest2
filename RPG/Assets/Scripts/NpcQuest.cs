@@ -5,6 +5,7 @@ public class NpcQuest : Npc
 {
     [SerializeField] GameObject pl;
     public Quest quest;
+    bool isRecivied = false;
 
     Text expR;
     Text moneyR;
@@ -14,7 +15,7 @@ public class NpcQuest : Npc
         if(!quest.isActive)
             quest.isActive = dialoge.questAccept;
 
-        if (quest.isActive && !quest.task.endQuest)
+        if (quest.isActive && !quest.task.endQuest && !isRecivied)
             AcceptdQuest();
         else if (quest.isActive && quest.task.endQuest)
             OverQuest();
@@ -47,7 +48,8 @@ public class NpcQuest : Npc
 
     public void AcceptdQuest()
     {
-        pl.GetComponent<PlayerUIController>().QuestUI.quest = quest;
+        pl.GetComponent<PlayerUIController>().questUI.AddQuest(quest);
+        isRecivied = true;
     }
 
     public void OverQuest()
@@ -72,10 +74,10 @@ public class NpcQuest : Npc
         { 
             pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().haveQuestItem = false;
             pl.GetComponent<PlayerUIController>().inventoryUI.GetComponent<InventoryControll>().clearTask = true;
-            if(quest.task.currentAmt == 0)
-                pl.GetComponent<PlayerUIController>().QuestUI.quest = null;
+            //if(quest.task.currentAmt == 0)
+                //pl.GetComponent<PlayerUIController>().QuestUI.quest = null;
             return;
         }
-        pl.GetComponent<PlayerUIController>().QuestUI.quest = null;
+        //pl.GetComponent<PlayerUIController>().QuestUI.quest = null;
     }
 }
