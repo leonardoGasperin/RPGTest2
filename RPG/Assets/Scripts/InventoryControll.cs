@@ -124,7 +124,7 @@ public class InventoryControll : MonoBehaviour
 
     public void CheckForQuest()
     {
-        foreach(SlotInventory slot in invSlot)
+        /*foreach(SlotInventory slot in invSlot)
         {
             if (slot.item != null) 
             {
@@ -144,8 +144,7 @@ public class InventoryControll : MonoBehaviour
                         pl.GetComponent<PlayerUIController>().QuestUI.InvQuestItem(slot);
                 
             }
-            
-        }
+        }*/
     }
 
     //desativa os botoes do slot

@@ -137,8 +137,8 @@ public class Combat : MonoBehaviour, IAction, ISaveable, IAddModifier
     //cancela açao
     public void Cancel()
     {
-        if (isQuestMob && this.gameObject.tag == "Player")
-            this.GetComponent<PlayerUIController>().QuestUI.AddAmount();
+        if (isQuestMob && this.gameObject.tag == "Player" && target != null)
+            this.GetComponent<PlayerUIController>().questUI.QuestChecker(target.gameObject.name);
         GetComponent<Animator>().ResetTrigger("attack");//desativa trigger do animator
         target = null;//zera target
         mov.Cancel();
