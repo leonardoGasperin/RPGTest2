@@ -41,7 +41,8 @@ Idea:
 	
 	UX:	entertainment, strongs emotionals feelings and knowledge.
 	
-	Designer's Pillar: the player will create a single character and beings like a normal people on village, and
+	Designer's Pillar: 
+		the player will create a single character and beings like a normal people on village, and
 		run against/too the world and learning various things and developng some skills in the 
 		process.
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -113,48 +114,48 @@ Third Day(01/16/20)
 		*What I make: for now I create two new Scriptable's one for player and for enemies, in 'CharacterClass.cs'
 		on enum I remake all making this final look:
 		
-		//--------------Player
-    	NULL,
-    	Warrior,
-    	figther,
-    	Artcher,
-    	Thief,
-    	cleric,
-    	Mage,
-		//--------------Enemies
-    	Meele,
-    	Ranger,
-    	SpellCaster
+				//--------------Player
+    			NULL,
+    			Warrior,
+    			figther,
+    			Artcher,
+    			Thief,
+    			cleric,
+    			Mage,
+				//--------------Enemies
+    			Meele,
+    			Ranger,
+    			SpellCaster
 
     	is the same Scriptable but enemies class are classified like Meele, Ranger and SpellCaster
     	and think in this 3 type of class and in this 6 class, for any type of then will be diferrents
     	it'l be need to create a diferrent ScriptableObject with this 6 Basic Stats:
 
-    	Strength -> STR
-    	Constitution -> CON
-    	Agility -> AGI
-    	Dexterity -> DEX
-    	Intelligence -> INT
-    	Erudition -> ERU
+    			Strength -> STR
+    			Constitution -> CON
+    			Agility -> AGI
+    			Dexterity -> DEX
+    			Intelligence -> INT
+    			Erudition -> ERU
 
-    	And this 6 Basic Stats will modifiyng dirrectly the 7 Stats:
+    		And this 6 Basic Stats will modifiyng dirrectly the 7 Stats:
 
-    	Health,
-    	Resistence,
-    	PDamage, -> Physic Damage
-    	MDamage, -> Magic Damage
-    	Flee,
-    	Critic,
-    	Knowledge
+    			Health,
+    			Resistence,
+    			PDamage, -> Physic Damage
+    			MDamage, -> Magic Damage
+    			Flee,
+    			Critic,
+    			Knowledge
 
-    	the modifiyer:
+	    	the modifiyer:
 
-    	Str -> plus PDamage
-    	Con -> plus Health and Resistence
-    	Agi -> plus Flee
-    	Dex -> plus Critic
-    	Int -> plus MDamage
-    	Eru -> plus knowledge
+    			Str -> plus PDamage
+    			Con -> plus Health and Resistence
+    			Agi -> plus Flee
+    			Dex -> plus Critic
+    			Int -> plus MDamage
+    			Eru -> plus knowledge
 
     	OBs: for this I`ll need to change the name of 'BaseStats.cs' to 'StatManeger.cs' and use the
     	old name to make the new ScriptableObject,.
@@ -164,177 +165,190 @@ Fourth Day(01/17/20)
 ----------------------------------------------------------------------------------------------------------------------------------------
 Fifth Day(01/18/20)
 	Task 6 Review of task 5
-	From third Day(01/16/20) a resume of what I do with Scriptable organization I've create two Scriptable one for Player character
-	and other for Enemies character using the logic thought for this and the stats only for 5 lvls only for test
-	an like comented yesterday all working good, but for future work I'll be need to implemente more things to separete well all
-	Class type to Player and later make an good table for all lvls bonus of basics stats and this will be need assembly an
-	new script to all six stats ('the modifiyer' section from third day) to use they bonus modifiyer to alterate the stats.
+		From third Day(01/16/20) a resume of what I do with Scriptable organization I've create two Scriptable one for Player character
+		and other for Enemies character using the logic thought for this and the stats only for 5 lvls only for test
+		an like comented yesterday all working good, but for future work I'll be need to implemente more things to separete well all
+		Class type to Player and later make an good table for all lvls bonus of basics stats and this will be need assembly an
+		new script to all six stats ('the modifiyer' section from third day) to use they bonus modifiyer to alterate the stats.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Sixth Day(01/19/20)
 	Task 7 Review about all Project, what need change and what need be implemented
-	For now in my project I have some goods system and some mechanics what I'ved implemented to the original mechanics of first
-	prototype.
+		For now in my project I have some goods system and some mechanics what I'ved implemented to the original mechanics of first
+		prototype.
 
-	The system what I have is:
+		The system what I have is:
 
-	*Inicialization
-	*Saving System
-	*Scenario Change
-	*Player Controller
-	*Action Scheduler
-	*Combat
-	*Character Progression
-	*Pickup Intereactable Itens
-	*Weapon
-	*UI
-	And Mechanics:
+			*Inicialization
+			*Saving System
+			*Scenario Change
+			*Player Controller
+			*Action Scheduler
+			*Combat
+			*Character Progression
+			*Pickup Intereactable Itens
+			*Weapon
+			*UI
 
-	*Saving System
-	*Player Controller
-	*Combat
-	In System:
+		And Mechanics:
 
-		*Inicialization: With LazyValue.cs I have a better inicialization of my scripts values, functions and parameters it get the
-	LazyValue variable and in the currectly moment initialize and do the attribuation in controled moment for good run in
-	cpu process.
+			*Saving System
+			*Player Controller
+			*Combat
+		
+		In System:
 
-		*Saving System: In Saving System have five scripts -> (ISaveable.cs; SaveableEntity.cs; SavingSystem; SerializableVector3.cs,
-		SavingWrapper.cs).
+			*Inicialization: With LazyValue.cs I have a better inicialization of my scripts values, functions and parameters it get the
+			LazyValue variable and in the currectly moment initialize and do the attribuation in controled moment for good run in
+			cpu process.
+
+			*Saving System: In Saving System have five scripts -> (ISaveable.cs; SaveableEntity.cs; SavingSystem; SerializableVector3.cs,
+			SavingWrapper.cs).
+			
 			*ISaveable.cs is an Interface to show to Saving System who and what to save
+			
 			*SaveableEntity.cs is a Public Class what make any object in hierarchy have a Unique Identifier and make a list of 
-		what is save with thar identifier, it's like this 'a GameObject have varius status and equip and all what is save from that
-		GameObject will save with/in a list of this unique identifier'.
+			what is save with thar identifier, it's like this 'a GameObject have varius status and equip and all what is save from that
+			GameObject will save with/in a list of this unique identifier'.
+			
 			*SavingSystem this Public Class is the responsible for generate a list with the save conteiner come from any
-		unique identifier, it's work like this, when get save the SaveableEntity.cs make a check for SaveSystem.cs what are
-		getting save from each identifier on a list on each index represent this identifier and contains all ISaveable
-		information and pass to a dictionary in SavingSystem.cs to organizate and update all and seralize everything what is
-		ISaveable with your unique identifier, and when get on load the SavingSystem.cs check the dictionary and the
-		identifier and replace all correctly and use a Path.Combine(String, String) to create and store the save.
+			unique identifier, it's work like this, when get save the SaveableEntity.cs make a check for SaveSystem.cs what are
+			getting save from each identifier on a list on each index represent this identifier and contains all ISaveable
+			information and pass to a dictionary in SavingSystem.cs to organizate and update all and seralize everything what is
+			ISaveable with your unique identifier, and when get on load the SavingSystem.cs check the dictionary and the
+			identifier and replace all correctly and use a Path.Combine(String, String) to create and store the save.
+			
 			*SerializableVector3.cs is a simple seralized public class and not monobehaviour what can prepare a Vector3 to
-		be serialized, in terms is separeted the three valor in single floats to serialize and to deserialize get this values
-		(deserialize then) and return into a Vector3
+			be serialized, in terms is separeted the three valor in single floats to serialize and to deserialize get this values
+			(deserialize then) and return into a Vector3
+			
 			*SavingWrapper.cs is a public class what make a mechanics to save load and delet the save in storage.
 
-		*Scenario Change: in together with Saving System the Scenario Change System is the responsable to store what is the
-	last scenario index and get the correctly next scene to go. This work like this when the player change the scenario the
-	Portal.cs check the next portal and get the new index after  this disable the character move and control system and in
-	after save all and synchronously load the next currectly scene making a load fallowed to an another save and back the
-	player controller and movements.
+			*Scenario Change: in together with Saving System the Scenario Change System is the responsable to store what is the
+			last scenario index and get the correctly next scene to go. This work like this when the player change the scenario the
+			Portal.cs check the next portal and get the new index after  this disable the character move and control system and in
+			after save all and synchronously load the next currectly scene making a load fallowed to an another save and back the
+			player controller and movements.
 
-		*Player Controller system there we have some system a cursor mapping and cursor change to work with were the
-	mouse cursor is pointing on game scenario and have a serialized list of this cursors referent of what type of object is
-	point, we can to calculate the distance of two or more parallel objects to get the most iner object from the ray cast of
-	mouse point are and set the correct cursor.
+			*Player Controller system there we have some system a cursor mapping and cursor change to work with were the
+			mouse cursor is pointing on game scenario and have a serialized list of this cursors referent of what type of object is
+			point, we can to calculate the distance of two or more parallel objects to get the most iner object from the ray cast of
+			mouse point are and set the correct cursor.
 
-		*Action Scheduler this is a simple Public Class what only recive a IAction interface type and start or cancel that an
-	action like move or anything by another action, if will start any action this check if is the same actual action if not will
-	chack if have an action to be doing and if all good cancel the last action and add this new action, if is cancel don't do
-	nothing (stop)
+			*Action Scheduler this is a simple Public Class what only recive a IAction interface type and start or cancel that an
+			action like move or anything by another action, if will start any action this check if is the same actual action if not will
+			chack if have an action to be doing and if all good cancel the last action and add this new action, if is cancel don't do
+			nothing (stop)
 
-		*Combat is a huge Public Class monobehaviour of type IAction, ISaveable and IAddModfiers what have the reference
-	of movement weapons stats in this system have the weapon equip desission what look if the character have a
-	weapon if have a woepon to equip and if the woepon to be equiped don't are the same if the character have one and
-	if is all ok recive the place were to equip and a prefabs of this weapon with all configuration of this weapon chack too
-	if the targets can select the most closest target and attack, making a damage in the right moment of hit and get data
-	from damage and life from damage recive, controll the attack timer too and if can attack or not.
+			*Combat is a huge Public Class monobehaviour of type IAction, ISaveable and IAddModfiers what have the reference
+			of movement weapons stats in this system have the weapon equip desission what look if the character have a
+			weapon if have a woepon to equip and if the woepon to be equiped don't are the same if the character have one and
+			if is all ok recive the place were to equip and a prefabs of this weapon with all configuration of this weapon chack too
+			if the targets can select the most closest target and attack, making a damage in the right moment of hit and get data
+			from damage and life from damage recive, controll the attack timer too and if can attack or not.
 
-		*Character Progression is another high system what do the prograssion of game dificult and power of any
-	character, with this we make the stats data of characters like health point to represent life and get data for UI etc, or
-	experience to gain from a kill of for level up the points of  they status like damage or resistence and etc, it's work like
-	this have in Progression.cs a ScriptableObject class two seralized class ProgressionCharacterClass what have a list of
-	Class type (warrios/mage/thief)  and a list of  stats from ProgressionStat type what is the another serialized class in
-	this class we have a reference of stats (crictic/knowledge etc)  and a list of float to represent a lvl. In Progression class
-	get all information from the ProgressionCharacterClass class and make all alteration what need to the charater level,
-	each index on ProgressionStat float list represent a character level if the character lvl is 5 for exemple the Progression
-	class will the in index[lvl-1] and make the sum to basic stat of character the values.
-			*Stats is an Enum to make a list of Stats.
-			*CharacterClass is a enum for the class type list to separete the classes diference in attributes/stats
-			*BaseStats will alterate and update the character progression geting the information in the lists on
-		Progression.cs and calculating the level for do that.
+			*Character Progression is another high system what do the prograssion of game dificult and power of any
+			character, with this we make the stats data of characters like health point to represent life and get data for UI etc, or
+			experience to gain from a kill of for level up the points of  they status like damage or resistence and etc, it's work like
+			this have in Progression.cs a ScriptableObject class two seralized class ProgressionCharacterClass what have a list of
+			Class type (warrios/mage/thief)  and a list of  stats from ProgressionStat type what is the another serialized class in
+			this class we have a reference of stats (crictic/knowledge etc)  and a list of float to represent a lvl. In Progression class
+			get all information from the ProgressionCharacterClass class and make all alteration what need to the charater level,
+			each index on ProgressionStat float list represent a character level if the character lvl is 5 for exemple the Progression
+			class will the in index[lvl-1] and make the sum to basic stat of character the values.
+				*Stats is an Enum to make a list of Stats.
+				*CharacterClass is a enum for the class type list to separete the classes diference in attributes/stats
+				*BaseStats will alterate and update the character progression geting the information in the lists on
+				Progression.cs and calculating the level for do that.
 
-		*Pickup Intereactable Itens system is the responsible for some interraction with itens in the maps for now we
-	have two type of itens, the utilities itens and weapons in PickupItens.cs when player click in an item this class will see
-	if is a weapon or utility item and will work diferently for each other, if is a weapon equip if is not use(for now only cure
-	item). and after hide item for do a respawn if have or only destroy the item, other thing it do is if the player is not
-	close from the interactived item, before to get/use item go to the item first.
+			*Pickup Intereactable Itens system is the responsible for some interraction with itens in the maps for now we
+			have two type of itens, the utilities itens and weapons in PickupItens.cs when player click in an item this class will see
+			if is a weapon or utility item and will work diferently for each other, if is a weapon equip if is not use(for now only cure
+			item). and after hide item for do a respawn if have or only destroy the item, other thing it do is if the player is not
+			close from the interactived item, before to get/use item go to the item first.
 
-		*Weapon is another high system, separeted in two script the WeaponConfig.cs a ScriptableObject and a
-	monobehaviour the Weapon.cs.
-		*WeaponConfig.cs is the responsible by the assemply of the weapon it's get all animator overriders and
-	weapon prefab chack if have projectiles if the projectile is homing or not and weapon stats (damage, bonus  range
-	and respawn time). in this script check when i'll get equiped were it'll be equiped on character object chack if have a
-	weapon equiped do the animator override update the information of current weapon destroy the previous weapon if
-	have.
-		*Weapon.cs is responsible by invoke hit to make damage from scriptable informations by event.
+			*Weapon is another high system, separeted in two script the WeaponConfig.cs a ScriptableObject and a
+			monobehaviour the Weapon.cs.
+				*WeaponConfig.cs is the responsible by the assemply of the weapon it's get all animator overriders and
+				weapon prefab chack if have projectiles if the projectile is homing or not and weapon stats (damage, bonus  range
+				and respawn time). in this script check when i'll get equiped were it'll be equiped on character object chack if have a
+				weapon equiped do the animator override update the information of current weapon destroy the previous weapon if
+				have.
+				
+				*Weapon.cs is responsible by invoke hit to make damage from scriptable informations by event.
 
-		*UI system is a high system were have each thing independently for each other like the HP bars for enemies and
-	HUD information or the fader for changes scenes. In this system we have CameraFacingUI.cs; Fader.cs; HpBar;
-	HpDisplay, TargetHpDisplay and UICombatSpawner
-			*CameraFacingUI.cs only have the responsible to make any tohers objects UI to be in front facing main
-		camera.
-			*HpBar.cs only get the health data value from player target and show in a UI like the player HUD and update
-		this information
-			*HpDisplay.cs is the HUD of player, it's show and update the lvl health and exp information on HUD
-			*TargetHpDisplay display a HP bar up head of target what get attacked by player.
-			*UICombatSpawner spawn and destroy the attack value information and get/do a hit.
-			*Fader.cs make a simple fade image when change scenario os get load.
-	Mechanics:
+			*UI system is a high system were have each thing independently for each other like the HP bars for enemies and
+			HUD information or the fader for changes scenes. In this system we have CameraFacingUI.cs; Fader.cs; HpBar;
+			HpDisplay, TargetHpDisplay and UICombatSpawner
+				*CameraFacingUI.cs only have the responsible to make any tohers objects UI to be in front facing main
+				camera.
+				*HpBar.cs only get the health data value from player target and show in a UI like the player HUD and update
+				this information
+				*HpDisplay.cs is the HUD of player, it's show and update the lvl health and exp information on HUD
+				*TargetHpDisplay display a HP bar up head of target what get attacked by player.
+				*UICombatSpawner spawn and destroy the attack value information and get/do a hit.
+				*Fader.cs make a simple fade image when change scenario os get load.
+	
+		Mechanics:
 
-		*Saving System the mechanics is simple on SavingWrapper.xs chack if the player have hit the 'I' button for save or
-	hit 'L' to load or if hited 'O' to delet save file and if the game get a continue when open. it's work simple whenever time
-	when hit one of three buttons the SavingWrapper.cs will get a OwnSave save file and send to SavingSystem.cs to save
-	data less with delete what for now delete only the AutoSave what get saved when change scenario or get a check
-	point, another thing this mechanics do is when the game is on check if have a auto save file and load it.
+			*Saving System the mechanics is simple on SavingWrapper.xs chack if the player have hit the 'I' button for save or
+			hit 'L' to load or if hited 'O' to delet save file and if the game get a continue when open. it's work simple whenever time
+			when hit one of three buttons the SavingWrapper.cs will get a OwnSave save file and send to SavingSystem.cs to save
+			data less with delete what for now delete only the AutoSave what get saved when change scenario or get a check
+			point, another thing this mechanics do is when the game is on check if have a auto save file and load it.
 
-		*Player Controller is a high mechanic but simple. it use the ActorScheduler.cs system, Move.cs Mechanics,
-	PickupItens.cs mechanics and Combat.cs Mechanics and system.
+			*Player Controller is a high mechanic but simple. it use the ActorScheduler.cs system, Move.cs Mechanics,
+			PickupItens.cs mechanics and Combat.cs Mechanics and system.
+			
 			*PlayerController.cs is a class that have one of most important core in game, it's possiblity to the player do
-		all what they can do with player characer in there have a ray cast system what will show were the cursor point are
-		pointing and possibility to click in there if can and make a action and this script will check if is a combat, move or item
-		action
+			all what they can do with player characer in there have a ray cast system what will show were the cursor point are
+			pointing and possibility to click in there if can and make a action and this script will check if is a combat, move or item
+			action
+			
 			*Move.cs if the player are click in some walkable place the PlayerController.cs will send the Vector3 with the
-		coords of click target and get to the navmesh agent to move to there and with this set the animation currectly for this,
-		another thing what the PlayerController.cs do with Move.cs mechanics is check if the player are using the mouse click
-		or keyboard to move and cancel the actual action to set the new action to run and diferently of the click move the
-		keyboard move check the key pressed and send it to the Move.cs to set the right speed and direction to move and set
-		he animation for this.
+			coords of click target and get to the navmesh agent to move to there and with this set the animation currectly for this,
+			another thing what the PlayerController.cs do with Move.cs mechanics is check if the player are using the mouse click
+			or keyboard to move and cancel the actual action to set the new action to run and diferently of the click move the
+			keyboard move check the key pressed and send it to the Move.cs to set the right speed and direction to move and set
+			he animation for this.
+			
 			*Combat.cs again the PlayerController.cs check if the player are using mouse or keyboard commands, if click
-		on enemie and check the distence if not in weapon range go to the range distance and after make attack action in
-		Combat.cs using the information of equiped weapon scriptable values, or if the player are using the keyboard check if
-		have a target if dont have dont do nothing, if the player using the selection target key button the Combat.cs
-		mechanics search the more close CombatTarget type and select if the player hit an attack button when select targer
-		the player will check the range distance of weapon or skill for this is not go to the limit distance to attack.
+			on enemie and check the distence if not in weapon range go to the range distance and after make attack action in
+			Combat.cs using the information of equiped weapon scriptable values, or if the player are using the keyboard check if
+			have a target if dont have dont do nothing, if the player using the selection target key button the Combat.cs
+			mechanics search the more close CombatTarget type and select if the player hit an attack button when select targer
+			the player will check the range distance of weapon or skill for this is not go to the limit distance to attack.
+			
 			*PickupItens.cs the PLayerController.cs will check if the click are on itens type object and if it will make the
-		mechanics on PickupItens.cs system to make the right interract with this item.
+			mechanics on PickupItens.cs system to make the right interract with this item.
 
-		*Combat in this mechanics the player part are described in precious section (next up "*Player Controller...") but
-	for the  enemies using the IAController.cs will check if the player are close enougth from the chase distanceand if is in
-	range will target the player go to the weapon range and attack, and check too if the player are attacking some
-	enemies this enemies check in they chase distance if have some another enemies and make this anemies aggro to the
-	player character. when the player get out to the chase distance of enemie the enemie using PatrolControll.cs system
-	go back to they patrol section or position.
-	what need be change or implemented
+			*Combat in this mechanics the player part are described in precious section (next up "*Player Controller...") but
+			for the  enemies using the IAController.cs will check if the player are close enougth from the chase distanceand if is in
+			range will target the player go to the weapon range and attack, and check too if the player are attacking some
+			enemies this enemies check in they chase distance if have some another enemies and make this anemies aggro to the
+			player character. when the player get out to the chase distance of enemie the enemie using PatrolControll.cs system
+			go back to they patrol section or position.
+			what need be change or implemented
 
-	One thing what found is need to add is a camera controler to zoom in/out and rotation, another thing I've noticed is nice
-	to have jump.
+		One thing what found is need to add is a camera controler to zoom in/out and rotation, another thing I've noticed is nice
+		to have jump.
 
-	Other thing what need be change and implemented is the Stats system, it need to implemente the basic stat like Intelligence
-	or Strength etc and it separeted from actual stats, and make this new basic stats modify the actual stats values, 
-	this new stats need be only first lvl preset and need can be altered by the player when
-	the character level up and in same time change a modifier sum/calculation to actual stats.
+		Other thing what need be change and implemented is the Stats system, it need to implemente the basic stat like Intelligence
+		or Strength etc and it separeted from actual stats, and make this new basic stats modify the actual stats values, 
+		this new stats need be only first lvl preset and need can be altered by the player when
+		the character level up and in same time change a modifier sum/calculation to actual stats.
 
-	Other thing what need be implement and change is the equip system, to can equip other thing else then weapon, some thing
-	like a helm or chest.
+		Other thing what need be implement and change is the equip system, to can equip other thing else then weapon, some thing
+		like a helm or chest.
 
-	One thing to ve implemented is more UI's, we need yet UI for option, UI for entrace of game, UI for data and values
-	about player character.
+		One thing to ve implemented is more UI's, we need yet UI for option, UI for entrace of game, UI for data and values
+		about player character.
 
-	Other thing what need be implemented and is like UI is a equipament and bag UI
+		Other thing what need be implemented and is like UI is a equipament and bag UI
 
-	And for final what need be implemented is friendly NPC with conversation, store and implement a question system too.
+		And for final what need be implemented is friendly NPC with conversation, store and implement a question system too.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Seventh Day(01/21/20)
-	8 Camera Controller
+	Task 8 Camera Controller
 		Zoom in/out in idea what Id is: *Created a script named 'CamManipulation.cs' In there Ive did three methods named 
 		'LookAtPlayer(bool, bool)' 'Zoom(float)' 'Rotation(float, float)'
 		when In 'PlayerController.cs' doing the call saying to camera what cam need to do.
@@ -346,115 +360,115 @@ Seventh Day(01/21/20)
 		to cam done the orbit rotation on player character (target).
 ----------------------------------------------------------------------------------------------------------------------------------------
 Eighth Day(01/22/20)
-	9 Jump (PlayerController)
-	On Jump what I did is simple on 'PlayerController.cs' I check if is on ground and if yes and the space bar is hited the player
-	character from rigidybody.AddForce(Vector3) the character jump when jump the jump method on 'Moce.cs' stop de rotation and position
-	update of navmesh and when click to walk run again.
+	Task 9 Jump (PlayerController)
+		On Jump what I did is simple on 'PlayerController.cs' I check if is on ground and if yes and the space bar is hited the player
+		character from rigidybody.AddForce(Vector3) the character jump when jump the jump method on 'Moce.cs' stop de rotation and position
+		update of navmesh and when click to walk run again.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Ninth Day(01/23/20)
-	10 Stats System changes
+	Task 10 Stats System changes
 		*the Stats tree meed be a thing what grow with lvl of character and modify the second section of stats
 		in exemple -> Str + Cons -> can give resistence, Str can give phisic attack and Cons more Hp.
 
 		*need to decide if we can continue with the Progression.cs to mount all this or make another scriptable to work with this.
 
 		In idea what I gonna make is simple, first create new enum scrip of the 6 basic stats I want and after this
-	make a new system.serialize class on progression to put it on progression class
-	In progression class on BuildLookUp() add before fisrt foreach another foreach to generate a new list on dictionarie
-	and in 'BaseStats.cs' one new method to make a influence of base stat on normal stat
-	And for final chance some scripts name 'BaseStats.cs' to 'ProgressionCalc.cs',
+		make a new system.serialize class on progression to put it on progression class
+		In progression class on BuildLookUp() add before fisrt foreach another foreach to generate a new list on dictionarie
+		and in 'BaseStats.cs' one new method to make a influence of base stat on normal stat
+		And for final chance some scripts name 'BaseStats.cs' to 'ProgressionCalc.cs',
 ----------------------------------------------------------------------------------------------------------------------------------------
 Tenth Day(01/29/20)
-	11 New Stats System
-	done the alterations on Progression.cs, what I make is simple I created a new Enum script named BaseStats.cs and implement a 
-	serialize class on Progression.cs to implement the new stats acess on progression Scriptable, and maked a new dictionary to
-	implement the new stats on lookup dictionary,
-	The alterations on BaseStats.cs is done what makes is change the script name to StatsCalc.cs, I've need create a new 
-	method to ver acess of rigth data value from rigth base stats and sum on gets stat,
-	If is null the base stats(like XP) sum 0
-	The value of stats bonus is the value of base stats divided by 2.
+	Task 11 New Stats System
+		done the alterations on Progression.cs, what I make is simple I created a new Enum script named BaseStats.cs and implement a 
+		serialize class on Progression.cs to implement the new stats acess on progression Scriptable, and maked a new dictionary to
+		implement the new stats on lookup dictionary,
+		The alterations on BaseStats.cs is done what makes is change the script name to StatsCalc.cs, I've need create a new 
+		method to ver acess of rigth data value from rigth base stats and sum on gets stat,
+		If is null the base stats(like XP) sum 0
+		The value of stats bonus is the value of base stats divided by 2.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Eleventh Day(01/30/20)
 	On this day GitHub kill all my work backing to day 01/19/20 and for now I`ll try work all back again
 	can get back work from task 4 until task 7.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Twelfth Day(01/31/20)
-	working on task 8 until 11.
-	all done with no bug's and same controll, the jump is better but the check ground need get better.
-	one thing what I see is need new alternative alterations on "CalcStats.cs" to keep the ScriptableObject,
-	'Stats.cs' intact.
-	Another thing in mind is to chance the stat(s) name reference to attibute(s).
+	Task 8 until 11.
+		all done with no bug's and same controll, the jump is better but the check ground need get better.
+		one thing what I see is need new alternative alterations on "CalcStats.cs" to keep the ScriptableObject,
+		'Stats.cs' intact.
+		Another thing in mind is to chance the stat(s) name reference to attibute(s).
 ----------------------------------------------------------------------------------------------------------------------------------------
 Thirteenth Day(02/03/20)
-	task 10 Stats System changes
-	To the new Stats system, I haved in mind the player need being with a natural stats and in each lvl rather than gain a bonus
-	on the six stats, the player get a X value to add in chosen stats 1 point per choise, and it's maintains the dynamics of game
-	and UX its like "My character warrion (or thief/mage/etc) is unique".
-	To do this I think I'll need a UI for character stats indispensably and it showing buttons, names and updating value foreach 
-	stats.
-	I think in this model of UI for prototype:
+	Task 10 Stats System changes
+		To the new Stats system, I haved in mind the player need being with a natural stats and in each lvl rather than gain a bonus
+		on the six stats, the player get a X value to add in chosen stats 1 point per choise, and it's maintains the dynamics of game
+		and UX its like "My character warrion (or thief/mage/etc) is unique".
+		To do this I think I'll need a UI for character stats indispensably and it showing buttons, names and updating value foreach 
+		stats.
+		I think in this model of UI for prototype:
 
-	========================
-	|| Title Windows   [x]||
-	||                    ||
-	|| Str    X    [+]    ||
-	||                    ||
-	|| Pro    X    [+]    ||
-	||                    ||
-	|| Agi    X    [+]    ||
-	||                    ||
-	|| Dex    X    [+]    ||
-	||                    ||
-	|| Int    X    [+]    ||
-	||                    ||
-	|| Eru    X    [+]    ||
-	||                    ||
-	|| Remaining    X     ||
-	========================
+			========================
+			|| Title Windows   [x]||
+			||                    ||
+			|| Str    X    [+]    ||
+			||                    ||
+			|| Pro    X    [+]    ||
+			||                    ||
+			|| Agi    X    [+]    ||
+			||                    ||
+			|| Dex    X    [+]    ||
+			||                    ||
+			|| Int    X    [+]    ||
+			||                    ||
+			|| Eru    X    [+]    ||
+			||                    ||
+			|| Remaining    X     ||
+			========================
 
-	Where:
-	 X  -> represent a value of stat or remaining points to distribute
-	[x] -> Close Window button
-	[+] -> Add point buttom
+			Where:
+				 X  -> represent a value of stat or remaining points to distribute
+				[x] -> Close Window button
+				[+] -> Add point buttom
 
-	if the player hit C keyboard button this window need to OpenClose the window
-	if player open this window need to showup the actual stats values
-	if the player don`t have additional points to expend the [+] buttons the Remaining text and value don't be showing
-	else showup
-	the panel need be a transparents image with an unattractive color (thinking in gray with low alpha)
-	the exit button need take a red color with yellow cross when the cursor is highlited on button the button need change the color
-	I think a little more dark and when hit get red to gray before close window 
-	the add points button need the colors too I think light blue in pattern when get highlited show up natural blue and when hited
-	get	transparent get back to pattern collor and add 1 point in stat.
+		if the player hit C keyboard button this window need to OpenClose the window
+		if player open this window need to showup the actual stats values
+		if the player don`t have additional points to expend the [+] buttons the Remaining text and value don't be showing
+		else showup
+		the panel need be a transparents image with an unattractive color (thinking in gray with low alpha)
+		the exit button need take a red color with yellow cross when the cursor is highlited on button the button need change the color
+		I think a little more dark and when hit get red to gray before close window 
+		the add points button need the colors too I think light blue in pattern when get highlited show up natural blue and when hited
+		get	transparent get back to pattern collor and add 1 point in stat.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Fourteenth Day(02/04/20)
-	11 New Stats System.
-	what I did is simple I created a empty object named PlayerUI and taged UIPanel into him another empty object named CharacterC
-	(C is the button to this character window) into him maked a canvas with a BG image a Text to window Title six text to stats name,
-	six text for stats value, six button to add stats point, two text for remaining point text and value and a close button. like
-	determined the plan on task 10.
-	I`ve created to a 'UICharacterSt.cs' to make the acess to the player stats in this scritp I`ve did when the button is hited
-	add plus 1 to str. It's work fine without bugs.
-	still Working.
+	Task 11 New Stats System.
+		what I did is simple I created a empty object named PlayerUI and taged UIPanel into him another empty object named CharacterC
+		(C is the button to this character window) into him maked a canvas with a BG image a Text to window Title six text to stats name,
+		six text for stats value, six button to add stats point, two text for remaining point text and value and a close button. like
+		determined the plan on task 10.
+		I`ve created to a 'UICharacterSt.cs' to make the acess to the player stats in this scritp I`ve did when the button is hited
+		add plus 1 to str. It's work fine without bugs.
+		still Working.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Fifteenth Day(02/05/20)
 	Continue works on task 11.
-	Today what I did is simple in 'CalcStats.cs' I`ve implemented a new variable an array of float named atb, an int for points
-	named atbPoints to distribute and a new method named AddStats(int, int) the idea of this work is simple the atbPoints being
-	equals 0 and when the player lvlup in UpdateLvl() assings the 5 value on atbPoints and call RemainingPoints(atbPoints) in
-	'UICharacterSt.cs' what will see if have atbPoints yet and if yes show the remaining text and value and the add point buttons
-	too and every time the player add a point in one stats the button call the AddPoint(int) what will send to the AddStats() a public
-	method in 'CalcStats.cs', receiving from AddPoint(int) a int value (referenced by UI button) and send to the
-	AddStats(the button reference, the value to add what is 1).
-	In 'CalcStats.cs' the AddStats() it`ll check if have point to distribute and if yes add the recevied value in recevied index on
-	atb[] and decrement 1 to atbPoints and now on GetStats() method sum this valor on stats calling the index with the stats int 
-	value(what`s the same value of UI button reference). In 'UICharacterSt.cs' have more two methods called CloseWindow() to close
-	the UI windoes with close button and ShowStatsPoint() what get the player stats and show in UI window only when is opened if don`t
-	show.
+		Today what I did is simple in 'CalcStats.cs' I`ve implemented a new variable an array of float named atb, an int for points
+		named atbPoints to distribute and a new method named AddStats(int, int) the idea of this work is simple the atbPoints being
+		equals 0 and when the player lvlup in UpdateLvl() assings the 5 value on atbPoints and call RemainingPoints(atbPoints) in
+		'UICharacterSt.cs' what will see if have atbPoints yet and if yes show the remaining text and value and the add point buttons
+		too and every time the player add a point in one stats the button call the AddPoint(int) what will send to the AddStats() a public
+		method in 'CalcStats.cs', receiving from AddPoint(int) a int value (referenced by UI button) and send to the
+		AddStats(the button reference, the value to add what is 1).
+		In 'CalcStats.cs' the AddStats() it`ll check if have point to distribute and if yes add the recevied value in recevied index on
+		atb[] and decrement 1 to atbPoints and now on GetStats() method sum this valor on stats calling the index with the stats int 
+		value(what`s the same value of UI button reference). In 'UICharacterSt.cs' have more two methods called CloseWindow() to close
+		the UI windoes with close button and ShowStatsPoint() what get the player stats and show in UI window only when is opened if don`t
+		show.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Sixteenth to Nineteenth Day(02/06-09/20)
 	On day 02/06
-	Workin on task 12 UI System
+	Task 12 UI System
 		Menus UI system to player acess when play.
 		Bag to store/interract with looted itens.
 		equip/character UI to make the UX with player character better.
@@ -472,7 +486,7 @@ Sixteenth to Nineteenth Day(02/06-09/20)
 			Bag.
 
 	On Day 02/07
-	Working on task 13 New UI System
+	Task 13 New UI System
 		Menu Options on game: To make it I created a new prefrab, named PlayerUI what'll have the all UIwindows and will have a script
 		for each UIwindows and player a new controller script for controll this Input commands, to this I`ve created the 'AttributesUI.cs' 
 		for the butons and informations of player attributes the other 'GameMenuUI.cs' what have all buttons functions of Menu
@@ -480,7 +494,7 @@ Sixteenth to Nineteenth Day(02/06-09/20)
 		functions.
 
 	On day 02/08
-	Working on task 13 New UI System
+	Task 13 New UI System
 		Entrace Hall: To make it I`ve created a new Scene, named EntraceHall with BuildIndex == 0, logic the others scenes get +1
 		in BuildIndex value, on this Scene logicaly have in front of camera the a 2D image with a title, and have too some buttons
 		options.
@@ -500,19 +514,20 @@ Sixteenth to Nineteenth Day(02/06-09/20)
 		coreprefab of this map I need see it.
 
 		On this day I get the first version of prototype build version 0.0.1 and send for some friends:
-		*Vinicios Wentz
-		*Giovane Jow
-		*Rippari
-		*JG
-		*Anie
-		*Guilherme Dias
-		*JP
-		*Dan
-		*Joao Marcus
-		*Over
-		*Jean
-		*Bertoni
-		*Rafael
+			*Vinicios Wentz
+			*Giovane Jow
+			*Rippari
+			*JG
+			*Anie
+			*Guilherme Dias
+			*JP
+			*Dan
+			*Joao Marcus
+			*Over
+			*Jean
+			*Bertoni
+			*Rafael
+		
 		with a instructions manual to test I expec answers
 
 		And for finally I implemented on 'CalcStats.cs' the ISaveable to capture and restore states of atributes value
@@ -524,15 +539,15 @@ Sixteenth to Nineteenth Day(02/06-09/20)
 
 		OBS: I need to change my work mode with GitGlo I'll need to make cards for each task sections to use the milestone
 		function.
-	Ended
-	Working on task 14 Inventory System.
-	for this System I think change somethings on UI system to put all UI in the same canvas with a good controller or manager
-	for it.
-	The Inventory system will be a simple system, for now will be one box with 25 index/slot to put the reference of item
-	it`ll chenge the item interraction system, before use it instantly will but in one slot. For now we don`t will make stack
-	or build a realocation but it`ll be implemented too, but to implement this I`ll need to make types of itens and like 
-	CharacterClass I`ll try do something like it to make types of item to make item stack and item organize or search.
-	And if I can make que equipment UI with inventory.
+
+	Task 14 Inventory System.
+		for this System I think change somethings on UI system to put all UI in the same canvas with a good controller or manager
+		for it.
+		The Inventory system will be a simple system, for now will be one box with 25 index/slot to put the reference of item
+		it`ll chenge the item interraction system, before use it instantly will but in one slot. For now we don`t will make stack
+		or build a realocation but it`ll be implemented too, but to implement this I`ll need to make types of itens and like 
+		CharacterClass I`ll try do something like it to make types of item to make item stack and item organize or search.
+		And if I can make que equipment UI with inventory.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Eighteenth Day(02/18/20)
 	Task 17 Implement Inventory UI
@@ -579,32 +594,32 @@ Twenty-first Day(02/22/20)
 
 
 			Inventory UI
-			===========================================================================
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
-			|| |          | |          | |          | |          | |          |  ||| ||
-			|| |          | |          | |          | |          | |          |  ||| ||
-			|| |          | |          | |          | |          | |          |  ||| ||
-			|| |          | |          | |          | |          | |          |  ||| ||
-			|| |----------| |----------| |----------| |----------| |----------|  ||| ||             SlotInventory prefab
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||						  |---------(11)
-			|| |          | |          | |          | |          | |          |  |:| ||						  |  |----|  |
-			|| |          | |          | |          | |          | |          |  |:| ||						  |  |    |  |
-			|| |          | |          | |          | |          | |          |  |:| ||						  |  |----|  |
-			|| |          | |          | |          | |          | |          |  |:| ||						  |   name   | ---------	   ---------
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||						  |----------| | Use   | => or | Equip |
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||									   ---------	   ---------
-			|| |          | |          | |          | |          | |          |  |:| ||									   ---------
-			|| |          | |          | |          | |          | |          |  |:| ||									   | drop  |
-			|| |          | |          | |          | |          | |          |  |:| ||									   ---------
-			|| |          | |          | |          | |          | |          |  |:| ||
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
-			|| |          | |          | |          | |          | |          |  |:| ||
-			|| |          | |          | |          | |          | |          |  |:| ||
-			|| |          | |          | |          | |          | |          |  |:| ||
-			|| |          | |          | |          | |          | |          |  |:| ||
-			|| |----------| |----------| |----------| |----------| |----------|  |:| ||
-			===========================================================================
+				===========================================================================
+				|| |----------| |----------| |----------| |----------| |----------|  |:| ||
+				|| |          | |          | |          | |          | |          |  ||| ||
+				|| |          | |          | |          | |          | |          |  ||| ||
+				|| |          | |          | |          | |          | |          |  ||| ||
+				|| |          | |          | |          | |          | |          |  ||| ||
+				|| |----------| |----------| |----------| |----------| |----------|  ||| ||             SlotInventory prefab
+				|| |----------| |----------| |----------| |----------| |----------|  |:| ||						  |---------(11)
+				|| |          | |          | |          | |          | |          |  |:| ||						  |  |----|  |
+				|| |          | |          | |          | |          | |          |  |:| ||						  |  |    |  |
+				|| |          | |          | |          | |          | |          |  |:| ||						  |  |----|  |
+				|| |          | |          | |          | |          | |          |  |:| ||						  |   name   | ---------	   ---------
+				|| |----------| |----------| |----------| |----------| |----------|  |:| ||						  |----------| | Use   | => or | Equip |
+				|| |----------| |----------| |----------| |----------| |----------|  |:| ||									   ---------	   ---------
+				|| |          | |          | |          | |          | |          |  |:| ||									   ---------
+				|| |          | |          | |          | |          | |          |  |:| ||									   | drop  |
+				|| |          | |          | |          | |          | |          |  |:| ||									   ---------
+				|| |          | |          | |          | |          | |          |  |:| ||
+				|| |----------| |----------| |----------| |----------| |----------|  |:| ||
+				|| |----------| |----------| |----------| |----------| |----------|  |:| ||
+				|| |          | |          | |          | |          | |          |  |:| ||
+				|| |          | |          | |          | |          | |          |  |:| ||
+				|| |          | |          | |          | |          | |          |  |:| ||
+				|| |          | |          | |          | |          | |          |  |:| ||
+				|| |----------| |----------| |----------| |----------| |----------|  |:| ||
+				===========================================================================
 
 			on this two thing I need to create 3 scripts 'InventoryCrontroll.cs' 'SlotManager.cs' 'SlotInventory.cs'
 			the InventoryCrontroll get from the SlotInventory the slot and put with a for on Start() (for now) put the slot
@@ -646,42 +661,43 @@ Twenty-First Day(02/23/20)
     		The graphs down bellow here is the EquipamentUI:
 
     		EquipamentUI
-    		====================================================
-    		||                  Window Title                  ||
-    		||                                                ||
-    		||                                                ||
-    		||                  |----------|                  ||
-    		||                  |          |                  ||
-    		||                  |          |                  ||
-    		||                  |   helm   |                  ||
-    		||                  |          |                  ||
-    		||                  |----------|                  ||
-    		||                                                ||
-    		||  |----------|    |----------|    |----------|  ||						 EquipSlot prefab
-    		||  |          |    |          |    |          |  ||						  |----------|
-    		||  |          |    |          |    |          |  ||						  |  |----|  |
-    		||  |  MainH   |    |  Chest   |    |  OffH    |  ||						  |  |    |  |
-    		||  |          |    |          |    |          |  ||						  |  |----|  |
-    		||  |----------|    |----------|    |----------|  ||						  |   name   | -----------
-    		||                                                ||						  |----------| | Unequip |
-    		||                                                ||						               -----------
-    		||  |----------|    |----------|                  ||
-    		||  |          |    |          |                  ||
-    		||  |          |    |          |                  ||
-    		||  |  Gloves  |    |  Pants   |                  ||
-    		||  |          |    |          |                  ||
-    		||  |----------|    |----------|                  ||
-    		||                                                ||
-    		||                                                ||
-    		||                  |----------|                  ||
-    		||                  |          |                  ||
-    		||                  |          |                  ||
-    		||                  |  Boots   |                  ||
-    		||                  |          |                  ||
-    		||                  |----------|                  ||
-    		||                                                ||
-    		||                                                ||
-    		====================================================
+    			====================================================
+    			||                  Window Title                  ||
+    			||                                                ||
+    			||                                                ||
+    			||                  |----------|                  ||
+    			||                  |          |                  ||
+    			||                  |          |                  ||
+    			||                  |   helm   |                  ||
+    			||                  |          |                  ||
+    			||                  |----------|                  ||
+    			||                                                ||
+    			||  |----------|    |----------|    |----------|  ||						 EquipSlot prefab
+    			||  |          |    |          |    |          |  ||						  |----------|
+    			||  |          |    |          |    |          |  ||						  |  |----|  |
+    			||  |  MainH   |    |  Chest   |    |  OffH    |  ||						  |  |    |  |
+    			||  |          |    |          |    |          |  ||						  |  |----|  |
+    			||  |----------|    |----------|    |----------|  ||						  |   name   | -----------
+    			||                                                ||						  |----------| | Unequip |
+    			||                                                ||						               -----------
+    			||  |----------|    |----------|                  ||
+    			||  |          |    |          |                  ||
+    			||  |          |    |          |                  ||
+    			||  |  Gloves  |    |  Pants   |                  ||
+    			||  |          |    |          |                  ||
+    			||  |----------|    |----------|                  ||
+    			||                                                ||
+    			||                                                ||
+    			||                  |----------|                  ||
+    			||                  |          |                  ||
+    			||                  |          |                  ||
+    			||                  |  Boots   |                  ||
+    			||                  |          |                  ||
+    			||                  |----------|                  ||
+    			||                                                ||
+    			||                                                ||
+    			====================================================
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 Twenty-Second Day(02/24/2020)
 	Bug`s an` Fixes
@@ -711,7 +727,7 @@ Twenty-Second Day(02/24/2020)
 			I think the effect is more pretty good for jump.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Twenty-Third Day(02/25/2020) to Day(03/8/2020)
-	Working on task`s 22 && 26
+	Task`s 22 && 26
 		In first I being with the new character prefab, creating an NPC prefrab variant from character using more then the 'Npc.cs'
 		and without 'AICombat.cs'. with 'Npc.cs' I set with "OnTriggerEnter()" and "OnTriggerExit()" methods to set the player are
 		close to the npc character, and if is show in display "Press E" to interract with Npc. After that I make a variant prefab
@@ -729,7 +745,7 @@ Twenty-Third Day(02/25/2020) to Day(03/8/2020)
 		and it is the NpcCommoner.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Twenty-Fourth Day(03/8/2020) to Day(03/13/2020)
-	Working on task 28 Quest System
+	Task 28 Quest System
 		From the 'NpcCommoner.cs' dialogue exemple I created another Npc children called 'NpcQuest.cs'
 		what needed created another script called 'Quest.cs', 'QuestTask.cs' and 'TaskType.cs' ->(an Enum). in Quest we have QuestTask
 		and in Quest have a quest title an quest description, exp and money reward and the call if is active or complet, on QuestTask
@@ -746,29 +762,29 @@ Twenty-Fifth Day(03/8/2020)
 	Working on task 27 QuestControll
 		The Ideia for now if make an UI first with two side the left the quest slot grid and in the right the description.
 
-
-
-		======================================================================================================================
-		||                                                 |:||                                                             ||
-		|| ----------------------------------------------- ||||                       Quest Title                           ||
-		|| |Quest title                      if completes| |||| ----------------------------------------------------------- ||
-		|| |                                  amount/need| |||| |                                                         | ||
-		|| ----------------------------------------------- |||| |                     description                         | ||
-		|| ----------------------------------------------- |:|| |                                                         | ||
-		|| |Quest title                      if completes| |:|| |                                                         | ||
-		|| |                                  amount/need| |:|| |                                                         | ||
-		|| ----------------------------------------------- |:|| |                                                         | ||
-		|| ----------------------------------------------- |:|| |                        task                             | ||
-		|| |Quest title                      if completes| |:|| |                                                         | ||
-		|| |                                  amount/need| |:|| |                                                         | ||
-		|| ----------------------------------------------- |:|| |                                                         | ||
-		|| ----------------------------------------------- |:|| |                                                         | ||
-		|| |Quest title                      if completes| |:|| |                                                         | ||
-		|| |                                  amount/need| |:|| |         objective ----------------->  need amount       | ||
-		|| ----------------------------------------------- |:|| |                                                         | ||
-		|| ----------------------------------------------- |:|| |                                                         | ||
-		|| |Quest title                      if completes| |:|| |                                                         | ||
-		|| |                                  amount/need| |:|| ----------------------------------------------------------- ||
-		|| ----------------------------------------------- |:||     Reward                                     exp          ||
-		||                                                 |:||                                                money        ||
-		======================================================================================================================
+			======================================================================================================================
+			||                                                 |:||                                                             ||
+			|| ----------------------------------------------- ||||                       Quest Title                           ||
+			|| |Quest title                      if completes| |||| ----------------------------------------------------------- ||
+			|| |                                  amount/need| |||| |                                                         | ||
+			|| ----------------------------------------------- |||| |                     description                         | ||
+			|| ----------------------------------------------- |:|| |                                                         | ||
+			|| |Quest title                      if completes| |:|| |                                                         | ||
+			|| |                                  amount/need| |:|| |                                                         | ||
+			|| ----------------------------------------------- |:|| |                                                         | ||
+			|| ----------------------------------------------- |:|| |                        task                             | ||
+			|| |Quest title                      if completes| |:|| |                                                         | ||
+			|| |                                  amount/need| |:|| |                                                         | ||
+			|| ----------------------------------------------- |:|| |                                                         | ||
+			|| ----------------------------------------------- |:|| |                                                         | ||
+			|| |Quest title                      if completes| |:|| |                                                         | ||
+			|| |                                  amount/need| |:|| |         objective ----------------->  need amount       | ||
+			|| ----------------------------------------------- |:|| |                                                         | ||
+			|| ----------------------------------------------- |:|| |                                                         | ||
+			|| |Quest title                      if completes| |:|| |                                                         | ||
+			|| |                                  amount/need| |:|| ----------------------------------------------------------- ||
+			|| ----------------------------------------------- |:||     Reward                                     exp          ||
+			||                                                 |:||                                                money        ||
+			======================================================================================================================
+		
+----------------------------------------------------------------------------------------------------------------------------------------

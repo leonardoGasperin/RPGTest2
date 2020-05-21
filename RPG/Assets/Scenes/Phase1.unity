@@ -1561,10 +1561,10 @@ MonoBehaviour:
     isActive: 0
     isComplet: 0
     task:
-      type: 1
+      type: 0
       requiredAmt: 1
       currentAmt: 0
-      objName: Pumpkin
+      objName: Guard
       endQuest: 0
 --- !u!114 &592325037 stripped
 MonoBehaviour:
@@ -3844,6 +3844,127 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1598675007}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1614287204
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 62548793764034099, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_Name
+      value: Npc Quest (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0071416
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.67458177
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7382001
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -84.843
+      objectReference: {fileID: 0}
+    - target: {fileID: 840904041685701823, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493481562697366453, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774523990989863665, guid: 57f1957732bc11343b445fd67aa776f6,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 91b33ed7-c731-4329-a308-ea6df80c02d4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 57f1957732bc11343b445fd67aa776f6, type: 3}
+--- !u!1 &1614287205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 62548793764034099, guid: 57f1957732bc11343b445fd67aa776f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614287204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1614287206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614287205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f7332ece8b2fb4391ef5513eefb238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoge: {fileID: 1860784363}
+  npcInt: {fileID: 1262840284}
+  thisName: dbsjdbks
+  isInt: 0
+  sentences:
+  - ' I`ve starving plaes get some Pumpkin to me'
+  midQuestSentence:
+  - ' Va Rapido!'
+  endQuestSentence:
+  - ' Grato'
+  pl: {fileID: 1753520718}
+  quest:
+    title: Kill the enemie
+    description: ' I`ve starving plaes get some Pumpkin to me'
+    expReward: 250
+    moneyReward: 1000
+    isActive: 0
+    isComplet: 0
+    task:
+      type: 1
+      requiredAmt: 1
+      currentAmt: 0
+      objName: Pumpkin
+      endQuest: 0
 --- !u!1001 &1691113396
 PrefabInstance:
   m_ObjectHideFlags: 0
