@@ -37,14 +37,14 @@ Idea:
 	get anger, little fun but will see to things from real world to think and to discuss with
 	others.
 	
-	Climax:	Ha decidir.
+		Climax:	Ha decidir.
 	
-	UX:	entertainment, strongs emotionals feelings and knowledge.
+		UX:	entertainment, strongs emotionals feelings and knowledge.
 	
-	Designer's Pillar: 
-		the player will create a single character and beings like a normal people on village, and
-		run against/too the world and learning various things and developng some skills in the 
-		process.
+		Designer's Pillar: 
+			the player will create a single character and beings like a normal people on village, and
+			run against/too the world and learning various things and developng some skills in the 
+			process.
 ----------------------------------------------------------------------------------------------------------------------------------------
 Resource Development Priorities:
 	*all task will be in GitKraken glo
@@ -549,20 +549,20 @@ Sixteenth to Nineteenth Day(02/06-09/20)
 		CharacterClass I`ll try do something like it to make types of item to make item stack and item organize or search.
 		And if I can make que equipment UI with inventory.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Eighteenth Day(02/18/20)
+Twentieth Day(02/18/20)
 	Task 17 Implement Inventory UI
 		for Inventory UI Ive created one box panel for the shape of inventory and for bags slots Ive make a button what contains:
 		the icon image, the item name, and tree more hiden buttons -> Use for Utilities itens, Equip for equips itens,, and Drop 
 		for drop the selected item.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Nineteenth Day(02/19/20)
+Twenty-first Day(02/19/20)
 	Task 18 Beings Inventory System first pass
 		I`ve created the slot system for inventory, to implement the slot in an array and putting it on the panel UI grid.
 		the next thing to do is make the panel box "increase" to put "infinite" slot and scrooll it down in bag UI and not put
 		the slot out of panel box.
 		the system make the slots empty first and before catch any item, and only show the principal button of prefab (the slot clear).
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twentieth Day(02/20/20)
+Twenty-Second Day(02/20/20)
 	Task 19 New Inventory System
 		the system is finished now the slots buttons is sucefully useable, when u catch some item if is a stackable item the system 
 		increment the amount of item representable on the bag in an unique slot per type of item, and if is a equip no matter how much
@@ -579,7 +579,7 @@ Twentieth Day(02/20/20)
 		the actual item get destroyed and the another item equiped.
 		the next thing to do in inventory slot is make it work together with inventory system to get back the unequiped itens.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-first Day(02/22/20)
+Twenty-Third Day(02/22/20)
 	Task 20 Equipament System
 		I make so much alterations in inventory system and slot system to make this work well, first I make a SlotManager
 		and after a EquipSlot and InventorySlot scritps, this two last are child from SlotManager, and I created too a
@@ -629,7 +629,7 @@ Twenty-first Day(02/22/20)
 			functions like select or use/drop/equip amount itens.
 			to amount item the PickupItens need inform if the item is stackable, the use and drop buttons continue in the same.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-First Day(02/23/20)
+Twenty-Fourth Day(02/23/20)
 	Task 21 New Equipament System
 			Now for Equip button need make another logic to interact the inventory selected slot to the right slot on 
 			"EquipamentUI" and to this I need to make a 3 new scritps => 'EquipamentControll.cs' 'SlotEquip.cs' 'ItemType.cs'
@@ -697,9 +697,8 @@ Twenty-First Day(02/23/20)
     			||                                                ||
     			||                                                ||
     			====================================================
-
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-Second Day(02/24/2020)
+Twenty-Fifth Day(02/24/2020)
 	Bug`s an` Fixes
 		I`ve found some bug`s on Inventory system and Equipament system, I found a bug in player to
 		Fist on EquipamentUI the SlotEquip prefab is strange on scene, to fix it I need to maxmize the pivot config to center and full
@@ -726,7 +725,7 @@ Twenty-Second Day(02/24/2020)
 			function of rigidybody what is appliyng the jump, I haved change to rigidybody.AddForce() to rigidybody.velocity, 
 			I think the effect is more pretty good for jump.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-Third Day(02/25/2020) to Day(03/8/2020)
+Twenty-Sixth Day(02/25/2020) to Day(03/8/2020)
 	Task`s 22 && 26
 		In first I being with the new character prefab, creating an NPC prefrab variant from character using more then the 'Npc.cs'
 		and without 'AICombat.cs'. with 'Npc.cs' I set with "OnTriggerEnter()" and "OnTriggerExit()" methods to set the player are
@@ -744,7 +743,7 @@ Twenty-Third Day(02/25/2020) to Day(03/8/2020)
 		and on Npc script check if get interracted and if yes the 'NpcCommoner.cs' call the 'NpcDialogeSystem.cs' to start the dialogue.
 		and it is the NpcCommoner.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-Fourth Day(03/8/2020) to Day(03/13/2020)
+Twenty-Seventh Day(03/8/2020) to Day(03/13/2020)
 	Task 28 Quest System
 		From the 'NpcCommoner.cs' dialogue exemple I created another Npc children called 'NpcQuest.cs'
 		what needed created another script called 'Quest.cs', 'QuestTask.cs' and 'TaskType.cs' ->(an Enum). in Quest we have QuestTask
@@ -758,7 +757,7 @@ Twenty-Fourth Day(03/8/2020) to Day(03/13/2020)
 		mark. For now in the 'NpcDialogeSystem.cs' can be warned by NpcQuest and QuestSlot to alterate the dialogue text with npc
 		if not started the quest - if is started but not ended - if ended and if completed and logic if have quest on npc.
 ----------------------------------------------------------------------------------------------------------------------------------------
-Twenty-Fifth Day(03/8/2020)
+Twenty-Eighth Day(04/4/2020)
 	Working on task 27 QuestControll
 		The Ideia for now if make an UI first with two side the left the quest slot grid and in the right the description.
 
@@ -786,5 +785,15 @@ Twenty-Fifth Day(03/8/2020)
 			|| ----------------------------------------------- |:||     Reward                                     exp          ||
 			||                                                 |:||                                                money        ||
 			======================================================================================================================
-		
 ----------------------------------------------------------------------------------------------------------------------------------------
+Twenty-Ninth Day(06/15/2020)
+	Quest Bug Fixe
+		To solve the idependece bug in quest system I need to make a canvas into the NPCUI prefab and put it in NPC prefab after this
+		I need to configure correctly for each NPC and each NPC type, to use only what need.
+		Another thing what I need to do for fix this bug is to pass the 'NpcDialogeSystem.cs' to NPC prefab and again configure 
+		correctly.
+
+	OBS: is to hard make this all alone without anyone to help in a thing I get this bug and the solution in day 04/04 I solve
+		 it today because i get fuck fatigued ... 95 day without work it's fucking bad dude.
+----------------------------------------------------------------------------------------------------------------------------------------
+Thirtieth Day(06//20)
