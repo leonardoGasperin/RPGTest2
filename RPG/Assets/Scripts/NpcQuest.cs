@@ -12,14 +12,14 @@ public class NpcQuest : Npc
 
     public override void Update()
     {
-        if(!quest.isActive)
-            quest.isActive = dialoge.questAccept;
+        /*if (!quest.isActive)
+            Debug.LogError("note active quest" + name);*/
 
-        if (quest.isActive && !quest.task.endQuest && !isRecivied)
-            AcceptdQuest();
+        if (dialoge.questAccept && !quest.task.endQuest && !isRecivied)
+        { AcceptdQuest(); Debug.LogError("note active quest" + name); }
         else if (quest.isActive && quest.task.endQuest)
             OverQuest();
-
+        
         base.Update();
     }
 
@@ -50,6 +50,7 @@ public class NpcQuest : Npc
     {
         pl.GetComponent<PlayerUIController>().questUI.AddQuest(quest);
         isRecivied = true;
+        quest.isActive = true;
     }
 
     public void OverQuest()
