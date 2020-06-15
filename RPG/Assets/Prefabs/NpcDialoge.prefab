@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -102,7 +103,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7628766820728816975}
-  - component: {fileID: 7468423728078968663}
   m_Layer: 0
   m_Name: NpcDialoge
   m_TagString: Untagged
@@ -130,29 +130,6 @@ RectTransform:
   m_AnchoredPosition: {x: 151.4, y: -6.26}
   m_SizeDelta: {x: 388.41, y: 164.21}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7468423728078968663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3579952161134614947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0e8cf74a96a014fbb828f432ae3ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameT: {fileID: 2677081334231413574}
-  senteces: {fileID: 7297972076875359961}
-  dialogueGUI: {fileID: 8394217279176091452}
-  letterDelay: 0.1
-  letterMult: 0.5
-  name: 
-  dialoge: []
-  letterIsMultiplied: 0
-  dialogueActive: 0
-  dialogueEnded: 0
-  outOfRange: 1
 --- !u!1 &8263867172293603935
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +191,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -308,6 +286,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.8}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
